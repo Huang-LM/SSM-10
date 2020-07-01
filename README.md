@@ -1,5 +1,4 @@
 # SSM-10
-Practical training
 
 
 
@@ -19,7 +18,7 @@ Practical training
 
 #### applicationContext.xml
 
-每个人里面的配置不同，第一次拉取之后会删除git里的这个文件，之后提交的时候不要把这个文件再提交上来。
+之后统一数据库名字和密码，避免拉取时覆盖而导致数据库无法使用。
 
 
 
