@@ -1,1 +1,5 @@
 /build/
+.idea/vcs.xml
+.idea/SSM-10.iml
+.idea/modules.xml
+.idea/misc.xml
