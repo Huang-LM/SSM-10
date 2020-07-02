@@ -15,12 +15,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
-
+		.hot-nav{
+			height: 80px;
+			
+		}
+		.hot-nav-list{
+			padding: 20px; 
+			font-size: 30px;
+		}
 	</style>
 </head>
 <body class="layui-layout-body">
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header">
+		<div class="layui-header layui-bg-cyan">
 		
 			<ul class="layui-nav " lay-filter="">
 				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >首页</a>
@@ -33,18 +40,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 		<!-- body -->
-		<div class="layui-containe">
+		<div class="layui-container">
+			<!-- hot-nav -->
 			<div style="padding: 30px">
-				<fieldset class="layui-elem-field site-demo-button" >
+				<fieldset class="layui-elem-field hot-nav" >
 				  <legend>热门职业</legend>
-					  <div>
-					    
-					  </div>
+						<span class="layui-breadcrumb hot-nav-list" lay-separator="|" >
+							  <a href="">娱乐</a>
+							  <a href="">八卦</a>
+							  <a href="">体育</a>
+							  <a href="">搞笑</a>
+							  <a href="">视频</a>
+							  <a href="">游戏</a>
+							  <a href="">综艺</a>
+						</span>
 				</fieldset>
 			</div>
-		
-		
-		
 		
 			<div style="padding: 20px; background-color: #F2F2F2;">
 			  <div class="layui-row layui-col-space15">
