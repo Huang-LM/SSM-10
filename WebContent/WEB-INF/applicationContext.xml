@@ -23,6 +23,6 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property> -->
 		<!-- 指定要自动扫描接口的基础包，实现接口 -->
 		<!-- <property name="basePackage" value="com.icss.mvc.dao"></property>
-	</bean> -->	
+	</bean>  -->
 	
 </beans>
