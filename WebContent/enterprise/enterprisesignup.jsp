@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		
 		<div class="layui-container">
-			<div style="padding:50px">
+			<div style="padding:50px 30%; background-color:#e2e2e2;">
 				<form action="" class="layui-form layui-form-pane">
 					<div class="layui-form-item">
 						<label class="layui-form-label">企业名称</label>
@@ -61,6 +61,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<label class="layui-form-label">密码</label>
 						<div class="layui-input-inline">
 							<input type="password" name="bspsw" class="layui-input" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="layui-form-item" text align="right">
+						<div class="layui-input-inline">
+							<button lay-submit lay-filter="save" class="layui-btn layui-btn-normal">登录</button>
 						</div>
 					</div>
 				</form>
