@@ -7,7 +7,7 @@
 	<!-- 拉取后根据自己本地进行修改，之后不用再提交这个文件 -->
 	<bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource"	destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/stu2016"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/recruitdata"/>
 		<property name="user" value="root"/>
 		<property name="password" value="12345678"/>
 		<property name="maxPoolSize" value="40"/>
