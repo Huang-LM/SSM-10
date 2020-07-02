@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd ">
 	
 	<!-- 拉取后根据自己本地进行修改，之后不用再提交这个文件 -->
-	<bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource"	destroy-method="close">
+	<!-- <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource"	destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/recruitdata"/>
 		<property name="user" value="root"/>
@@ -20,9 +20,9 @@
 	  	<property name="configLocation" value="classpath:mybatis-cfg.xml"/>  
 	</bean>	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property> -->
 		<!-- 指定要自动扫描接口的基础包，实现接口 -->
-		<property name="basePackage" value="com.icss.mvc.dao"></property>
-	</bean>	
+		<!-- <property name="basePackage" value="com.icss.mvc.dao"></property>
+	</bean> -->	
 	
 </beans>
