@@ -79,7 +79,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var element=layui.element;
 		var form=layui.form;
 		var $=layui.jquery;
-		form.on("submit(signup)")
+		form.on("submit(signup)",function(data){
+			var url="enterpriseSignUp.do";
+			
+			
+		})
 		
 		
 	});
