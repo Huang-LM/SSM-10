@@ -10,7 +10,7 @@
 
 - 求职者：jobhunter
 - 企业用户：enterprise
-- 后台：back
+- 后台：manager
 
 
 
