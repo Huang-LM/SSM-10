@@ -59,14 +59,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			top: 20px;
 		}
 		.office-tab{
-			margin-top: 80px;
-			height: 700px;
+			height: 580px;
 			padding: 20px;
+			margin-top: 80px;
+			margin-bottom: 80px;
 			background-color: #ffffff;
+			
 		}
+
 		.office-card{
+			height: 200px;
 			padding: 15px;
-			hegiht: 200px;
 			margin-top: 20px;
 			background-color: #f9f9f9;
 			transition: all 250ms cubic-bezier(.02, .01, .47, 1);
@@ -78,7 +81,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        transform: translate(0,-5px);
 	        transition-delay: 0s !important;
 		}
-		
+		.change-card {
+		    animation-duration: 1s !important;
+		}
 		
 		
 		.layui-footer{
@@ -92,13 +97,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div class="layui-layout layui-layout-admin">
+		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav " lay-filter="">
+			<ul class="layui-nav" lay-filter="">
 				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >首页</a>
-				<li class="layui-nav-item"><a href="javascript:void(0);" >公司</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item"><a href="javascript:void(0);">企业版</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
 				<li class="layui-nav-item"><a href="javascript:void(0);">登录</a>
 				<li class="layui-nav-item"><a href="javascript:void(0);">注册</a>
 			</ul>
@@ -138,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 					</div>
 					<div class="layui-col-md2">
-							<div class="search-right"></div>
+						<div class="search-right"></div>
 					</div>
 					
 					
@@ -181,59 +187,221 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    	<li>最新职位</li>
 				  	</ul>
 				 	<div class="layui-tab-content">
-					    <div class="layui-tab-item layui-show office-tab-1">
+					    <div class="layui-tab-item layui-show office-tab-1 layui-anim layui-anim-fadein change-card">
+					    
 					    	<div class="layui-row layui-col-space15">
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-							    		<div class="layui-card-header">
-							    			<h1>hhhh公司</h1>
-							    		</div>
-								    	<div class="layui-card-body">
-										    <h3>的点点滴滴</h3>
-						                    <p>清清浅浅</p>
-						                    <p>清清浅浅</p>
-										</div>
+					    				<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card">
-							    		<div class="layui-card-header">
-							    			第一家公司
-							    		</div>
-								    	<div class="layui-card-body">
-										    希望能动态显示<br>
-										</div>
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card">
-							    		<div class="layui-card-header">
-							    			第一家公司
-							    		</div>
-								    	<div class="layui-card-body">
-										    希望能动态显示<br>
-										</div>
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
 						    		</div>
 					    		</div>
-						    	
-						    	
-							</div>
-
+							</div><!-- 第一行 -->
+							
+							<div class="layui-row layui-col-space15">
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card ">
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
+						    		</div>
+					    		</div>
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card">
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
+						    		</div>
+					    		</div>
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card">
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
+						    		</div>
+					    		</div>
+							</div><!-- 第二行 -->
+						</div><!-- office-tab-1 -->
 						
-						</div>
-						
-					    <div class="layui-tab-item office-tab-2">
-					    
-					    
-					    
-					    </div>
+					    <div class="layui-tab-item office-tab-2 layui-anim layui-anim-fadein change-card">
+					    	<div class="layui-row layui-col-space15 ">
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card ">
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
+						    		</div>
+					    		</div>
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card">
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
+						    		</div>
+					    		</div>
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card">
+							    		<a href="" data-url="" >
+											<div class="layui-card-header">
+							    			<h1>呜呜呜公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a> 
+						    		</div>
+					    		</div>
+							</div><!-- 第一行 -->
+							
+							<div class="layui-row layui-col-space15">
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card ">
+					    				<a href="" data-url="" >
+								    		<div class="layui-card-header">
+								    			<h1>跳跳糖公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a>	
+						    		</div>
+					    		</div>
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card ">
+					    				<a href="" data-url="" >
+								    		<div class="layui-card-header">
+								    			<h1>跳跳糖公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a>	
+						    		</div>
+					    		</div>
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card ">
+					    				<a href="" data-url="" >
+								    		<div class="layui-card-header">
+								    			<h1>跳跳糖公司</h1>
+								    		</div>
+									    	<div class="layui-card-body ">
+											    <h3>所属行业类别：</h3>
+							                    <p>清清浅浅</p>
+							                    <p>清清浅浅</p>
+							                    <p></p> 
+							                    <p></p>
+											</div>
+										</a>	
+						    		</div>
+					    		</div>
+							</div><!-- 第二行 -->
+					    </div><!-- office-tab-2 -->
 					</div>
 				</div>   
 			
 			</div>
 			
-			<!-- company -->
-			<div>
+			<!-- 无 -->
+			<div class="">
 			
 			</div>
 			
@@ -268,17 +436,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        t = setTimeout(time, 1000);     
 	    }
 	    
-		layui.use(['element','form','laydate','carousel','jquery','table'], function(){
+		layui.use(['element','form','laydate','carousel','jquery','table','layer'], function(){
 			var element = layui.element;
 		  	var laydate = layui.laydate;
 		  	var carousel = layui.carousel;
 		  	var $=layui.jquery;
 		  	var form=layui.form;
+		  	var layer = layui.layer;
 		  	
 			laydate.render({
 				elem: '#time-1'
 				,position: 'static'
 			});
+			
 			carousel.render({
 				elem: '#carousel'
 				,height: '355px'
@@ -286,6 +456,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				,arrow: 'always' //始终显示箭头
 				//,anim: 'updown' //切换动画方式
 			});
+			
 			form.on("submit(search)",function(data){	
 				alert("查找成功");
 				console.log(data.field);
@@ -298,6 +469,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						alert("查找失败");
 					}
 				}); 
+			});
+			
+			layer.open({
+				
 			});
 		});
 		
