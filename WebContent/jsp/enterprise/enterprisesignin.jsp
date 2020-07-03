@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<base href="<%=basePath %>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>企业注册</title>
+	<title>企业登录</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
@@ -27,15 +27,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item">
-					<a href="jsp/enterprise/enterprisesignup.jsp">登录</a>
-				</li>
 				<li class="layui-nav-item layui-this">
-					<a href="javascript:void(0);">注册</a>
+					<a href="javascript:void(0);">登录</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="jsp/enterprise/enterprisesignin.jsp">注册</a>
 				</li>
 		    </ul>
 		</div>
-		
+
 		<div class="layui-container" style="margin:100px auto;">
 			<div style="text-align:center;">
 				<form class="layui-form layui-form-pane">
@@ -59,26 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					<div class="layui-form-item">
 						<div class="layui-inline">
-							<label class="layui-form-label">法人姓名</label>
 							<div class="layui-input-inline">
-								<input type="text" name="bspname" class="layui-input" lay-verify="required" placeholder="请输入企业法人姓名">
-							</div>
-						</div>
-					</div>
-					
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<label class="layui-form-label">身份证号</label>
-							<div class="layui-input-inline">
-								<input type="text" name="bspid" class="layui-input" lay-verify="required" placeholder="请输入企业法人身份证号">
-							</div>
-						</div>
-					</div>
-					
-					<div class="layui-form-item">
-						<div class="layui-inline">
-							<div class="layui-input-inline">
-								<button lay-submit lay-filter="signin" class="layui-btn layui-btn-normal">注册</button>
+								<button lay-submit lay-filter="signup" class="layui-btn layui-btn-normal">登录</button>
 							</div>
 						</div>
 					</div>
@@ -86,14 +68,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		
+	
+	
+	
+	
 	</div>
-
 
 <script type="text/javascript">
 	layui.use(["element","form","jquery"],function(){
 		var element=layui.element;
 		var form=layui.form;
 		var $=layui.jquery;
+		form.on("submit(signup)",function(data){
+			var url="enterpriseSignUp.do";
+			
+			
+		})
+		
 		
 	});
 
