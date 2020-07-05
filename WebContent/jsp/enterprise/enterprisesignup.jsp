@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item">
-					<a href="jsp/enterprise/enterprisesignup.jsp">登录</a>
+					<a href="jsp/enterprise/enterprisesignin.jsp">登录</a>
 				</li>
 				<li class="layui-nav-item layui-this">
 					<a href="javascript:void(0);">注册</a>
@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-form-item">
 						<div class="layui-inline">
 							<div class="layui-input-inline">
-								<button lay-submit lay-filter="signin" class="layui-btn layui-btn-normal">注册</button>
+								<button lay-submit lay-filter="signup" class="layui-btn layui-btn-normal">注册</button>
 							</div>
 						</div>
 					</div>
@@ -90,11 +90,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <script type="text/javascript">
-	layui.use(["element","form","jquery"],function(){
-		var element=layui.element;
+	layui.use(["form","jquery","layer"],function(){
+		//var element=layui.element;
 		var form=layui.form;
+		var layer=layui.layer;
 		var $=layui.jquery;
-		
+		form.on("submit(signup)",function(data){
+			/* var url="enterpriseSignUp.do";			
+			$.post(url,data.field,function(){
+				}); */
+			$.ajax({
+				url:"enterpriseSignUp.do",
+				data:data.field,
+				type:'POST',
+				success:function(result){
+					if(result == "success"){
+						window.location.href='enterprisesignin.jsp';
+					}
+				},
+				error:function(){
+					layer.msg("注册失败！");
+				}
+			});
+			return false;
+		}); 
 	});
 
 </script>

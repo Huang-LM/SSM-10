@@ -27,17 +27,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item">
-					
-				</li>
 				<li class="layui-nav-item layui-this">
-					<a href="jsp/enterprise/enterprisesignup.jsp">退出登录</a>
+					<a href="javascript:void(0);" >${bsname }</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>
 		    </ul>
 		</div>
+	<h1>${bsname }哈哈${a}</h1>
+
 
 	</div>
 
+<script type="text/javascript">
+	/* function get(){
+		var a=opener.document.getElementById("a").value;
+		alert(a);
+	} */
+	/* var url = document.location.href;
+	var urlList = url.split('=');//“=”代表你拿哪个标点符号后的值例如：“/”“？”
+	var a = urlList[urlList.length-1].split('.')[0];
+	alert(a); */
+
+</script>
 
 </body>
 </html>
