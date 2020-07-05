@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icss.mvc.dao.EnterpriseDao">
+	<!-- 企业注册 -->
+	<insert id="enterpriseSignup">
+		insert into business_enrol values(#{bsname}, #{bspsw}, #{bspname}, #{bspid});
+	</insert>
+	<!-- 企业登录 -->
+	<select id="enterpriseSignin" resultType="String">
+		select bspsw from business_enrol where bsname=#{bsname};
+	</select>
+
+
+</mapper>
