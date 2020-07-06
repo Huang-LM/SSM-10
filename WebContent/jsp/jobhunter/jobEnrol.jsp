@@ -28,19 +28,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
+				<li class="layui-nav-item layui-this"><a href="javascript:void(0);">注册</a>
 			</ul>
 		</div>
 		
 		<div class="layui-container" style="margin:100px auto;">
 			<div style="text-align:center;">
-				<div class="layui-form layui-form-pane">
+				<form class="layui-form layui-form-pane">
 					<div class="layui-form-item">
 						<div class="layui-inline">
 							<label class="layui-form-label">用户名称</label>
 							<div class="layui-input-inline">
-								<input type="text" name="jbusername" class="layui-input" lay-verify="required" placeholder="请输入用户名">
+								<input type="text" name="jbname" class="layui-input" lay-verify="required" placeholder="请输入用户名称">
 							</div>
 						</div>
 					</div>
@@ -56,55 +56,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 					<div class="layui-form-item">
 						<div class="layui-inline">
+							<label class="layui-form-label">本人姓名</label>
 							<div class="layui-input-inline">
-								<button lay-submit lay-filter="login" class="layui-btn ">登录</button>
+								<input type="text" name="jbusername" class="layui-input" lay-verify="required" placeholder="请输入本人姓名">
 							</div>
 						</div>
 					</div>
-				</div>
+					
+					<div class="layui-form-item">
+						<div class="layui-inline">
+							<div class="layui-input-inline">
+								<button lay-submit lay-filter="signup" class="layui-btn">注册</button>
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
+		
 	</div>
-	
-<script type="text/javascript">	
+
+
+<script type="text/javascript">
 	layui.use(["form","jquery","layer"],function(){
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;
-		
-		/* form.on("submit(login)",function(data){	
-			$.post("jobLogin.do",data.field,function(txt){
-				if(txt=="success"){
-					alert("登录成功");
-					window.location.href="index.jsp";
-				} 
-				else {
-					alert("账号或密码有误");
-				}
-			}); 
-		});  */
-		
-		form.on("submit(login)",function(data){
+		form.on("submit(signup)",function(data){
 			$.ajax({
-				url:"jobLogin.do",
+				url:"jobEnrol.do",
 				data:data.field,
 				type:'POST',
 				success:function(result){
 					if(result == "success"){
-						window.location.href="index.jsp";
-					}
-					else if(result == "fail") {
-						layer.msg("账号或密码有误");
+						window.location.href='jsp/jobhunter/jobLogin.jsp';
 					}
 				},
 				error:function(){
-					layer.msg("失败！");
+					layer.msg("注册失败！");
 				}
 			});
 			return false;
-		})
+		}); 
 	});
 
-</script>		
+</script>	
 </body>
 </html>

@@ -13,6 +13,7 @@ public class jobhunter {
     private String jbscl;
     private String jbablt;
     private String jbhope;
+    
 	public String getJbname() {
 		return jbname;
 	}

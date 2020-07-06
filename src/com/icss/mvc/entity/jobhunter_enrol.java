@@ -4,6 +4,7 @@ public class jobhunter_enrol {
     private String jbname;
     private String jbusername;
     private String jbpsw;
+    
 	public String getJbname() {
 		return jbname;
 	}

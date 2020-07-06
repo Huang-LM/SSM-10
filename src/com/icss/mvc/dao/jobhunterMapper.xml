@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icss.mvc.dao.jobhunterDao">
+	<!-- 注册 -->
+	<insert id="jobEnrol">
+		insert into jobhunter_enrol values(#{jbname}, #{jbusername}, #{jbpsw});
+	</insert>
+	<!-- 登录 -->
+	<select id="jobLogin" resultType="String">
+		select jbpsw from jobhunter_enrol where jbusername=#{jbusername};
+	</select>
+
+
+</mapper>

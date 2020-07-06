@@ -99,14 +99,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav" lay-filter="">
+			<ul class="layui-nav" lay-filter="menu">
 				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="javascript:void(0);">登录</a>
-				<li class="layui-nav-item"><a href="javascript:void(0);">注册</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
 			</ul>
 		</div>
 		<!-- body -->
@@ -146,8 +146,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-col-md2">
 						<div class="search-right"></div>
 					</div>
-					
-					
 				</div>
 			</div>
 			
@@ -471,9 +469,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}); 
 			});
 			
-			layer.open({
-				
-			});
 		});
 		
 	
