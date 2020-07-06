@@ -4,7 +4,7 @@ public class business_enrol {
 	private String bsname;
 	private String bspsw;
 	private String bspname;
-	private String bspid;
+	private String bsid;
 	public String getBsname() {
 		return bsname;
 	}
@@ -24,10 +24,10 @@ public class business_enrol {
 		this.bspname = bspname;
 	}
 	public String getBspid() {
-		return bspid;
+		return bsid;
 	}
-	public void setBspid(String bspid) {
-		this.bspid = bspid;
+	public void setBspid(String bsid) {
+		this.bsid = bsid;
 	}
 	
 }
