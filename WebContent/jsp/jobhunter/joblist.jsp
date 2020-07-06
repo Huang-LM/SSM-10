@@ -23,6 +23,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    width: 100%;
 		    height: 60px;
 		}
+		.btable{
+			margin-top: 100px
+		
+		}
 		
 		.layui-footer{
 			left: 0px !important;
@@ -36,15 +40,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav" lay-filter="">
-				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >公司列表</a>
+			<ul class="layui-nav" lay-filter="menu">
+				<li class="layui-nav-item"><a href="javascript:void(0);" >首页</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item"><a href="javascript:void(0);">企业版</a>
-				<li class="layui-nav-item"><a href="javascript:void(0);">登录</a>
-				<li class="layui-nav-item"><a href="javascript:void(0);">注册</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
 			</ul>
+		</div>
+		
+		<div class="layui-container">
+			<table id="bsTable" class="btable"></table>
 		</div>
 
 		<!-- foot -->
@@ -54,6 +62,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </div>
 		</div>	
 	</div>
+	
+<script type="text/javascript">
+	layui.use(["table"],function(){
+		var table=layui.table;
+		table.render({
+			elem:"#bsTable",
+			url:"showBsjson.do",
+			cols:[[
+				{field:"bsname",title:"企业名称",width:300},
+				{field:"bsclass",title:"行业类别",width:150},
+				{field:"bsposition",title:"职位",width:280},
+				{field:"bspay",title:"薪资",width:150, sort: true},
+			]]
+			,page: true
+			,even: true 
+			,limit: 10
+			,height: 500
+		});
+	});
+</script>	
 
 </body>
 </html>
