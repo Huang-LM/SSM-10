@@ -118,6 +118,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 		</div>	
 		
+		<div class="layui-container top">
+			<blockquote class="layui-elem-quote">招聘信息</blockquote>
+			<hr class="layui-bg-green">
+			<table id="posTable" class="layui-table" lay-data="{url:'entFindPosition.do',
+																parseData:function(res){
+																	return {
+																		code:0,
+																		msg:'招聘信息',
+																		count:res.length,
+																		data:res
+																	};
+																}}">
+				<thead>
+					<tr>
+					<th lay-data="{field:'bsname',title:'企业名称'}"></th>
+					<th lay-data="{field:'bsclass',title:'行业类别'}"></th>
+					<th lay-data="{field:'bsposition',title:'职位'}"></th>
+					<th lay-data="{field:'bspay',title:'薪资'}"></th>
+					</tr>
+				</thead>
+			</table>
+		
+		</div>
+		
 
 	</div>
 
