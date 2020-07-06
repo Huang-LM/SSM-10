@@ -3,14 +3,11 @@ package com.icss.mvc.entity;
 public class business {
 	private String bsname;
 	private String bspname;
-	private byte[] bsphoto;
-	private String bspid;
-	private byte[] bspidphoto;
+	private String bsid;
 	private String bsclass;
 	private String bsintr;
 	private String bsculture;
 	private String bsablt;
-	private String bshope;
 	public String getBsname() {
 		return bsname;
 	}
@@ -23,23 +20,11 @@ public class business {
 	public void setBspname(String bspname) {
 		this.bspname = bspname;
 	}
-	public byte[] getBsphoto() {
-		return bsphoto;
+	public String getBsid() {
+		return bsid;
 	}
-	public void setBsphoto(byte[] bsphoto) {
-		this.bsphoto = bsphoto;
-	}
-	public String getBspid() {
-		return bspid;
-	}
-	public void setBspid(String bspid) {
-		this.bspid = bspid;
-	}
-	public byte[] getBspidphoto() {
-		return bspidphoto;
-	}
-	public void setBspidphoto(byte[] bspidphoto) {
-		this.bspidphoto = bspidphoto;
+	public void setBsid(String bsid) {
+		this.bsid = bsid;
 	}
 	public String getBsclass() {
 		return bsclass;
@@ -64,12 +49,6 @@ public class business {
 	}
 	public void setBsablt(String bsablt) {
 		this.bsablt = bsablt;
-	}
-	public String getBshope() {
-		return bshope;
-	}
-	public void setBshope(String bshope) {
-		this.bshope = bshope;
 	}
 	
 }
