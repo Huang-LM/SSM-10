@@ -13,11 +13,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
+		.bg{
+			background:url(img/signbg.jpg);
+    		background-size:100% 100%;
+    		background-repeat:no-repeat;
+		}
 	</style>
-	<script type="text/javascript" src="ui/layui.js"></script>
 </head>
 
-<body class="layui-layout-body">
+<body class="layui-layout-body bg">
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header">
 			<div class="layui-logo">招聘系统</div>
@@ -89,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:'POST',
 				success:function(result){
 					if(result == "success"){
-						window.location.href="enterprisemanage.jsp";
+						window.location.href="jsp/enterprise/enterprisemanage.jsp";//jsp/enterprise/
 					}
 					else if(result == "fail") {
 						layer.msg("用户名或密码输入错误！");
