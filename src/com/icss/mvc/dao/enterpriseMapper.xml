@@ -10,6 +10,14 @@
 	<select id="enterpriseSignin" resultType="String">
 		select bspsw from business_enrol where bsname=#{bsname};
 	</select>
+	<!-- 企业基本信息 -->
+	<select id="findEntInfor" resultType="com.icss.mvc.entity.business" parameterType="String">
+		select * from business where bsname=#{entname};
+	</select>
+	
+	<select id="entFindPosition" >
+		select * from position where bsname=#{entname};
+	</select>
 
 
 </mapper>
