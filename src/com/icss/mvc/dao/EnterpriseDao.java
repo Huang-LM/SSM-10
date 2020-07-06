@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.icss.mvc.entity.business;
 import com.icss.mvc.entity.business_enrol;
+import com.icss.mvc.entity.position;
 
 public interface EnterpriseDao {
 	/* 企业注册 */
@@ -12,5 +13,7 @@ public interface EnterpriseDao {
 	public String enterpriseSignin(String bsname);
 	/* 企业基本信息 */
 	public List<business> findEntInfor(String bsname);
+	
+	public List<position> entFindPosition(String bsname);
 	
 }

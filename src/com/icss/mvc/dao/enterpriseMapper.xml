@@ -15,7 +15,7 @@
 		select * from business where bsname=#{entname};
 	</select>
 	
-	<select id="entFindPosition" >
+	<select id="entFindPosition" resultType="com.icss.mvc.entity.position" parameterType="String">
 		select * from position where bsname=#{entname};
 	</select>
 
