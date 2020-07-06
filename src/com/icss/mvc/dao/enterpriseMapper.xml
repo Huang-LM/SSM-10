@@ -14,7 +14,7 @@
 	<select id="findEntInfor" resultType="com.icss.mvc.entity.business" parameterType="String">
 		select * from business where bsname=#{entname};
 	</select>
-	
+	<!-- 企业招聘信息 -->
 	<select id="entFindPosition" resultType="com.icss.mvc.entity.position" parameterType="String">
 		select * from position where bsname=#{entname};
 	</select>

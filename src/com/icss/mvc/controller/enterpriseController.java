@@ -58,7 +58,7 @@ public class enterpriseController {
 		  List<business> bus = entdao.findEntInfor(entname);
 		  return bus;
 	}
-	
+	/* 企业招聘信息 */
 	@RequestMapping("entFindPosition")
 	@ResponseBody
 	public List<position> fune5() {
