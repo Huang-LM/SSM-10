@@ -10,6 +10,14 @@
 	<select id="jobLogin" resultType="String">
 		select jbpsw from jobhunter_enrol where jbusername=#{jbusername};
 	</select>
-
+	<!-- 展示公司 -->
+	<select id="findList" resultType="com.icss.mvc.entity.position">
+		select * from position;
+	</select>
+	<!-- 展示搜索-->
+	<select id="showSearch">
+		select * from position where bsposition LIKE "%#{bsposition}%";
+	</select>
+	
 
 </mapper>
