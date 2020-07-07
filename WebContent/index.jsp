@@ -461,7 +461,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			form.on("submit(search)",function(data){	
 				console.log(data.field);
-				$.post("showSearch.do",data.field,function(txt){
+				$.post("findSearch.do",data.field,function(txt){
 					if(txt=="ok"){
 						alert("查找成功");
 						

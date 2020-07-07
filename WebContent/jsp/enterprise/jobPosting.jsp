@@ -9,10 +9,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<base href="<%=basePath %>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>修改企业信息</title>
+	<title>发布招聘信息</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
+		.top{
+			margin-top:50px;
+		}
 	</style>
 </head>
 
@@ -25,9 +28,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisemanage.jsp" >企业</a>
 		    	<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >企业信息</a>
 		    	<li class="layui-nav-item">
-					<a href="javascript:void(0);">招聘信息</a>
+					<a href="javascript:;">招聘信息</a>
 					<dl class="layui-nav-child">
-					<dd><a href="jsp/enterprise/jobPosting.jsp">发布招聘信息</a></dd>
+					<dd><a href="javascript:void(0);">发布招聘信息</a></dd>
 					<hr>
 					<dd><a href="javascript:void(0);">管理招聘信息</a></dd>
 					</dl>
@@ -53,45 +56,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 					</div>
 					<div class="layui-form-item">
-							<label class="layui-form-label">法人姓名</label>
-							<div class="layui-input-block">
-								<input type="text" name="bspname" autocomplete="off" placeholder="请输入企业法人姓名" class="layui-input">
-							</div>
-					</div>
-					<div class="layui-form-item">
-							<label class="layui-form-label">工商注册号</label>
-							<div class="layui-input-block">
-								<input type="text" name="bsid" autocomplete="off" placeholder="请输入工商注册号" class="layui-input">
-							</div>
-					</div>
-					<div class="layui-form-item">
 							<label class="layui-form-label">行业类别</label>
 							<div class="layui-input-block">
 								<input type="text" name="bsclass" autocomplete="off" placeholder="请输入行业类别" class="layui-input">
 							</div>
 					</div>
-					<div class="layui-form-item layui-form-text">
-							<label class="layui-form-label">简介</label>
+					<div class="layui-form-item">
+							<label class="layui-form-label">职位</label>
 							<div class="layui-input-block">
-								<textarea name="bsintr" placeholder="请输入企业简介" class="layui-textarea"></textarea>
+								<input type="text" name="bsposition" autocomplete="off" placeholder="请输入职位" class="layui-input">
 							</div>
 					</div>
-					<div class="layui-form-item layui-form-text">
-							<label class="layui-form-label">公司文化</label>
+					<div class="layui-form-item">
+							<label class="layui-form-label">薪资</label>
 							<div class="layui-input-block">
-								<textarea name="bsculture" placeholder="请输入公司文化" class="layui-textarea"></textarea>
-							</div>
-					</div>
-					<div class="layui-form-item layui-form-text">
-							<label class="layui-form-label">应聘须知</label>
-							<div class="layui-input-block">
-								<textarea name="bsablt" placeholder="请输入应聘须知" class="layui-textarea"></textarea>
+								<input type="text" name="bspay" autocomplete="off" placeholder="请输入薪资" class="layui-input">
 							</div>
 					</div>
 					<div class="layui-form-item">
 						<div class="layui-inline">
 							<div class="layui-input-inline">
-								<button lay-submit lay-filter="save" class="layui-btn layui-btn-normal">保存</button>
+								<button lay-submit lay-filter="publish" class="layui-btn layui-btn-normal">发布</button>
 							</div>
 						</div>
 					</div>
@@ -99,18 +84,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		
-	
+		
 	
 	</div>
-
+	
 <script type="text/javascript">
 	layui.use(["form","jquery","layer","element"],function(){
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;
-		form.on("submit(save)",function(data){
+		form.on("submit(publish)",function(data){
 			$.ajax({
-				url:"updEntInfor.do",
+				url:"entJobPosting.do",
 				data:data.field,
 				type:'POST',
 				success:function(result){
@@ -119,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				},
 				error:function(){
-					layer.msg("信息修改失败！");
+					layer.msg("发布失败！");
 				}
 			});
 			return false;

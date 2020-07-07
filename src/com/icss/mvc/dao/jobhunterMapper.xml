@@ -14,9 +14,10 @@
 	<select id="findList" resultType="com.icss.mvc.entity.position">
 		select * from position;
 	</select>
-	<!-- 展示搜索-->
-	<select id="showSearch">
-		select * from position where bsposition LIKE "%#{bsposition}%";
+	<!-- 展示职业搜索结果-->
+	<select id="findSearch" resultType="com.icss.mvc.entity.position" >
+		<!-- select * from position where bsposition LIKE '%${bsposition}%'; -->
+		select * from position where bsposition=#{bsposition} ; 
 	</select>
 	
 
