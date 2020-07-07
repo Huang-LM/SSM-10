@@ -19,14 +19,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
 </head>
 
-<body class="layui-layout-body">
+<body>
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
 				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >企业</a>
-		    
+		    	<li class="layui-nav-item"><a href="jsp/enterprise/alterEnterpriseInfor.jsp" >企业信息</a>
+		    	<li class="layui-nav-item">
+					<a href="javascript:void(0);">招聘信息</a>
+					<dl class="layui-nav-child">
+					<dd><a href="jsp/enterprise/jobPosting.jsp">发布招聘信息</a></dd>
+					<hr>
+					<dd><a href="javascript:void(0);">管理招聘信息</a></dd>
+					</dl>
+				</li>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item layui-this">
@@ -36,6 +44,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>
 		    </ul>
+		</div>
+		
+		<div>
+			<div class="layui-carousel" id="test1" lay-filter="test1">
+				<div carousel-item="">
+				    <div><img style="width:100%;height:400px" src="img/enttop1.jpg"></div>
+				    <div><img style="width:100%;height:400px" src="img/enttop2.jpg"></div>
+				    <div><img style="width:100%;height:400px" src="img/enttop3.jpg"></div>
+				</div>
+			</div>
 		</div>
 		
 		<div class="layui-container top">
@@ -146,7 +164,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 <script type="text/javascript">
-	layui.use("table",function(){
+	layui.use(["table","carousel","jquery","element"],function(){
+		var carousel = layui.carousel;
+		carousel.render({
+		    elem: '#test1'
+		    ,arrow: 'always'
+		    ,width: '100%'
+		    ,height: '400px'
+		    ,interval: 5000
+		  });
 	});
 
 </script>

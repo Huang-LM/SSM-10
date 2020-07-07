@@ -14,10 +14,19 @@
 	<select id="findEntInfor" resultType="com.icss.mvc.entity.business" parameterType="String">
 		select * from business where bsname=#{entname};
 	</select>
-	
+	<!-- 企业招聘信息 -->
 	<select id="entFindPosition" resultType="com.icss.mvc.entity.position" parameterType="String">
 		select * from position where bsname=#{entname};
 	</select>
+	<!-- 修改企业基本信息 -->
+	<update id="updEntInfor" parameterType="com.icss.mvc.entity.business">
+		update business set bspname=#{bspname},bsid=#{bsid},bsclass=#{bsclass},bsintr=#{bsintr},bsculture=#{bsculture},bsablt=#{bsablt}
+		where bsname=#{bsname};
+	</update>
+	<!-- 发布招聘信息 -->
+	<insert id="entJobPosting" parameterType="com.icss.mvc.entity.position">
+		insert into position values(#{bsname},#{bsclass},#{bsposition},#{bspay});
+	</insert>
 
 
 </mapper>

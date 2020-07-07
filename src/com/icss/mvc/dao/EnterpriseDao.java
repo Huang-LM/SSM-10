@@ -13,7 +13,11 @@ public interface EnterpriseDao {
 	public String enterpriseSignin(String bsname);
 	/* 企业基本信息 */
 	public List<business> findEntInfor(String bsname);
-	
+	/* 企业招聘信息 */
 	public List<position> entFindPosition(String bsname);
+	/* 修改企业基本信息 */
+	public int updEntInfor(business bus);
+	/* 发布招聘信息 */
+	public int entJobPosting(position pos);
 	
 }

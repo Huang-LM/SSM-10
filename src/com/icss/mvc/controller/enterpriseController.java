@@ -58,13 +58,39 @@ public class enterpriseController {
 		  List<business> bus = entdao.findEntInfor(entname);
 		  return bus;
 	}
-	
+	/* 企业招聘信息 */
 	@RequestMapping("entFindPosition")
 	@ResponseBody
 	public List<position> fune5() {
 	  	  System.out.println("Enterprise Find Position---------------");
 		  List<position> pos = entdao.entFindPosition(entname);
 		  return pos;
+	}
+	/* 修改企业基本信息 */
+	@RequestMapping("updEntInfor")
+	@ResponseBody
+	public String fune6(business bus) {
+	  	  System.out.println("Update Enterprise Information---------------");
+		  int a = entdao.updEntInfor(bus);
+		  if(a==1) {
+			  return "success";
+		  }
+		  else {
+			  return "fail";
+		  }
+	}
+	/* 发布招聘信息 */
+	@RequestMapping("entJobPosting")
+	@ResponseBody
+	public String fune7(position pos) {
+	  	  System.out.println("Enterprise Job Posting---------------");
+		  int a = entdao.entJobPosting(pos);
+		  if(a==1) {
+			  return "success";
+		  }
+		  else {
+			  return "fail";
+		  }
 	}
 	
 	
