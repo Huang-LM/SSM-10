@@ -29,4 +29,12 @@ public class AiController {
 		String result=FaceUtil.faceDetect(token);
 		return result;
 	}
+	//»À¡≥∂‘±»
+		@RequestMapping("showMatch")
+		@ResponseBody
+		public String fun3() {
+			System.out.println("----------");
+			String result=FaceUtil.faceMatch(token);
+			return result;
+		}
 }
