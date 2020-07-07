@@ -74,6 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			background-color: #f9f9f9;
 			transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 		    word-break: break-all;
+		    line-height: 130%;
 		}
 		
 		.office-card:hover{
@@ -84,7 +85,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.change-card {
 		    animation-duration: 1s !important;
 		}
-		
+		.pspay{
+			color: #FF6666 ;
+			font-size: 20px;
+			button: 0px;
+			
+		}
 		
 		.layui-footer{
 			left: 0px !important;
@@ -190,16 +196,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    	<div class="layui-row layui-col-space15">
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-					    				<a href="" data-url="" >
+					    				<a href="" data-url="">
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+							    			<h2>资深Android开发工程师</h2>
 								    		</div>
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+											    <h3>所属行业类别：移动互联网</h3>
+							                    <h3>上海润桂荇信息科技股份有限公司</h3>
+							                    <p class="pspay">15K-20K</p>
 											</div>
 										</a> 
 						    		</div>
@@ -456,12 +460,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			
 			form.on("submit(search)",function(data){	
-				alert("查找成功");
 				console.log(data.field);
-				$.post(".do",{},function(txt){
+				$.post("showSearch.do",data.field,function(txt){
 					if(txt=="ok"){
 						alert("查找成功");
-						form.render();
+						
 					} 
 					else {
 						alert("查找失败");

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.icss.mvc.dao.EnterpriseDao;
 import com.icss.mvc.entity.business;
 import com.icss.mvc.entity.business_enrol;
+import com.icss.mvc.entity.position;
 
 @Controller
 public class enterpriseController {
@@ -57,13 +58,13 @@ public class enterpriseController {
 		  List<business> bus = entdao.findEntInfor(entname);
 		  return bus;
 	}
-	
-	@RequestMapping("findEntInfor")
+	/* 企业招聘信息 */
+	@RequestMapping("entFindPosition")
 	@ResponseBody
-	public List<business> fune5() {
-	  	  System.out.println("Find Enterprise Information---------------");
-		  List<business> bus = entdao.findEntInfor(entname);
-		  return bus;
+	public List<position> fune5() {
+	  	  System.out.println("Enterprise Find Position---------------");
+		  List<position> pos = entdao.entFindPosition(entname);
+		  return pos;
 	}
 	
 	

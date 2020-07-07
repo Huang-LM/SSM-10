@@ -85,7 +85,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;
-		//sessionStorage["name"]=bsname;
 		form.on("submit(signin)",function(data){
 			$.ajax({
 				url:"enterpriseSignIn.do",
