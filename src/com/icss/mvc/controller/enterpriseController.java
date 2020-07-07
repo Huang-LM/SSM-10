@@ -66,6 +66,19 @@ public class enterpriseController {
 		  List<position> pos = entdao.entFindPosition(entname);
 		  return pos;
 	}
+	/* 修改企业基本信息 */
+	@RequestMapping("updEntInfor")
+	@ResponseBody
+	public String fune6(business bus) {
+	  	  System.out.println("Update Enterprise Information---------------");
+		  int a = entdao.updEntInfor(bus);
+		  if(a==1) {
+			  return "success";
+		  }
+		  else {
+			  return "fail";
+		  }
+	}
 	
 	
 }

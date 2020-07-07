@@ -18,6 +18,11 @@
 	<select id="entFindPosition" resultType="com.icss.mvc.entity.position" parameterType="String">
 		select * from position where bsname=#{entname};
 	</select>
+	<!-- 修改企业基本信息 -->
+	<update id="updEntInfor" parameterType="com.icss.mvc.entity.business">
+		update business set bspname=#{bspname},bsid=#{bsid},bsclass=#{bsclass},bsintr=#{bsintr},bsculture=#{bsculture},bsablt=#{bsablt}
+		where bsname=#{bsname};
+	</update>
 
 
 </mapper>

@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
 </head>
 
-<body class="layui-layout-body">
+<body>
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header">
 			<div class="layui-logo">招聘系统</div>
@@ -36,6 +36,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>
 		    </ul>
+		</div>
+		
+		<div>
+			<div class="layui-carousel" id="test1" lay-filter="test1">
+				<div carousel-item="">
+				    <div><img style="width:100%;height:400px" src="img/enttop1.jpg"></div>
+				    <div><img style="width:100%;height:400px" src="img/enttop2.jpg"></div>
+				    <div><img style="width:100%;height:400px" src="img/enttop3.jpg"></div>
+				</div>
+			</div> 
 		</div>
 		
 		<div class="layui-container top">
@@ -146,7 +156,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 <script type="text/javascript">
-	layui.use("table",function(){
+	layui.use(["table","carousel","jquery"],function(){
+		var carousel = layui.carousel;
+		carousel.render({
+		    elem: '#test1'
+		    ,arrow: 'always'
+		    ,width: '100%'
+		    ,height: '400px'
+		    ,interval: 5000
+		  });
 	});
 
 </script>
