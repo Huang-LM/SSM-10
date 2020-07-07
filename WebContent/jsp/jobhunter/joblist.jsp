@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<!-- 行工具栏 -->
 		<script type="text/html" id="barDemo">
-       		<a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+       		<a class="layui-btn layui-btn-xs" lay-event="detail">应聘</a>
 		</script>
 
 		<!-- foot -->
@@ -150,8 +150,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		    switch(obj.event){
 			    case 'detail':
-			    	layer.msg('ID：'+ data.bsname + ' 的查看操作');
-			    	break;		    
+			    	layer.msg('name：'+ data.bsname+ ' 的查看操作'+data.bsposition);
+			    	var params = {
+			                "bsname": data.bsname,
+			                "bsposition": data.bsposition,
+			            }
+			    	/* ajax传参数无法传值跳转 */
+			    	/* $.ajax({
+						url: "jobSub.do",
+						data: params,
+						type: 'POST',
+						success: function(){
+							window.location.herf='jobSubmit'
+						},
+						error: function(){
+							layer.msg("失该简历未开放败！");
+						}
+					}); */
+			    	break; 
 		    };
 		  });
 		//头部事件

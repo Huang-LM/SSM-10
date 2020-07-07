@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,6 +54,14 @@ public class jobhunterController {
 		System.out.println("showSearch-----"+bsposition);
 		List<position> slist = dao.findSearch(bsposition);
 		return new Grid(0,"ok",slist.size(),slist);
+	}
+//	前往应聘页
+	@RequestMapping("jobSub")
+	public String fune5(ModelMap mp, String bsname,String bsposition) {
+		System.out.println("jobSub-----"+bsposition+" | " + bsname);
+		mp.addAttribute("bsname", bsname);
+		mp.addAttribute("bsposition", bsposition);
+		return "forward:jsp/jobhunter/jobSubmit.jsp";
 	}
 	
 }

@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
-				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobShow.jsp" >应聘界面</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
@@ -55,9 +55,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 		
-		<h2>${bsname}</h2>
-		<h2>${bsposition}</h2>
-		
+		<h1>${bsname}</h1>
+		<h1>${bsposition}</h1>
 
 		<!-- foot -->
 		<div class="layui-footer">
