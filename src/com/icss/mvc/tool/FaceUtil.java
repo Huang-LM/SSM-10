@@ -2,7 +2,7 @@ package com.icss.mvc.tool;
 
 import java.util.HashMap;
 import java.util.Map;
-//»À¡≥ºÏ≤‚
+//»À¡≥ºÏ≤‚..
 public class FaceUtil {
 
 	public static String faceDetect(String accessToken) {

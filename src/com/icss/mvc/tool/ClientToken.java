@@ -1,5 +1,5 @@
 package com.icss.mvc.tool;
-
+//获取签名
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -10,14 +10,7 @@ import java.util.Map;
 import org.json.JSONObject;
 
 public class ClientToken {
-	  /**
-     * 获取权限token
-     * @return 返回示例：
-     * {
-     * "access_token": "24.460da4889caad24cccdb1fea17221975.2592000.1491995545.282335-1234567",
-     * "expires_in": 2592000
-     * }
-     */
+	
     public static String getAuth() {
         // 官网获取的 API Key 更新为你注册的
         String clientId = "百度云应用的AK";

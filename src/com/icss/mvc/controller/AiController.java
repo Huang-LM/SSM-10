@@ -10,6 +10,7 @@ import com.icss.mvc.tool.FaceUtil;
 
 @Controller
 public class AiController {
+	//获取签名
     private String token="24.dd1e24840283658a12e0810e2fc9c1c3.2592000.1596678949.282335-21168213";
 	@RequestMapping("showToken")
 	@ResponseBody
@@ -20,6 +21,7 @@ public class AiController {
 		String token=ClientToken.getAuth(ak, sk);
 		return token;
 	}
+	//人脸检测
 	@RequestMapping("showDetect")
 	@ResponseBody
 	public String fun2() {
