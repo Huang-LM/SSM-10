@@ -17,5 +17,7 @@ public interface EnterpriseDao {
 	public List<position> entFindPosition(String bsname);
 	/* 修改企业基本信息 */
 	public int updEntInfor(business bus);
+	/* 发布招聘信息 */
+	public int entJobPosting(position pos);
 	
 }

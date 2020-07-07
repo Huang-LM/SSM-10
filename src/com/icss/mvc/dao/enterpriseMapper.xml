@@ -23,6 +23,10 @@
 		update business set bspname=#{bspname},bsid=#{bsid},bsclass=#{bsclass},bsintr=#{bsintr},bsculture=#{bsculture},bsablt=#{bsablt}
 		where bsname=#{bsname};
 	</update>
+	<!-- 发布招聘信息 -->
+	<insert id="entJobPosting" parameterType="com.icss.mvc.entity.position">
+		insert into position values(#{bsname},#{bsclass},#{bsposition},#{bspay});
+	</insert>
 
 
 </mapper>

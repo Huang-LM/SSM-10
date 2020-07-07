@@ -79,6 +79,19 @@ public class enterpriseController {
 			  return "fail";
 		  }
 	}
+	/* 发布招聘信息 */
+	@RequestMapping("entJobPosting")
+	@ResponseBody
+	public String fune7(position pos) {
+	  	  System.out.println("Enterprise Job Posting---------------");
+		  int a = entdao.entJobPosting(pos);
+		  if(a==1) {
+			  return "success";
+		  }
+		  else {
+			  return "fail";
+		  }
+	}
 	
 	
 }
