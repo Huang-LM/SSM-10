@@ -12,7 +12,7 @@ public interface jobhunterDao {
 	public String jobLogin(String jbusername);
 //	展示公司列表
 	public List<position> findList();
-//	展示搜索结果
+//	展示职业搜索结果
 	public List<position> findSearch(String bsposition);
 	
 }

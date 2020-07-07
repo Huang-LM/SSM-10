@@ -1,15 +1,9 @@
 package com.icss.mvc.controller;
 
-import java.io.InputStream;
 import java.util.List;
 
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,9 +29,8 @@ public class jobhunterController {
 //	登录
 	@RequestMapping("jobLogin")
 	@ResponseBody
-	public String fune2(String jbname,String jbpsw) {
-		System.out.println("job Login----------");
-		String psw=dao.jobLogin(jbname);
+	public String fune2(String jbusername,String jbpsw) {
+		String psw=dao.jobLogin(jbusername);
 		if(jbpsw.equals(psw)) {
 			return "success";
 		}
@@ -51,16 +44,15 @@ public class jobhunterController {
 	public Grid fun3(@RequestParam("page") Integer page, @RequestParam("limit") Integer size, Grid Grid) throws Exception {
 		System.out.println("showBsjson------------");
 		List<position> jlist = dao.findList();
-		System.out.println(page+size);
 		return new Grid(0,"ok",jlist.size(),jlist);
 	}
-//	展示搜索结果
-	@RequestMapping("showSearch")
-	public String fun4(ModelMap mp ,String bsposition) throws Exception {
-		System.out.println("showSearch------------");
+//	展示职业搜索结果
+	@RequestMapping("findSearch")
+	@ResponseBody
+	public Grid fun4(String bsposition, Grid Grid) throws Exception {
+		System.out.println("showSearch-----"+bsposition);
 		List<position> slist = dao.findSearch(bsposition);
-		mp.addAttribute("sList", slist);
-		return "forword:jobSerch.jsp";
+		return new Grid(0,"ok",slist.size(),slist);
 	}
 	
 }
