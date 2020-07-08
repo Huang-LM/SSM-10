@@ -31,6 +31,9 @@
 	<delete id="delRecrInfor">
 		delete from position where bsname=#{0} and bsposition=#{1};
 	</delete>
-
+	<!-- 查看应聘者 -->
+	<select id="findJobHunter" resultType="com.icss.mvc.entity.jobhunter">
+		select * from jobhunter where jbcompany=#{entname};
+	</select>
 
 </mapper>

@@ -7,9 +7,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="<%=basePath %>" />
+<base href="<%=basePath %>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>管理招聘信息</title>
+	<title>查看应聘者</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
@@ -27,14 +27,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisemanage.jsp" >企业</a>
 		    	<li class="layui-nav-item"><a href="jsp/enterprise/alterEnterpriseInfor.jsp" >企业信息</a>
-		    	<li class="layui-nav-item layui-this">
+		    	<li class="layui-nav-item">
 					<a href="javascript:void(0);">招聘信息</a>
 					<dl class="layui-nav-child">
 					<dd><a href="jsp/enterprise/jobPosting.jsp">发布招聘信息</a></dd>
 					<hr>
-					<dd><a href="javascript:void(0);">管理招聘信息</a></dd>
+					<dd><a href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a></dd>
 					</dl>
 				</li>
+				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >应聘者</a>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item layui-this">
@@ -47,31 +48,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="layui-container top">
-			<blockquote class="layui-elem-quote">招聘信息管理</blockquote>
+			<blockquote class="layui-elem-quote">应聘者</blockquote>
 			<hr class="layui-bg-green">
-			<table id="posTable" lay-filter="posTable" class="layui-table" lay-data="{url:'entFindPosition.do',
+			<table id="jobhunterTable" lay-filter="jobhunterTable" class="layui-table" lay-data="{url:'findJobHunter.do',
 																					parseData:function(res){
 																						return {
 																							code:0,
-																							msg:'招聘信息',
+																							msg:'应聘者',
 																							count:res.length,
 																							data:res
 																						};
 																					}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bsname',title:'企业名称'}"></th>
-					<th lay-data="{field:'bsclass',title:'行业类别'}"></th>
-					<th lay-data="{field:'bsposition',title:'职位'}"></th>
-					<th lay-data="{field:'bspay',title:'薪资'}"></th>
+					<th lay-data="{field:'jbname',title:'姓名'}"></th>
+					<th lay-data="{field:'jbsex',title:'性别'}"></th>
+					<th lay-data="{field:'jbage',title:'年龄'}"></th>
+					<th lay-data="{field:'jbid',title:'身份证号'}"></th>
+					<th lay-data="{field:'jbjob',title:'应聘职位'}"></th>
 					<th lay-data="{title:'操作',templet:function(cd){																
-																return '<a class=\'layui-btn layui-btn-danger layui-btn-sm\' lay-event=\'del\'>删除</a>';
+																return '<a class=\'layui-btn layui-btn-normal layui-btn-sm\' lay-event=\'check\'>查看详细信息</a>';
 															}}"></th>
 					</tr>
 				</thead>
 			</table>
 		
 		</div>
+		
 		
 		
 	</div>
@@ -81,13 +84,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var table=layui.table;
 		var $=layui.jquery;
 		var layer=layui.layer;
-		//监听行工具事件
-		table.on('tool(posTable)', function(obj){
+		table.on('tool(jobhunterTable)', function(obj){
 			var data = obj.data;
 			//console.log(obj)
-			if(obj.event === 'del'){
+			if(obj.event === 'check'){
 				$.ajax({
-					url:"delRecrInfor.do",
+					url:"findJobHunter.do",
 					data:{bsposition:data.bsposition},
 					type:'POST',
 					success:function(result){
@@ -102,24 +104,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						layer.msg("失败！");
 					}
 				});
-				/* layer.confirm('真的删除行么'+data.bsposition, function(index){
-					obj.del();
-					layer.close(index);
-				}); */
 			} 
-			/* else if(obj.event === 'edit'){
-				layer.prompt({
-					formType: 2
-					,value: data.email
-				}, function(value, index){
-					obj.update({
-						email: value
-					});
-					layer.close(index);
-				});
-			} */
 		});
-	});
+	})
 </script>
 
 </body>

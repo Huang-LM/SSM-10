@@ -1,17 +1,16 @@
 package com.icss.mvc.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.icss.mvc.dao.EnterpriseDao;
 import com.icss.mvc.entity.business;
 import com.icss.mvc.entity.business_enrol;
+import com.icss.mvc.entity.jobhunter;
 import com.icss.mvc.entity.position;
 
 @Controller
@@ -29,6 +28,7 @@ public class enterpriseController {
 		int a=entdao.enterpriseSignup(buen);
 		return "success";
 	}
+	
 	/* 企业登录 */
 	@RequestMapping("enterpriseSignIn")
 	@ResponseBody
@@ -43,6 +43,7 @@ public class enterpriseController {
 			return "fail";
 		}
 	}
+	
 	/* 企业基本信息 */
 	/*@RequestMapping("findEntInfor")
 	@ResponseBody
@@ -54,10 +55,11 @@ public class enterpriseController {
 	@RequestMapping("findEntInfor")
 	@ResponseBody
 	public List<business> fune4() {
-	  	  System.out.println("Find Enterprise Information---------------"+entname);
+	  	  System.out.println("Find Enterprise Information---------------");
 		  List<business> bus = entdao.findEntInfor(entname);
 		  return bus;
 	}
+	
 	/* 企业招聘信息 */
 	@RequestMapping("entFindPosition")
 	@ResponseBody
@@ -66,6 +68,7 @@ public class enterpriseController {
 		  List<position> pos = entdao.entFindPosition(entname);
 		  return pos;
 	}
+	
 	/* 修改企业基本信息 */
 	@RequestMapping("updEntInfor")
 	@ResponseBody
@@ -79,6 +82,7 @@ public class enterpriseController {
 			  return "fail";
 		  }
 	}
+	
 	/* 发布招聘信息 */
 	@RequestMapping("entJobPosting")
 	@ResponseBody
@@ -92,11 +96,12 @@ public class enterpriseController {
 			  return "fail";
 		  }
 	}
+	
 	/* 管理招聘信息 */
 	@RequestMapping("delRecrInfor")
 	@ResponseBody
 	public String fune8(String bsposition) {
-	  	  System.out.println("Delete Recruit Information---------------"+bsposition);
+	  	  System.out.println("Delete Recruit Information---------------");
 		  int a = entdao.delRecrInfor(entname, bsposition);
 		  if(a==1) {
 			  return "success";
@@ -104,6 +109,15 @@ public class enterpriseController {
 		  else {
 			  return "fail";
 		  }
+	}
+
+	/* 查看应聘者 */
+	@RequestMapping("findJobHunter")
+	@ResponseBody
+	public List<jobhunter> fune9() {
+	  	  System.out.println("Find Job Hunter---------------");
+		  List<jobhunter> jh = entdao.findJobHunter(entname);
+		  return jh;
 	}
 	
 	

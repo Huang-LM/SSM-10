@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.icss.mvc.entity.business;
 import com.icss.mvc.entity.business_enrol;
+import com.icss.mvc.entity.jobhunter;
 import com.icss.mvc.entity.position;
 
 public interface EnterpriseDao {
@@ -28,5 +29,8 @@ public interface EnterpriseDao {
 	
 	/* 管理招聘信息 */
 	public int delRecrInfor(String bsname, String bsposition);
+
+	/* 查看应聘者 */
+	public List<jobhunter> findJobHunter(String bsname);
 	
 }
