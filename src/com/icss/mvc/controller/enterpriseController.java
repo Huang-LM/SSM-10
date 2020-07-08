@@ -93,5 +93,18 @@ public class enterpriseController {
 		  }
 	}
 	
+	@RequestMapping("delRecrInfor")
+	@ResponseBody
+	public String fune8(String bsposition) {
+	  	  System.out.println("Delete Recruit Information---------------"+bsposition);
+		  int a = entdao.delRecrInfor(entname, bsposition);
+		  if(a==1) {
+			  return "success";
+		  }
+		  else {
+			  return "fail";
+		  }
+	}
+	
 	
 }

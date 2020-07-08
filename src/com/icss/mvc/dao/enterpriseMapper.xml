@@ -27,6 +27,10 @@
 	<insert id="entJobPosting" parameterType="com.icss.mvc.entity.position">
 		insert into position values(#{bsname},#{bsclass},#{bsposition},#{bspay});
 	</insert>
+	
+	<delete id="delRecrInfor">
+		delete from position where bsname=#{0} and bsposition=#{1};
+	</delete>
 
 
 </mapper>

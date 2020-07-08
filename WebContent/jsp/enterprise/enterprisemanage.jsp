@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dl class="layui-nav-child">
 					<dd><a href="jsp/enterprise/jobPosting.jsp">发布招聘信息</a></dd>
 					<hr>
-					<dd><a href="javascript:void(0);">管理招聘信息</a></dd>
+					<dd><a href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a></dd>
 					</dl>
 				</li>
 		    </ul>

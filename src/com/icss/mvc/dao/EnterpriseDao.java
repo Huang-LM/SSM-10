@@ -20,4 +20,6 @@ public interface EnterpriseDao {
 	/* 发布招聘信息 */
 	public int entJobPosting(position pos);
 	
+	public int delRecrInfor(String bsname, String bsposition);
+	
 }

@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="<%=basePath %>" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>管理招聘信息</title>
+	<script type="text/javascript" src="ui/layui.js"></script>
+	<link href="ui/css/layui.css" rel="stylesheet"/>
+	<style type="text/css">
+		.top{
+			margin-top:50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="layui-layout layui-layout-admin">
+		<div class="layui-header">
+			<div class="layui-logo">招聘系统</div>
+			<ul class="layui-nav layui-layout-left">
+				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
+				<li class="layui-nav-item"><a href="javascript:void(0);" >企业</a>
+		    	<li class="layui-nav-item"><a href="jsp/enterprise/alterEnterpriseInfor.jsp" >企业信息</a>
+		    	<li class="layui-nav-item layui-this">
+					<a href="javascript:void(0);">招聘信息</a>
+					<dl class="layui-nav-child">
+					<dd><a href="jsp/enterprise/jobPosting.jsp">发布招聘信息</a></dd>
+					<hr>
+					<dd><a href="javascript:void(0);">管理招聘信息</a></dd>
+					</dl>
+				</li>
+		    </ul>
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item layui-this">
+					<a href="javascript:void(0);" ></a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
+				</li>
+		    </ul>
+		</div>
+		
+		<div class="layui-container top">
+			<blockquote class="layui-elem-quote">招聘信息管理</blockquote>
+			<hr class="layui-bg-green">
+			<table id="posTable" lay-filter="posTable" class="layui-table" lay-data="{url:'entFindPosition.do',
+																					parseData:function(res){
+																						return {
+																							code:0,
+																							msg:'招聘信息',
+																							count:res.length,
+																							data:res
+																						};
+																					}}">
+				<thead>
+					<tr>
+					<th lay-data="{field:'bsname',title:'企业名称'}"></th>
+					<th lay-data="{field:'bsclass',title:'行业类别'}"></th>
+					<th lay-data="{field:'bsposition',title:'职位'}"></th>
+					<th lay-data="{field:'bspay',title:'薪资'}"></th>
+					<th lay-data="{title:'操作',templet:function(cd){																
+																return '<a class=\'layui-btn layui-btn-danger layui-btn-sm\' lay-event=\'del\'>删除</a>';
+															}}"></th>
+					</tr>
+				</thead>
+			</table>
+		
+		</div>
+		
+		
+	</div>
+
+<script type="text/javascript">
+	layui.use(["table","element","layer","jquery"],function(){
+		var table=layui.table;
+		var $=layui.jquery;
+		var layer=layui.layer;
+		//监听行工具事件
+		table.on('tool(posTable)', function(obj){
+			var data = obj.data;
+			//console.log(obj)
+			if(obj.event === 'del'){
+				$.ajax({
+					url:"delRecrInfor.do",
+					data:{bsposition:data.bsposition},
+					type:'POST',
+					success:function(result){
+						if(result == "success"){
+							window.location.href="jsp/enterprise/manaRecrInfor.jsp";//jsp/enterprise/
+						}
+						else if(result == "fail") {
+							layer.msg("删除失败！");
+						}
+					},
+					error:function(){
+						layer.msg("失败！");
+					}
+				});
+				/* layer.confirm('真的删除行么'+data.bsposition, function(index){
+					obj.del();
+					layer.close(index);
+				}); */
+			} 
+			/* else if(obj.event === 'edit'){
+				layer.prompt({
+					formType: 2
+					,value: data.email
+				}, function(value, index){
+					obj.update({
+						email: value
+					});
+					layer.close(index);
+				});
+			} */
+		});
+	});
+</script>
+
+</body>
+</html>
