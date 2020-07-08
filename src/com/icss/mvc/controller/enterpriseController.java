@@ -92,7 +92,7 @@ public class enterpriseController {
 			  return "fail";
 		  }
 	}
-	
+	/* 管理招聘信息 */
 	@RequestMapping("delRecrInfor")
 	@ResponseBody
 	public String fune8(String bsposition) {

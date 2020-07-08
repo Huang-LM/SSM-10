@@ -27,7 +27,7 @@
 	<insert id="entJobPosting" parameterType="com.icss.mvc.entity.position">
 		insert into position values(#{bsname},#{bsclass},#{bsposition},#{bspay});
 	</insert>
-	
+	<!-- 管理招聘信息 -->
 	<delete id="delRecrInfor">
 		delete from position where bsname=#{0} and bsposition=#{1};
 	</delete>
