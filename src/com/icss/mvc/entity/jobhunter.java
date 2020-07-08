@@ -5,15 +5,12 @@ public class jobhunter {
 	private String jbsex;
 	private Integer jbage;
 	private byte[] jbphoto;
-	private byte[] jbidphoto;
 	private String jbid;
     private String jbusername;
     private String jbpnmb;
-    private String jbacademic;
-    private String jbscl;
+    private String jbcompany;
+    private String jbjob;
     private String jbablt;
-    private String jbhope;
-    
 	public String getJbname() {
 		return jbname;
 	}
@@ -38,12 +35,6 @@ public class jobhunter {
 	public void setJbphoto(byte[] jbphoto) {
 		this.jbphoto = jbphoto;
 	}
-	public byte[] getJbidphoto() {
-		return jbidphoto;
-	}
-	public void setJbidphoto(byte[] jbidphoto) {
-		this.jbidphoto = jbidphoto;
-	}
 	public String getJbid() {
 		return jbid;
 	}
@@ -62,17 +53,17 @@ public class jobhunter {
 	public void setJbpnmb(String jbpnmb) {
 		this.jbpnmb = jbpnmb;
 	}
-	public String getJbacademic() {
-		return jbacademic;
+	public String getJbcompany() {
+		return jbcompany;
 	}
-	public void setJbacademic(String jbacademic) {
-		this.jbacademic = jbacademic;
+	public void setJbcompany(String jbcompany) {
+		this.jbcompany = jbcompany;
 	}
-	public String getJbscl() {
-		return jbscl;
+	public String getJbjob() {
+		return jbjob;
 	}
-	public void setJbscl(String jbscl) {
-		this.jbscl = jbscl;
+	public void setJbjob(String jbjob) {
+		this.jbjob = jbjob;
 	}
 	public String getJbablt() {
 		return jbablt;
@@ -80,11 +71,5 @@ public class jobhunter {
 	public void setJbablt(String jbablt) {
 		this.jbablt = jbablt;
 	}
-	public String getJbhope() {
-		return jbhope;
-	}
-	public void setJbhope(String jbhope) {
-		this.jbhope = jbhope;
-	}
-	
+    
 }
