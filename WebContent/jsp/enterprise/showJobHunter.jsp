@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<base href="<%=basePath %>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>企业管理</title>
+	<title>应聘者基本信息</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >企业</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisemanage.jsp" >企业</a>
 		    	<li class="layui-nav-item"><a href="jsp/enterprise/alterEnterpriseInfor.jsp" >企业信息</a>
 		    	<li class="layui-nav-item">
 					<a href="javascript:void(0);">招聘信息</a>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dd><a href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a></dd>
 					</dl>
 				</li>
-				<li class="layui-nav-item"><a href="jsp/enterprise/entJobHunter.jsp" >应聘者</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/enterprise/entJobHunter.jsp" >应聘者</a>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item layui-this">
@@ -47,135 +47,123 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 		</div>
 		
-		<div>
-			<div class="layui-carousel" id="test1" lay-filter="test1">
-				<div carousel-item="">
-				    <div><img style="width:100%;height:400px" src="img/enttop1.jpg"></div>
-				    <div><img style="width:100%;height:400px" src="img/enttop2.jpg"></div>
-				    <div><img style="width:100%;height:400px" src="img/enttop3.jpg"></div>
-				</div>
-			</div>
-		</div>
-		
 		<div class="layui-container top">
 			<blockquote class="layui-elem-quote">基本信息</blockquote>
 			<hr class="layui-bg-green">
-			<table id="entTable1" class="layui-table" lay-data="{url:'findEntInfor.do',
+			<table id="jobhunterTable1" class="layui-table" lay-data="{url:'showJobHunter.do',
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'企业信息',
+																		msg:'应聘者信息',
 																		count:1,
 																		data:res
 																	};
 																}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bsname',title:'企业名称'}"></th>
+					<th lay-data="{field:'jbname',title:'姓名'}"></th>
 					</tr>
 				</thead>
 			</table>
-			<table id="entTable2" class="layui-table" lay-data="{url:'findEntInfor.do',
+			<table id="jobhunterTable2" class="layui-table" lay-data="{url:'showJobHunter.do',
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'企业信息',
+																		msg:'应聘者信息',
 																		count:1,
 																		data:res
 																	};
 																}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bspname',title:'企业法人姓名'}"></th>
+					<th lay-data="{field:'jbsex',title:'性别'}"></th>
 					</tr>
 				</thead>
 			</table>
-			<table id="entTable3" class="layui-table" lay-data="{url:'findEntInfor.do',
+			<table id="jobhunterTable3" class="layui-table" lay-data="{url:'showJobHunter.do',
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'企业信息',
+																		msg:'应聘者信息',
 																		count:1,
 																		data:res
 																	};
 																}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bsclass',title:'行业类别'}">
+					<th lay-data="{field:'jbage',title:'年龄'}"></th>
 					</tr>
 				</thead>
 			</table>
-			<table id="entTable4" class="layui-table" lay-data="{url:'findEntInfor.do',
+			<table id="jobhunterTable4" class="layui-table" lay-data="{url:'showJobHunter.do',
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'企业信息',
+																		msg:'应聘者信息',
 																		count:1,
 																		data:res
 																	};
 																}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bsintr',title:'简介'}"></th>
+					<th lay-data="{field:'jbid',title:'身份证号'}"></th>
 					</tr>
 				</thead>
 			</table>
-			<table id="entTable5" class="layui-table" lay-data="{url:'findEntInfor.do',
+			<table id="jobhunterTable5" class="layui-table" lay-data="{url:'showJobHunter.do',
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'企业信息',
+																		msg:'应聘者信息',
 																		count:1,
 																		data:res
 																	};
 																}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bsculture',title:'公司文化'}"></th>
+					<th lay-data="{field:'jbpnmb',title:'手机号码'}"></th>
 					</tr>
 				</thead>
 			</table>
-		</div>	
-		
-		<div class="layui-container top">
-			<blockquote class="layui-elem-quote">招聘信息</blockquote>
-			<hr class="layui-bg-green">
-			<table id="posTable" class="layui-table" lay-data="{url:'entFindPosition.do',
+			<table id="jobhunterTable6" class="layui-table" lay-data="{url:'showJobHunter.do',
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'招聘信息',
-																		count:res.length,
+																		msg:'应聘者信息',
+																		count:1,
 																		data:res
 																	};
 																}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bsname',title:'企业名称'}"></th>
-					<th lay-data="{field:'bsclass',title:'行业类别'}"></th>
-					<th lay-data="{field:'bsposition',title:'职位'}"></th>
-					<th lay-data="{field:'bspay',title:'薪资'}"></th>
+					<th lay-data="{field:'jbjob',title:'应聘职位'}"></th>
 					</tr>
 				</thead>
 			</table>
-		
+			<table id="jobhunterTable7" class="layui-table" lay-data="{url:'showJobHunter.do',
+																parseData:function(res){
+																	return {
+																		code:0,
+																		msg:'应聘者信息',
+																		count:1,
+																		data:res
+																	};
+																}}">
+				<thead>
+					<tr>
+					<th lay-data="{field:'jbablt',title:'自身能力简介'}"></th>
+					</tr>
+				</thead>
+			</table>
 		</div>
-		
+
 
 	</div>
-
+	
 <script type="text/javascript">
-	layui.use(["table","carousel","jquery","element"],function(){
-		var carousel = layui.carousel;
-		carousel.render({
-		    elem: '#test1'
-		    ,arrow: 'always'
-		    ,width: '100%'
-		    ,height: '400px'
-		    ,interval: 5000
-		  });
+	layui.use(["table","jquery","element"],function(){
+		
 	});
-
 </script>
 
 </body>
