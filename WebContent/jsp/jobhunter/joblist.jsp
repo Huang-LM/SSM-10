@@ -73,6 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<!-- 搜索栏 -->
+		<div class="layui-container">
 			<div class="search">
 				<div class="layui-row">
 					<div class="layui-col-md2">
@@ -93,23 +94,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 			</div> 
+		</div>	
 		
 		
 		<div class="layui-container btable">
-			<table 
+			
+				<table 
 					lay-data="{ id:'newTable', url:'showBsjson.do', even: true, limit: 10, height: 800, cellMinWidth: 30, toolbar: '#toolbar'}" 
 					class="layui-table" 
 					lay-filter="demo" >
 				<thead>
 					<tr>
 				      <th lay-data="{field:'bsname', minWidth: 300}">企业名称</th>
-				      <th lay-data="{field:'bsclass'}">行业类别</th>
+				      <th lay-data="{field:'bsclass' , minWidth: 100}">行业类别</th>
 				      <th lay-data="{field:'bsposition', minWidth: 280}">职位</th>
-				      <th lay-data="{field:'bspay', sort: true}">薪资</th>
-				      <th lay-data="{fixed: 'right', align:'center', toolbar: '#barDemo'}"></th>
+				      <th lay-data="{field:'bspay', minWidth: 100, sort: true}">薪资</th>
+				      <th lay-data="{fixed: 'right', align:'center', toolbar: '#barDemo', minWidth: 100}"></th>
 					</tr>
 				</thead>	
 			</table>
+			
 		</div>
 		
 		<!-- 头部工具栏 -->
@@ -125,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<!-- 行工具栏 -->
 		<script type="text/html" id="barDemo">
-       		<a class="layui-btn layui-btn-xs" lay-event="detail">应聘</a>
+       		<a layui-submit class="layui-btn layui-btn-xs" lay-event="detail">应聘</a>
 		</script>
 
 		<!-- foot -->
@@ -150,23 +154,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		    switch(obj.event){
 			    case 'detail':
-			    	layer.msg('name：'+ data.bsname+ ' 的查看操作'+data.bsposition);
-			    	var params = {
+			    	var bsname=data.bsname;
+			    	var bsposition=data.bsposition;
+			    	/* var params = {
 			                "bsname": data.bsname,
 			                "bsposition": data.bsposition,
-			            }
+			            } */
+			    	window.location.href='jobSub.do?bsname='+bsname+'&bsposition='+bsposition;
+			    	
 			    	/* ajax传参数无法传值跳转 */
 			    	/* $.ajax({
 						url: "jobSub.do",
 						data: params,
 						type: 'POST',
-						success: function(){
-							window.location.herf='jobSubmit'
+						success: function(txt){
+							if(txt=="success")
 						},
 						error: function(){
 							layer.msg("失该简历未开放败！");
 						}
-					}); */
+					});  */
 			    	break; 
 		    };
 		  });
