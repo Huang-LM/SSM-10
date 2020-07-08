@@ -24,10 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="layui-side layui-bg-cyan">
 			<ul class="layui-nav layui-nav-tree" lay-filter="menu">
-				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="businessMessage.jsp" data-id="1">企业信息查询</a></li>
-				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="businessAdd.jsp" data-id="2">添加企业信息</a></li>
-				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="businessMessage.jsp" data-id="1">求职者信息查询</a></li>
-				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="businessAdd.jsp" data-id="2">添加求职者信息</a></li>  
+				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/businessMessage.jsp" data-id="1">企业信息查询</a></li>
+				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/businessAdd.jsp" data-id="2">添加企业信息</a></li>
+				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/businessMessage.jsp" data-id="1">求职者信息查询</a></li>
+				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/businessAdd.jsp" data-id="2">添加求职者信息</a></li>  
 			</ul>
 		</div>
 		<div class="layui-body">
