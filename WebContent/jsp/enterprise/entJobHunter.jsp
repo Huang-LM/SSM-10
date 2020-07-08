@@ -89,15 +89,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//console.log(obj)
 			if(obj.event === 'check'){
 				$.ajax({
-					url:"findJobHunter.do",
-					data:{bsposition:data.bsposition},
+					url:"acquireId.do",
+					data:{jbid:data.jbid},
 					type:'POST',
 					success:function(result){
 						if(result == "success"){
-							window.location.href="jsp/enterprise/manaRecrInfor.jsp";//jsp/enterprise/
-						}
-						else if(result == "fail") {
-							layer.msg("删除失败！");
+							window.location.href="jsp/enterprise/showJobHunter.jsp";//jsp/enterprise/
 						}
 					},
 					error:function(){

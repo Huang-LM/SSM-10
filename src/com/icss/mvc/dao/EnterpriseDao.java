@@ -32,5 +32,9 @@ public interface EnterpriseDao {
 
 	/* 查看应聘者 */
 	public List<jobhunter> findJobHunter(String bsname);
+
+	/* 应聘者基本信息 */
+	public List<jobhunter> showJobHunter(String jbid);
+	
 	
 }

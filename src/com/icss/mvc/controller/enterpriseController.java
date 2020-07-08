@@ -19,6 +19,7 @@ public class enterpriseController {
 	private EnterpriseDao entdao;
 	
 	public String entname;
+	public String id;
 	
 	/* 企业注册 */
 	@RequestMapping("enterpriseSignUp")
@@ -117,6 +118,24 @@ public class enterpriseController {
 	public List<jobhunter> fune9() {
 	  	  System.out.println("Find Job Hunter---------------");
 		  List<jobhunter> jh = entdao.findJobHunter(entname);
+		  return jh;
+	}
+
+	/* 获取应聘者身份证号 */
+	@RequestMapping("acquireId")
+	@ResponseBody
+	public String fune10(String jbid) {
+	  	  System.out.println("Acquire ID---------------");
+	  	  id = jbid;
+		  return "success";
+	}
+
+	/* 应聘者基本信息 */
+	@RequestMapping("showJobHunter")
+	@ResponseBody
+	public List<jobhunter> fune11() {
+	  	  System.out.println("Show Job Hunter---------------");
+		  List<jobhunter> jh = entdao.showJobHunter(id);
 		  return jh;
 	}
 	
