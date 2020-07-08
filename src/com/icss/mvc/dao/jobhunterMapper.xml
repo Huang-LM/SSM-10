@@ -19,6 +19,9 @@
 		<!-- select * from position where bsposition LIKE '%${bsposition}%'; -->
 		select * from position where bsposition=#{bsposition} ; 
 	</select>
-	
+	<!-- 添加求职简历 -->
+	<insert id="insertJob">
+		insert into jobhunter values(#{jbname}, #{jbsex}, #{jbage}, #{jbphoto}, #{jbid}, #{jbusername}, #{jbpnmb}, #{jbcompany}, #{jbjob}, #{jbablt});
+	</insert>
 
 </mapper>
