@@ -36,4 +36,5 @@
 		select * from jobhunter where jbcompany=#{entname};
 	</select>
 
+
 </mapper>
