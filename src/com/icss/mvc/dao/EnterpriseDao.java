@@ -35,6 +35,9 @@ public interface EnterpriseDao {
 
 	/* 应聘者基本信息 */
 	public List<jobhunter> showJobHunter(String jbid);
+
+	/* 应聘者简历 */
+	public jobhunter showResume(String ibid);
 	
 	
 }

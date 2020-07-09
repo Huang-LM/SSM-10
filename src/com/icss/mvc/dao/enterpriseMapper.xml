@@ -39,6 +39,10 @@
 	<select id="showJobHunter" resultType="com.icss.mvc.entity.jobhunter">
 		select * from jobhunter where jbid=#{jbid};
 	</select>
+	<!-- 应聘者简历 -->
+	<select id="showResume" resultType="com.icss.mvc.entity.jobhunter">
+		select * from jobhunter where jbid=#{jbid};
+	</select>
 
 
 </mapper>

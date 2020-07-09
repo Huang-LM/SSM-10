@@ -16,6 +16,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.top{
 			margin-top:50px;
 		}
+		.showimg{
+			overflow:hidden;
+			border: 1 solid blue;
+		}
+		.img{
+			max-height:800px;
+		}
 	</style>
 </head>
 
@@ -155,6 +162,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</thead>
 			</table>
+			<blockquote class="layui-elem-quote">简历</blockquote>
+			<div class="showimg">
+				<img class="img" alt="" src="showResume.do">
+			</div>
 		</div>
 
 

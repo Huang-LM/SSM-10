@@ -1,6 +1,11 @@
 package com.icss.mvc.controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -138,7 +143,18 @@ public class enterpriseController {
 		  List<jobhunter> jh = entdao.showJobHunter(id);
 		  return jh;
 	}
-	
+
+	/* 应聘者简历 */
+	@RequestMapping("showResume")
+	public void fune12(HttpServletResponse response) throws Exception {
+		System.out.println("Show Resume---------------");
+		jobhunter jhp = entdao.showResume(id);
+		response.setContentType("image/jpeg");
+		ServletOutputStream out = response.getOutputStream();
+		out.write(jhp.getJbphoto());
+		out.flush();
+		out.close();
+	}
 	
 	
 }
