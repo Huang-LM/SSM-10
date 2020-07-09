@@ -168,7 +168,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 
-
 	</div>
 	
 <script type="text/javascript">
