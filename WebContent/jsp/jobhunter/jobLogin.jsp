@@ -90,8 +90,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				data:data.field,
 				type:'POST',
 				success:function(result){
-					if(result == "success"){
-						window.location.href="index.jsp";
+					if(result.msg == "success"){
+						layer.msg("登录成功，欢迎"+result.name);
+						setTimeout(function () {layer.msg("正在跳转");}, 2000);
+						setTimeout("window.location.href='jsp/jobhunter/jobLoginindex.jsp'",3000);				
 					}
 					else if(result == "fail") {
 						layer.msg("账号或密码有误");

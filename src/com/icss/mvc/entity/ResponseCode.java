@@ -2,31 +2,34 @@ package com.icss.mvc.entity;
 
 public class ResponseCode {
 	private Integer code=0;
-	private String msg="";
-//	private byte[] jbphoto;
+	private String photo="";
+	private byte[] msg;
 	
-//	public byte[] getJbphoto() {
-//		return jbphoto;
-//	}
-//
-//	public void setJbphoto(byte[] jbphoto) {
-//		this.jbphoto = jbphoto;
-//	}
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
+	public byte[] getMsg() {
+		return msg;
+	}
+
+	public void setMsg(byte[] msg) {
+		this.msg = msg;
+	}
 
 	public ResponseCode() {}
 
-	public ResponseCode(Integer code,String msg) {
+	public ResponseCode(Integer code,byte[] msg,String photo) {
 		this.code = code;
 		this.msg = msg;
-//		this.jbphoto=jbphoto;
+		this.photo=photo;
 	}
 	
-	public String getMsg() {
-		return msg;
-	}
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
+
 	public Integer getCode() {
 		return code;
 	}

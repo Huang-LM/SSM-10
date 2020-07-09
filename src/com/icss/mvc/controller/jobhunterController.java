@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.icss.mvc.dao.EnterpriseDao;
 import com.icss.mvc.dao.jobhunterDao;
 import com.icss.mvc.entity.Grid;
 import com.icss.mvc.entity.ResponseCode;
+import com.icss.mvc.entity.ResponseLogin;
+import com.icss.mvc.entity.business;
 import com.icss.mvc.entity.jobhunter;
 import com.icss.mvc.entity.jobhunter_enrol;
 import com.icss.mvc.entity.position;
@@ -25,6 +28,7 @@ import com.icss.mvc.entity.position;
 public class jobhunterController {
 	@Autowired
 	private jobhunterDao dao;
+	private String entname;
 	
 //	注册
 	@RequestMapping("jobEnrol")
@@ -37,22 +41,23 @@ public class jobhunterController {
 //	登录
 	@RequestMapping("jobLogin")
 	@ResponseBody
-	public String fun2(String jbusername,String jbpsw) {
+	public ResponseLogin fun2(String jbusername,String jbpsw) {
 		String psw=dao.jobLogin(jbusername);
+		String name=dao.getJobname(jbusername);
 		if(jbpsw.equals(psw)) {
-			return "success";
+			return new ResponseLogin(0,"success",name);
 		}
 		else {
-			return "fail";
+			return new ResponseLogin(0,"fail",name);
 		}
 	}
 //	展示公司列表
 	@RequestMapping("showBsjson")
 	@ResponseBody
-	public Grid fun3(@RequestParam("page") Integer page, @RequestParam("limit") Integer size, Grid Grid) throws Exception {
+	public Grid fun3(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit, Grid Grid) throws Exception {
 		System.out.println("showBsjson------------");
-		List<position> jlist = dao.findList();
-		return new Grid(0,"ok",jlist.size(),jlist);
+		List<position> jlist = dao.findList((page-1)*limit,limit);
+		return new Grid(0,"ok",150,jlist);
 	}
 //	展示职业搜索结果
 	@RequestMapping("findSearch")
@@ -70,24 +75,40 @@ public class jobhunterController {
 		mp.addAttribute("bsposition", bsposition);
 		return "forward:jsp/jobhunter/jobSubmit.jsp";
 	}
+//	前往公司详细页
+	@RequestMapping("jobShow")
+	public String fun6(ModelMap mp, String bsname) {
+		System.out.println("jobShow-----"+bsname);
+		mp.addAttribute("bsname", bsname);
+		entname=bsname;
+		return "forward:jsp/jobhunter/jobShow.jsp";
+	}
+//	查找公司信息
+	@RequestMapping("jobShowView")
+	@ResponseBody
+	public List<business> fun61() {
+		System.out.println("jobShow-----"+entname);
+		List<business> slist = dao.findbsView(entname);
+		return slist;
+	}
 //	添加求职简历
 	@RequestMapping("addJobhunter")
 	@ResponseBody
-	public ResponseCode fun6(jobhunter job) throws Exception {
+	public String fun7(jobhunter job) throws Exception {
 		System.out.println("submit----------------------------"+job.getJbname());
 		dao.insertJob(job);
-		return new ResponseCode(0, "success");
+		return "success";
 	}
 //	图片上传
 	@RequestMapping("uppic")
 	@ResponseBody
-	public ResponseCode fun7(@RequestParam("file") MultipartFile pic,HttpServletRequest request) throws Exception {
+	public ResponseCode fun8(@RequestParam("file") MultipartFile pic,HttpServletRequest request) throws Exception {
 		System.out.println("upper1----------------------------"+pic.getOriginalFilename());
 		String path = request.getServletContext().getRealPath("/upload");
 		String fileName="file"+System.currentTimeMillis()+".jpg";
+		byte[] jobphoto = pic.getBytes();
 		File saveFile=new File(path+"/"+fileName);
 		pic.transferTo(saveFile);
-//		byte[] jobphoto = pic.getBytes();
-		return new ResponseCode(0, fileName);
+		return new ResponseCode(0, jobphoto, fileName);
 	}
 }

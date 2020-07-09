@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
 		body{
-			
+			background-color: #F2F2F2;
 		}
 		.nav{
 			position: fixed;
@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			left: 0px !important;
 			position: static !important;
 			bottom:0px !important;
-			margin-top: 50px
+			background-color: #ffffff !important;
 		}
 	</style>
 </head>
@@ -62,13 +62,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
-				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
-				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginindex.jsp" >首页</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobLoginList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
+				<li class="layui-nav-item"><a href="index.jsp">注销</a>
+				<!-- <li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a> -->
 			</ul>
 		</div>
 		
@@ -100,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-container btable">
 			
 				<table 
-					lay-data="{ id:'newTable', url:'showBsjson.do', even: true, limit: 15, height: 700, cellMinWidth: 30, page: true, limits: [10,15,20,150], toolbar: '#toolbar'}" 
+					lay-data="{ id:'newTable', url:'showBsjson.do', even: true, limit: 15, height: 720, cellMinWidth: 30, page: true, limits: [10,15,20,150], toolbar: '#toolbar'}" 
 					class="layui-table" 
 					lay-filter="demo" >
 				<thead>
@@ -123,7 +124,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<!-- 行工具栏 -->
 		<script type="text/html" id="barDemo">
-       		<a layui-submit class="layui-btn layui-btn-xs" lay-event="view">查看</a>
+			<a layui-submit class="layui-btn layui-btn-xs" lay-event="view">查看</a>
+       		<a layui-submit class="layui-btn layui-btn-xs" lay-event="detail">应聘</a>
 		</script>
 
 		<!-- foot -->
@@ -147,10 +149,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var data = obj.data;
 
 		    switch(obj.event){
+			    case 'detail':
+			    	var bsname=data.bsname;
+			    	var bsposition=data.bsposition;
+			    	/* var params = {
+			                "bsname": data.bsname,
+			                "bsposition": data.bsposition,
+			            } */
+			    	window.location.href='jobSub.do?bsname='+bsname+'&bsposition='+bsposition;
+			    	/* ajax传参数无法传值跳转 */
+			    	/* $.ajax({
+						url: "jobSub.do",
+						data: params,
+						type: 'POST',
+						success: function(txt){
+							if(txt=="success")
+						},
+						error: function(){
+							layer.msg("该简历未开放！");
+						}
+					});  */
+			    	break; 
 			    case 'view':
 			    	var bsname=data.bsname;
 			    	window.location.href='jobShow.do?bsname='+bsname;	
-			    	break; 
+			    	break; 	
 		    };
 		  });
 		//头部事件

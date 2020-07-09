@@ -72,8 +72,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 		</div>
 		
-		<script type="text/html" id="barDemo">
+		<script type="text/html" id="">
        		<a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+
+			<div class="layui-inline" style="float:right;height:29px;" title="搜索" lay-event="search">
+				<i class="layui-icon layui-icon-search"></i>
+			</div>
+ 
+			<input type="text" id="title" style="width:200px;float:right;height:30px;" placeholder="请输入标题" autocomplete="off" class="layui-input">
 		</script>
 
 		<!-- foot -->

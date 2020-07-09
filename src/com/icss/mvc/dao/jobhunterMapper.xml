@@ -10,9 +10,13 @@
 	<select id="jobLogin" resultType="String">
 		select jbpsw from jobhunter_enrol where jbusername=#{jbusername};
 	</select>
-	<!-- 展示公司 -->
+	<!-- 获取用户名 -->
+	<select id="getJobname" resultType="String">
+		select jbname from jobhunter_enrol where jbusername=#{jbusername};
+	</select>
+	<!-- 展示公司总列表 -->
 	<select id="findList" resultType="com.icss.mvc.entity.position">
-		select * from position;
+		select * from position limit #{0},#{1};
 	</select>
 	<!-- 展示职业搜索结果-->
 	<select id="findSearch" resultType="com.icss.mvc.entity.position" >
@@ -23,5 +27,8 @@
 	<insert id="insertJob">
 		insert into jobhunter values(#{jbname}, #{jbsex}, #{jbage}, #{jbphoto}, #{jbid}, #{jbusername}, #{jbpnmb}, #{jbcompany}, #{jbjob}, #{jbablt});
 	</insert>
-
+	<!-- 展示公司信息 -->
+	<select id="findbsView" resultType="com.icss.mvc.entity.business" parameterType="String">
+		select * from business where bsname=#{bsname};
+	</select>
 </mapper>

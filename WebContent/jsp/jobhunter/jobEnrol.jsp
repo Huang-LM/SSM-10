@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="layui-inline">
 							<label class="layui-form-label">用户名称</label>
 							<div class="layui-input-inline">
-								<input type="text" name="jbname" class="layui-input" lay-verify="required" placeholder="请输入用户名称">
+								<input type="text" name="jbusername" class="layui-input" lay-verify="required" placeholder="请输入用户名称">
 							</div>
 						</div>
 					</div>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="layui-inline">
 							<label class="layui-form-label">本人姓名</label>
 							<div class="layui-input-inline">
-								<input type="text" name="jbusername" class="layui-input" lay-verify="required" placeholder="请输入本人姓名">
+								<input type="text" name="jbname" class="layui-input" lay-verify="required" placeholder="请输入本人姓名">
 							</div>
 						</div>
 					</div>

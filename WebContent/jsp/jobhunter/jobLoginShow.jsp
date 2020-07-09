@@ -16,7 +16,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
 		body{
-			
 		}
 		.nav{
 			position: fixed;
@@ -34,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			position: static !important; 
 			bottom:0px !important;
 			background-color: #F2F2F2;
-			margin-top: 30px;
+			margin-top: 30px
 		}
 	</style>
 </head>
@@ -43,14 +42,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
-				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
-				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobShow.jsp" >公司信息</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginindex.jsp" >首页</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginList.jsp" >公司列表</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobLoginShow.jsp" >公司信息</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
+				<li class="layui-nav-item"><a href="index.jsp">注销</a>
 			</ul>
 		</div>
 		
@@ -147,11 +145,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 
 		<!-- foot -->
-<!-- 		<div class="layui-footer">
+		<div class="layui-footer">
 			 <div class="layui-main">
 			   <p>© 2020 <a href="/"></a></p>
 			  </div>
-		</div> -->	
+		</div>	
 	</div>
 	
 <script type="text/javascript">
