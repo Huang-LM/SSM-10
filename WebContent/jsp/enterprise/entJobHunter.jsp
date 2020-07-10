@@ -12,6 +12,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>查看应聘者</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
+	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
 	<style type="text/css">
 		.top{
 			margin-top:50px;
@@ -48,17 +54,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="layui-container top">
-			<blockquote class="layui-elem-quote">应聘者</blockquote>
+			<!-- <blockquote class="layui-elem-quote">应聘者</blockquote> -->
+			<div class="alert alert-info">
+			    <strong>应聘者</strong>
+			</div>
 			<hr class="layui-bg-green">
 			<table id="jobhunterTable" lay-filter="jobhunterTable" class="layui-table" lay-data="{url:'findJobHunter.do',
-																					parseData:function(res){
-																						return {
-																							code:0,
-																							msg:'应聘者',
-																							count:res.length,
-																							data:res
-																						};
-																					}}">
+																								page:true,
+																								even:true,
+																								limit:5,
+																								limits:[5,10,20]}">
 				<thead>
 					<tr>
 					<th lay-data="{field:'jbname',title:'姓名'}"></th>
