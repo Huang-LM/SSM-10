@@ -22,9 +22,4 @@ public interface jobhunterDao {
 	public int insertJob(jobhunter job);
 //	查找公司信息
 	public List<business> findbsView(String bsname);
-//	后台求职者信息展示
-	public List<jobhunter> findJobhunterAll();
-//	后台增加求职者信息
-	public int insertJobhunter
-	(String jbname,String jbsex,Integer jbage,byte[] jbphoto,String jbid,String jbusername,String jbpnmb,String jbcompany,String jbjob,String jbablt);
 }
