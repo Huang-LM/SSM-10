@@ -69,7 +69,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      <a class="nav-link" href="#">企业</a>
 		    </li>
 		    <li class="nav-item">
-		      <a class="nav-link" href="jsp/enterprise/alterEnterpriseInfor.jsp">企业信息</a>
+		      <!-- <a class="nav-link" href="jsp/enterprise/alterEnterpriseInfor.jsp">企业信息</a> -->
+		      <a class="nav-link" href="altEntInfor.do">企业信息</a>
 		    </li>
 		
 		    <!-- Dropdown -->

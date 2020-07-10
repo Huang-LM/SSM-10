@@ -33,6 +33,11 @@
 		where bsname=#{bsname};
 	</update>
 	
+	<!-- 修改企业基本信息表单赋值 -->
+	<select id="autoFill" resultType="com.icss.mvc.entity.business" parameterType="String">
+		select * from business where bsname=#{entname};
+	</select>
+	
 	<!-- 发布招聘信息 -->
 	<insert id="entJobPosting" parameterType="com.icss.mvc.entity.position">
 		insert into position values(#{bsname},#{bsclass},#{bsposition},#{bspay});
@@ -62,6 +67,8 @@
 	<select id="showResume" resultType="com.icss.mvc.entity.jobhunter">
 		select * from jobhunter where jbid=#{jbid};
 	</select>
+	
+	
 
 
 </mapper>

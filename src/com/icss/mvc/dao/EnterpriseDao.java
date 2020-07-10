@@ -27,6 +27,9 @@ public interface EnterpriseDao {
 	/* 修改企业基本信息 */
 	public int updEntInfor(business bus);
 	
+	/* 修改企业基本信息表单赋值 */
+	public business autoFill(String bsname);
+	
 	/* 发布招聘信息 */
 	public int entJobPosting(position pos);
 	
@@ -44,6 +47,8 @@ public interface EnterpriseDao {
 
 	/* 应聘者简历 */
 	public jobhunter showResume(String ibid);
+	
+	
 	
 	
 }

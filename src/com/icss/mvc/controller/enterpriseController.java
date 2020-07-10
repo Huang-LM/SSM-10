@@ -1,7 +1,5 @@
 package com.icss.mvc.controller;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -91,6 +89,15 @@ public class enterpriseController {
 			  return "fail";
 		  }
 	}
+
+	/* 修改企业基本信息表单赋值 */
+	@RequestMapping("altEntInfor") 
+	public String fun5(ModelMap mp) {
+		System.out.println("Auto Fill---------------"); 
+		business bus = entdao.autoFill(entname); 
+		mp.addAttribute("bus",bus);
+		return "forward:jsp/enterprise/alterEnterpriseInfor.jsp";
+	}
 	
 	/* 发布招聘信息 */
 	@RequestMapping("entJobPosting")
@@ -159,15 +166,7 @@ public class enterpriseController {
 		out.flush();
 		out.close();
 	}
-	
-	/*
-	 * @RequestMapping("EntInfor")
-	 * 
-	 * @ResponseBody public Grid fune13(ModelMap mp) {
-	 * System.out.println("Find Enterprise Information---------------"+name);
-	 * List<business> bus = entdao.findEntInfor(entname); return new
-	 * Grid(0,"ok",8,bus); }
-	 */
+ 
 	
 	
 }
