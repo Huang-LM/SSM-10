@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath %>" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加客户</title>
+<title>添加企业</title>
 <link href="ui/css/layui.css" rel="stylesheet"/>
 <style type="text/css">
 </style>
@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <div class="layui-container">
-	<form class="layui-form" lay-filter="addclient" id="addclient">
+	<form class="layui-form" lay-filter="addBusiness" id="addBusiness">
 		<div class="layui-form-item">
 			<label class="layui-form-label">企业名称</label>
 			<div class="layui-input-inline">
@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-form-item">
 			<label class="layui-form-label">企业法人</label>
 			<div class="layui-input-inline">
-				<input type="text" name="bspName" class="layui-input" placeholder="请输入法人姓名">
+				<input type="text" name="bspname" class="layui-input" placeholder="请输入法人姓名">
 			</div>
 		</div>
 		<div class="layui-form-item">

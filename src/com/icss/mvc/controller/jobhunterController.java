@@ -1,10 +1,15 @@
 package com.icss.mvc.controller;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.icss.mvc.dao.EnterpriseDao;
+import com.icss.mvc.dao.businessDao;
 import com.icss.mvc.dao.jobhunterDao;
 import com.icss.mvc.entity.Grid;
 import com.icss.mvc.entity.ResponseCode;
@@ -110,5 +116,28 @@ public class jobhunterController {
 		File saveFile=new File(path+"/"+fileName);
 		pic.transferTo(saveFile);
 		return new ResponseCode(0, jobphoto, fileName);
+	}
+//	后台求职者信息展示
+	@RequestMapping("showJobhunter")
+	@ResponseBody
+	public Grid funJ(ModelMap mp) throws Exception {
+		System.out.println("show -----------------------------------------");
+		InputStream ins = Resources.getResourceAsStream("mybatis-cfg.xml");
+		SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(ins);
+		SqlSession sqlSession = sf.openSession();
+		jobhunterDao dao=sqlSession.getMapper(jobhunterDao.class);
+		List<jobhunter> slist = dao.findJobhunterAll();
+		return new Grid(0,"ok",slist.size(),slist);
+	}
+	@RequestMapping("addJobhunter")
+	public String fun(String jbname,String jbsex,Integer jbage,byte[] jbphoto,String jbid,String jbusername,String jbpnmb,String jbcompany,String jbjob,String jbablt) throws Exception {
+		System.out.println("add -----------------------------------------");
+		InputStream ins = Resources.getResourceAsStream("mybatis-cfg.xml");
+		SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(ins);
+		SqlSession sqlSession = sf.openSession();
+		jobhunterDao dao=sqlSession.getMapper(jobhunterDao.class);
+		int r = dao.insertJobhunter(jbname, jbsex, jbage, jbphoto, jbid, jbusername, jbpnmb,jbcompany, jbjob, jbablt);
+		sqlSession.commit();
+		return "redirect:businessMessage.jsp";
 	}
 }
