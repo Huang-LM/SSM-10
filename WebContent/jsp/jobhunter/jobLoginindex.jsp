@@ -35,6 +35,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			padding: 20px; 
 			font-size: 30px;
 		}
+		.i-body{
+			animation-duration: 1s !important;
+		}
 		.search{
 			padding: 20px;
 		}
@@ -102,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
 </head>
 <body>
-	<div class="layui-layout layui-layout-admin">
+	<div class="layui-layout layui-layout-admin ">
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
@@ -117,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 		<!-- body -->
-		<div class="layui-container">
+		<div class="layui-container layui-anim-upbit layui-anim i-body">
 			<!-- 热门导航 -->
 			<div style="padding: 30px">
 				<fieldset class="layui-elem-field hot-nav" >

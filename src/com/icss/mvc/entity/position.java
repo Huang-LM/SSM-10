@@ -1,9 +1,15 @@
 package com.icss.mvc.entity;
 
+import org.apache.solr.client.solrj.beans.Field;
+
 public class position {
+	@Field
 	private String bsname;
+	@Field
 	private String bsclass;
+	@Field
 	private String bsposition;
+	@Field
 	private String bspay;
 	public String getBsname() {
 		return bsname;

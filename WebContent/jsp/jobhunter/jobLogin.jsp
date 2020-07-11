@@ -15,10 +15,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
-	
+		body{
+			background-color: #F2F2F2;
+		}
+		.top-bg{
+			width: 100%;
+			height: 400px;
+			animation-duration: 1s !important;
+		}
 	</style>
 </head>
-<body>
+<body scroll="no">
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
@@ -33,7 +40,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 		
-		<div class="layui-container" style="margin:100px auto;">
+		<div class="layui-bg-green top-bg layui-anim-fadein layui-anim "></div>
+		
+		<div class="layui-container lcn layui-anim-upbit layui-anim" style="margin: 50px auto">
 			<div style="text-align:center;">
 				<div class="layui-form layui-form-pane">
 					<div class="layui-form-item">

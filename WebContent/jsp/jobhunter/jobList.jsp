@@ -27,6 +27,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    width: 100%;
 		    height: 60px;
 		}
+		.i-body{
+			animation-duration: 1s !important;
+		}
 		.search{
 			padding: 20px;
 			margin-top: 100px;
@@ -73,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<!-- 搜索栏 -->
-		<div class="layui-container">
+		<div class="layui-container layui-anim-scale layui-anim i-body">
 			<div class="search">
 				<div class="layui-row">
 					<div class="layui-col-md2">
@@ -97,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>	
 		
 		
-		<div class="layui-container btable">
+		<div class="layui-container btable layui-anim-upbit layui-anim i-body">
 			
 				<table 
 					lay-data="{ id:'newTable', url:'showBsjson.do', even: true, limit: 15, height: 700, cellMinWidth: 30, page: true, limits: [10,15,20,150], toolbar: '#toolbar'}" 
@@ -127,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</script>
 
 		<!-- foot -->
-		<div class="layui-footer">
+		<div class="layui-footer layui-anim-upbit layui-anim i-body">
 			 <div class="layui-main">
 			   <p>© 2020 <a href="/"></a></p>
 			  </div>
@@ -156,7 +159,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		//头部事件
 		table.on('toolbar(demo)', function(obj){
 			var data = obj.data;
-
 		    switch(obj.event){
 			    case 'refresh':
 					table.reload('newTable', {
@@ -170,12 +172,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var input=$("input").val();
 			layer.msg(input);
 			table.reload('newTable', {
-				  url: 'findSearch.do',
+				  url: 'findSearchSolr.do',
 				  where: {
 					  bsposition: input,
-				  } 
+				  },
+				  parseData:function(res){
+					  return {
+						  "code": 0,
+						  "msg": "",
+						  "count": 50,
+						  "data": res
+					  }
+				  }
 			});
 		});  
+		
 		
 		/* active = {
 			    reload: function(){

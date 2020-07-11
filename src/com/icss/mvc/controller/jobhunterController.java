@@ -5,6 +5,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.common.SolrDocument;
+import org.apache.solr.common.SolrDocumentList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,6 +33,9 @@ import com.icss.mvc.entity.position;
 public class jobhunterController {
 	@Autowired
 	private jobhunterDao dao;
+	@Autowired
+	private HttpSolrClient client;
+	
 	private String entname;
 	
 //	注册
@@ -66,6 +74,21 @@ public class jobhunterController {
 		System.out.println("showSearch-----"+bsposition);
 		List<position> slist = dao.findSearch(bsposition);
 		return new Grid(0,"ok",slist.size(),slist);
+	}
+//	用Solr展示职业搜索结果
+	@RequestMapping("findSearchSolr")
+	@ResponseBody
+	public List<position> fun41(String bsposition) throws Exception {
+		 System.out.println("solr detect----------------------------");
+		 SolrQuery query=new SolrQuery();
+		 query.set("q","bsposition:"+bsposition);
+		 QueryResponse res = client.query(query);
+//		 SolrDocumentList slist = res.getResults();
+		 List<position> slist=res.getBeans(position.class);
+//		 for (SolrDocument doc : slist) {
+//		      System.out.println(doc.get("bsname")+"---"+doc.get("bsposition"));
+//		    }
+		 return slist;
 	}
 //	前往应聘页
 	@RequestMapping("jobSub")
