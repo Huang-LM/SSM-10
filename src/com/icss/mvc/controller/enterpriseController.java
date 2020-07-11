@@ -26,6 +26,8 @@ public class enterpriseController {
 	
 	public String entname;
 	public String id;
+	public String job;
+	public String status;
 	
 	/* 企业注册 */
 	@RequestMapping("enterpriseSignUp")
@@ -141,9 +143,11 @@ public class enterpriseController {
 	/* 获取应聘者身份证号 */
 	@RequestMapping("acquireId")
 	@ResponseBody
-	public String fune10(String jbid) {
+	public String fune10(String jbid, String jbjob, String interstatus) {
 	  	  System.out.println("Acquire ID---------------");
 	  	  id = jbid;
+	  	  job = jbjob;
+	  	  status = interstatus;
 		  return "success";
 	}
 
@@ -168,6 +172,39 @@ public class enterpriseController {
 		out.close();
 	}
  
+	/* 预约面试 */
+	@RequestMapping("orderInterview")
+	public String fune13() {
+	  	  System.out.println("Order Interview---------------");
+		  entdao.orderInterview(id, entname, job);
+		  return "jsp/enterprise/entJobHunter";
+	}
+
+	/* 面试成功 */
+	@RequestMapping("interviewSuccess")
+	public String fune14() {
+	  	  System.out.println("Interview Success---------------");
+		  entdao.interviewSuccess(id, entname, job);
+		  return "jsp/enterprise/entJobHunter";
+	}
+
+	/* 面试失败 */
+	@RequestMapping("interviewFail")
+	public String fune15() {
+	  	  System.out.println("Interview Fail---------------");
+		  entdao.interviewFail(id, entname, job);
+		  return "jsp/enterprise/entJobHunter";
+	}
+
+	/* 查看面试状态 */
+	@RequestMapping("findInterviewStatus")
+	public String fune16(ModelMap mp) {
+	  	  System.out.println("Find Interview Status---------------");
+	  	  //status = entdao.findInterStatus(id, entname, job);
+	  	  mp.addAttribute("status",status);
+		  return "forward:jsp/enterprise/showJobHunter.jsp";
+	}
 	
+
 	
 }

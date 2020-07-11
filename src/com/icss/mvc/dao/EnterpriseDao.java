@@ -48,7 +48,17 @@ public interface EnterpriseDao {
 	/* 应聘者简历 */
 	public jobhunter showResume(String ibid);
 	
+	/* 预约面试 */
+	public int orderInterview(String jbid, String bsname, String jbjob);
+
+	/* 面试成功 */
+	public int interviewSuccess(String jbid, String bsname, String jbjob);
+
+	/* 面试失败 */
+	public int interviewFail(String jbid, String bsname, String jbjob);
 	
+	/* 查看面试状态 */
+	public String findInterStatus(String jbid, String bsname, String jbjob);
 	
 	
 }

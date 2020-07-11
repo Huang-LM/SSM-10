@@ -61,8 +61,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="layui-container top">
+			<div class="alert alert-info top">
+			    <strong>招聘管理</strong>
+			</div>
+			<div>
+			    <button type="button" id="orderinter" class="layui-btn layui-btn-normal" onclick="location.href='orderInterview.do'">预约面试</button>
+			    <!-- <button type="button" class="layui-btn layui-btn-warm">暖色按钮</button> -->
+			    <button type="button" id="intersuccess" class="layui-btn" onclick="location.href='interviewSuccess.do'">面试成功</button>
+			    <button type="button" id="interfail" class="layui-btn layui-btn-danger" onclick="location.href='interviewFail.do'">面试失败</button>
+			    <!-- <button type="button" class="layui-btn layui-btn-disabled">禁用按钮</button> -->
+			</div>
+		
 			<!-- <blockquote class="layui-elem-quote">基本信息</blockquote> -->
-			<div class="alert alert-info">
+			<div class="alert alert-info top">
 			    <strong>基本信息</strong>
 			</div>
 			<hr class="layui-bg-green">
@@ -172,21 +183,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</thead>
 			</table>
 			<!-- <blockquote class="layui-elem-quote">简历</blockquote> -->
-			<div class="alert alert-info">
+			<div class="alert alert-info top">
 			    <strong>简历</strong>
 			</div>
 			<hr class="layui-bg-green">
 			<div class="showimg">
 				<img class="img" alt="" src="showResume.do">
 			</div>
+			
+			
+			
 		</div>
+		
+		<input type="hidden" id="status" value="${status}">
 
 	</div>
 	
 <script type="text/javascript">
 	layui.use(["table","jquery","element"],function(){
-		
+		var $=layui.jquery;
+		var sta=$("#status").val();
+		if(sta=="已预约面试") {
+			$("#orderinter").attr("disabled",true);
+		}
+		else if(sta=="已通过面试") {
+			$("#orderinter").attr("disabled",true);
+			$("#intersuccess").attr("disabled",true);
+			$("#interfail").attr("disabled",true);
+		}
+		else {
+			$("#intersuccess").attr("disabled",true);
+			$("#interfail").attr("disabled",true);
+		}
 	});
+	
+	/* $("#orderinter").click(function(){
+		
+		if(t==0) {
+			$(this).attr("disabled",true);
+		}
+	}) */
 </script>
 
 </body>

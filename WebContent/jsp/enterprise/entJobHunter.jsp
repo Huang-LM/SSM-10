@@ -71,6 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<th lay-data="{field:'jbage',title:'年龄'}"></th>
 					<th lay-data="{field:'jbid',title:'身份证号'}"></th>
 					<th lay-data="{field:'jbjob',title:'应聘职位'}"></th>
+					<th lay-data="{field:'interstatus',title:'应聘状态'}"></th>
 					<th lay-data="{title:'操作',templet:function(cd){																
 																return '<a class=\'layui-btn layui-btn-normal layui-btn-sm\' lay-event=\'check\'>查看详细信息</a>';
 															}}"></th>
@@ -95,11 +96,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(obj.event === 'check'){
 				$.ajax({
 					url:"acquireId.do",
-					data:{jbid:data.jbid},
+					data:{jbid:data.jbid,jbjob:data.jbjob,interstatus:data.interstatus},
 					type:'POST',
 					success:function(result){
 						if(result == "success"){
-							window.location.href="jsp/enterprise/showJobHunter.jsp";//jsp/enterprise/
+							window.location.href="findInterviewStatus.do";//jsp/enterprise/showJobHunter.jsp
 						}
 					},
 					error:function(){

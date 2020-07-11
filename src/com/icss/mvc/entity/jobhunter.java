@@ -11,6 +11,13 @@ public class jobhunter {
     private String jbcompany;
     private String jbjob;
     private String jbablt;
+    private String interstatus;
+	public String getInterstatus() {
+		return interstatus;
+	}
+	public void setInterstatus(String interstatus) {
+		this.interstatus = interstatus;
+	}
 	public String getJbname() {
 		return jbname;
 	}

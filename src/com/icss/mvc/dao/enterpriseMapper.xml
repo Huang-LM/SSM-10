@@ -68,7 +68,25 @@
 		select * from jobhunter where jbid=#{jbid};
 	</select>
 	
+	<!-- 预约面试 -->
+	<update id="orderInterview">
+		update jobhunter set interstatus="已预约面试" where jbid=#{0} and jbcompany=#{1} and jbjob=#{2};
+	</update>
 	
+	 <!-- 面试成功  -->
+	<update id="interviewSuccess">
+		update jobhunter set interstatus="已通过面试" where jbid=#{0} and jbcompany=#{1} and jbjob=#{2};
+	</update>
+	<!-- 面试失败 -->
+	<update id="interviewFail">
+		update jobhunter set interstatus="未通过面试" where jbid=#{0} and jbcompany=#{1} and jbjob=#{2};
+	</update>
+	
+	<!-- 查看面试状态 -->
+	<select id="findInterStatus" resultType="String">
+		select interstatus from jobhunter where jbid=#{0} and jbcompany=#{1} and jbjob=#{2};
+	</select>
 
+	
 
 </mapper>
