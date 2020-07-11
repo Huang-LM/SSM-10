@@ -19,7 +19,7 @@ public class FaceUtil {
             map.put("face_field", "age,face_type,beauty,type");
             map.put("image_type", "BASE64");
 
-            String param = GsonUtils.toJson(map);
+            String param = GsonUtils.toJson(map);  
 
             String result = HttpUtil.post(url, accessToken, "application/json", param);
             System.out.println(result);
