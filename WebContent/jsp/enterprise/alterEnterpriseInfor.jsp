@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div class="layui-container" style="margin:100px auto;">
 			<div style="text-align:center;">
-				<form class="layui-form layui-form-pane" lay-filter="example">
+				<form class="layui-form layui-form-pane" lay-filter="example" method="post">
 					<div class="layui-form-item">
 							<label class="layui-form-label">企业名称</label>
 							<div class="layui-input-block">
@@ -74,19 +74,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-form-item layui-form-text">
 							<label class="layui-form-label">简介</label>
 							<div class="layui-input-block">
-								<textarea name="bsintr" placeholder="请输入企业简介" class="layui-textarea"></textarea>
+								<textarea name="bsintr" id="bsi" placeholder="请输入企业简介" class="layui-textarea"></textarea>
 							</div>
 					</div>
 					<div class="layui-form-item layui-form-text">
 							<label class="layui-form-label">公司文化</label>
 							<div class="layui-input-block">
-								<textarea name="bsculture" placeholder="请输入公司文化" class="layui-textarea"></textarea>
+								<textarea name="bsculture" id="bsc" placeholder="请输入公司文化" class="layui-textarea"></textarea>
 							</div>
 					</div>
 					<div class="layui-form-item layui-form-text">
 							<label class="layui-form-label">应聘须知</label>
 							<div class="layui-input-block">
-								<textarea name="bsablt" placeholder="请输入应聘须知" class="layui-textarea"></textarea>
+								<textarea name="bsablt" id="bsa" placeholder="请输入应聘须知" class="layui-textarea"></textarea>
 							</div>
 					</div>
 					<div class="layui-form-item">
@@ -105,7 +105,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<input value="标题" type="button" onclick="window.location='autoFill.do'"/> -->
 		<!-- <button type="button" class="layui-btn" id="LAY-component-form-setval" onclick="window.location='autoFill.do'">快捷填写</button> -->
 		
-	
+		<input type="hidden" id="hidbsi" value="${bus.bsintr}">
+		<input type="hidden" id="hidbsc" value="${bus.bsculture}">
+		<input type="hidden" id="hidbsa" value="${bus.bsablt}">
 	
 	</div>
 
@@ -114,6 +116,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;
+		var bsintr= $("#hidbsi").val();
+		var bsculture= $("#hidbsc").val();
+		var bsablt= $("#hidbsa").val();
+		
 		form.on("submit(save)",function(data){
 			$.ajax({
 				url:"updEntInfor.do",
@@ -137,11 +143,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        ,"bspname": "${bus.bspname}"
 		        ,"bsid": "${bus.bsid}"
 		        ,"bsclass": "${bus.bsclass}"
-		        ,"bsintr": "${bus.bsintr}"
-		        ,"bsculture": "${bus.bsculture}"
-		        ,"bsablt": "${bus.bsablt}"
+		        /* ,"bsintr": "${bus.bsintr}" */
+		        /* ,"bsculture": "${bus.bsculture}" */
+		        /* ,"bsablt": "${bus.bsablt}" */
 			});
+			function add()
+			{  
+			  document.getElementById('bsi').value = bsintr;
+			  document.getElementById('bsc').value = bsculture;
+			  document.getElementById('bsa').value = bsablt;
+			}
+			add();
 		});
+		
+		
 		
 	});
 </script>
