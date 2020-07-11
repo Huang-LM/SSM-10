@@ -35,6 +35,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			padding: 20px; 
 			font-size: 30px;
 		}
+		.i-body{
+			animation-duration: 1s !important;
+		}
 		.search{
 			padding: 20px;
 		}
@@ -85,10 +88,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.change-card {
 		    animation-duration: 1s !important;
 		}
+		.psname{
+			margin-left: -8px;
+			font-size: 23px;
+		}
+		.psbadge{
+			float: left;
+			font-size: 15px;
+		}
+		.psposition{
+			margin-top:15px;
+			float: left;
+			font-size: 17px;
+		}
 		.pspay{
 			color: #FF6666 ;
-			font-size: 20px;
-			button: 0px;
+			font-size: 17px;
+			float: left;
+			margin-top:15px;
+			margin-left: 20px
 			
 		}
 		
@@ -116,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 		<!-- body -->
-		<div class="layui-container">
+		<div class="layui-container layui-anim-upbit layui-anim i-body">
 			<!-- 热门导航 -->
 			<div style="padding: 30px">
 				<fieldset class="layui-elem-field hot-nav" >
@@ -194,50 +212,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    <div class="layui-tab-item layui-show office-tab-1 layui-anim layui-anim-fadein change-card">
 					    
 					    	<div class="layui-row layui-col-space15">
+					    	
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-					    				<a href="" data-url="">
 											<div class="layui-card-header">
-							    			<h2>资深Android开发工程师</h2>
+												<a href="jobShow.do?bsname=上海亦净网络科技有限公司" >
+								    				<div class="psname">上海亦净网络科技有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：移动互联网</h3>
-							                    <h3>上海润桂荇信息科技股份有限公司</h3>
+									    		<span class="layui-badge layui-bg-gray psbadge">移动互联网</span>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">安卓开发工程师</p>
+							                    <p class="pspay">20K-30K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">前端开发工程师</p>
+							                    <p class="pspay">30K-50K</p>
+											</div>
+						    		</div>
+					    		</div>
+					    		
+					    		<div class="layui-col-md4">
+					    			<div class="layui-card office-card ">
+											<div class="layui-card-header">
+												<a href="jobShow.do?bsname=上海众意信息科技有限公司" >
+								    				<div class="psname">上海众意信息科技有限公司</div>
+								    			</a> 
+								    		</div>
+								    		<hr class="layui-bg-gray">
+									    	<div class="layui-card-body ">
+									    		<span class="layui-badge layui-bg-gray psbadge">移动互联网</span>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">net软件开发工程师</p>
 							                    <p class="pspay">15K-20K</p>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">前端测试软件工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
-					    			<div class="layui-card office-card">
-							    		<a href="" data-url="" >
+					    			<div class="layui-card office-card ">
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+												<a href="jobShow.do?bsname=快手" >
+								    				<div class="psname">快手</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">移动互联网</span>
 											</div>
-										</a> 
-						    		</div>
-					    		</div>
-					    		<div class="layui-col-md4">
-					    			<div class="layui-card office-card">
-							    		<a href="" data-url="" >
-											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
-								    		</div>
-									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+											<div class="layui-card-body">
+												<p class="psposition">web前端开发-AcFun</p>
+							                    <p class="pspay">15K-20K</p>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">前端数据开发工程师</p>
+							                    <p class="pspay">15K-20K</p>
+											</div>
 						    		</div>
 					    		</div>
 							</div><!-- 第一行 -->
@@ -245,50 +282,65 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="layui-row layui-col-space15">
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-							    		<a href="" data-url="" >
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+												<a href="jobShow.do?bsname=上海中科软科技有限公司" >
+								    				<div class="psname">上海中科软科技有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">互联网金融</span>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">互联网java开发工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">React前端开发工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
-					    			<div class="layui-card office-card">
-							    		<a href="" data-url="" >
+					    			<div class="layui-card office-card ">
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+												<a href="jobShow.do?bsname=亚创卓信（北京）科技有限公司" >
+								    				<div class="psname">亚创卓信科技有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">企业服务</span>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">互联网Java开发</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">FPGA工程师</p>
+							                    <p class="pspay">15K-20K</p>
+											</div>
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
-					    			<div class="layui-card office-card">
-							    		<a href="" data-url="" >
+					    			<div class="layui-card office-card ">
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+												<a href="jobShow.do?bsname=陕西猿起信息科技有限公司" >
+								    				<div class="psname">陕西猿起信息科技有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">教育培训</span>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">新媒体运营实习生</p>
+							                    <p class="pspay">3K-5K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">高中数学辅导老师</p>
+							                    <p class="pspay">8K-10K</p>
+											</div>
 						    		</div>
 					    		</div>
 							</div><!-- 第二行 -->
@@ -298,50 +350,65 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    	<div class="layui-row layui-col-space15 ">
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-							    		<a href="" data-url="" >
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+												<a href="jobShow.do?bsname=上海钢联物流股份有限公司" >
+								    				<div class="psname">上海钢联物流股份有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">物流运输</span>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">风电运维工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">JAVA工程师</p>
+							                    <p class="pspay">8K-10K</p>
+											</div>
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
-					    			<div class="layui-card office-card">
-							    		<a href="" data-url="" >
+					    			<div class="layui-card office-card ">
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+												<a href="jobShow.do?bsname=上海众调信息科技有限公司" >
+								    				<div class="psname">上海众调信息科技有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">数据服务</span>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">Java大数据工程师</p>
+							                    <p class="pspay">15K-20K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">产品经理</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
-					    			<div class="layui-card office-card">
-							    		<a href="" data-url="" >
+					    			<div class="layui-card office-card ">
 											<div class="layui-card-header">
-							    			<h1>呜呜呜公司</h1>
+												<a href="jobShow.do?bsname=上海什码网络科技有限公司" >
+								    				<div class="psname">上海什码网络科技有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">软件开发</span>
 											</div>
-										</a> 
+											<div class="layui-card-body">
+												<p class="psposition">测试工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">Web前端中级开发工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
 						    		</div>
 					    		</div>
 							</div><!-- 第一行 -->
@@ -349,50 +416,65 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="layui-row layui-col-space15">
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-					    				<a href="" data-url="" >
-								    		<div class="layui-card-header">
-								    			<h1>跳跳糖公司</h1>
+											<div class="layui-card-header">
+												<a href="jobShow.do?bsname=上海数慧系统技术有限公司" >
+								    				<div class="psname">上海数慧系统技术有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">软件开发</span>
 											</div>
-										</a>	
+											<div class="layui-card-body">
+												<p class="psposition">GIS开发工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">webgis开发工程师</p>
+							                    <p class="pspay">15K-20K</p>
+											</div>
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-					    				<a href="" data-url="" >
-								    		<div class="layui-card-header">
-								    			<h1>跳跳糖公司</h1>
+											<div class="layui-card-header">
+												<a href="jobShow.do?bsname=浙江掌尊信息科技有限公司" >
+								    				<div class="psname">浙江掌尊信息科技有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">软件开发</span>
 											</div>
-										</a>	
+											<div class="layui-card-body">
+												<p class="psposition">Ruby中级开发工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">UI设计师</p>
+							                    <p class="pspay">8K-10K</p>
+											</div>
 						    		</div>
 					    		</div>
 					    		<div class="layui-col-md4">
 					    			<div class="layui-card office-card ">
-					    				<a href="" data-url="" >
-								    		<div class="layui-card-header">
-								    			<h1>跳跳糖公司</h1>
+											<div class="layui-card-header">
+												<a href="jobShow.do?bsname=上海软中信息技术有限公司" >
+								    				<div class="psname">上海软中信息技术有限公司</div>
+								    			</a> 
 								    		</div>
+								    		<hr class="layui-bg-gray">
 									    	<div class="layui-card-body ">
-											    <h3>所属行业类别：</h3>
-							                    <p>清清浅浅</p>
-							                    <p>清清浅浅</p>
-							                    <p></p> 
-							                    <p></p>
+									    		<span class="layui-badge layui-bg-gray psbadge">软件开发</span>
 											</div>
-										</a>	
+											<div class="layui-card-body">
+												<p class="psposition">java中级开发工程师</p>
+							                    <p class="pspay">10K-15K</p>
+											</div>
+											<div class="layui-card-body">
+												<p class="psposition">测试工程师</p>
+							                    <p class="pspay">8K-10K</p>
+											</div>
 						    		</div>
 					    		</div>
 							</div><!-- 第二行 -->
@@ -459,18 +541,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				//,anim: 'updown' //切换动画方式
 			});
 			
-			form.on("submit(search)",function(data){	
-				console.log(data.field);
-				$.post("findSearch.do",data.field,function(txt){
+			form.on("submit(search)",function(data){
+				alert(data.field)
+				$.post("findSearchSolr.do",data.field,function(txt){
 					if(txt=="ok"){
 						alert("查找成功");
-						
 					} 
 					else {
 						alert("查找失败");
 					}
 				}); 
 			});
+			
 			
 		});
 		
