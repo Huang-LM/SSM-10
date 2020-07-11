@@ -1,7 +1,5 @@
 package com.icss.mvc.controller;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -9,10 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.icss.mvc.dao.EnterpriseDao;
+import com.icss.mvc.entity.Grid;
 import com.icss.mvc.entity.business;
 import com.icss.mvc.entity.business_enrol;
 import com.icss.mvc.entity.jobhunter;
@@ -69,10 +70,11 @@ public class enterpriseController {
 	/* 企业招聘信息 */
 	@RequestMapping("entFindPosition")
 	@ResponseBody
-	public List<position> fune5() {
+	public Grid fune5(Integer page, Integer limit) {
 	  	  System.out.println("Enterprise Find Position---------------");
-		  List<position> pos = entdao.entFindPosition(entname);
-		  return pos;
+		  List<position> pos = entdao.entFindPosition(entname, (page-1)*limit, limit);
+		  int c = entdao.entFindPositionCount(entname);
+		  return new Grid(0,"ok",c,pos);
 	}
 	
 	/* 修改企业基本信息 */
@@ -87,6 +89,15 @@ public class enterpriseController {
 		  else {
 			  return "fail";
 		  }
+	}
+
+	/* 修改企业基本信息表单赋值 */
+	@RequestMapping("altEntInfor") 
+	public String fun5(ModelMap mp) {
+		System.out.println("Auto Fill---------------"); 
+		business bus = entdao.autoFill(entname); 
+		mp.addAttribute("bus",bus);
+		return "forward:jsp/enterprise/alterEnterpriseInfor.jsp";
 	}
 	
 	/* 发布招聘信息 */
@@ -120,10 +131,11 @@ public class enterpriseController {
 	/* 查看应聘者 */
 	@RequestMapping("findJobHunter")
 	@ResponseBody
-	public List<jobhunter> fune9() {
+	public Grid fune9() {
 	  	  System.out.println("Find Job Hunter---------------");
 		  List<jobhunter> jh = entdao.findJobHunter(entname);
-		  return jh;
+		  int c = entdao.findJobHunterCount(entname);
+		  return new Grid(0,"ok",c,jh);
 	}
 
 	/* 获取应聘者身份证号 */
@@ -155,6 +167,7 @@ public class enterpriseController {
 		out.flush();
 		out.close();
 	}
+ 
 	
 	
 }

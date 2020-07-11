@@ -12,6 +12,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>应聘者基本信息</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
+	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
 	<style type="text/css">
 		.top{
 			margin-top:50px;
@@ -55,7 +61,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="layui-container top">
-			<blockquote class="layui-elem-quote">基本信息</blockquote>
+			<!-- <blockquote class="layui-elem-quote">基本信息</blockquote> -->
+			<div class="alert alert-info">
+			    <strong>基本信息</strong>
+			</div>
 			<hr class="layui-bg-green">
 			<table id="jobhunterTable1" class="layui-table" lay-data="{url:'showJobHunter.do',
 																parseData:function(res){
@@ -162,7 +171,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</thead>
 			</table>
-			<blockquote class="layui-elem-quote">简历</blockquote>
+			<!-- <blockquote class="layui-elem-quote">简历</blockquote> -->
+			<div class="alert alert-info">
+			    <strong>简历</strong>
+			</div>
+			<hr class="layui-bg-green">
 			<div class="showimg">
 				<img class="img" alt="" src="showResume.do">
 			</div>

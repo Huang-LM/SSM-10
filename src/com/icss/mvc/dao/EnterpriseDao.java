@@ -19,10 +19,16 @@ public interface EnterpriseDao {
 	public List<business> findEntInfor(String bsname);
 	
 	/* 企业招聘信息 */
-	public List<position> entFindPosition(String bsname);
+	public List<position> entFindPosition(String bsname, Integer start, Integer count);
+
+	/* 企业招聘信息总数 */
+	public int entFindPositionCount(String bsname);
 	
 	/* 修改企业基本信息 */
 	public int updEntInfor(business bus);
+	
+	/* 修改企业基本信息表单赋值 */
+	public business autoFill(String bsname);
 	
 	/* 发布招聘信息 */
 	public int entJobPosting(position pos);
@@ -33,11 +39,16 @@ public interface EnterpriseDao {
 	/* 查看应聘者 */
 	public List<jobhunter> findJobHunter(String bsname);
 
+	/* 应聘者数量 */
+	public int findJobHunterCount(String bsname);
+
 	/* 应聘者基本信息 */
 	public List<jobhunter> showJobHunter(String jbid);
 
 	/* 应聘者简历 */
 	public jobhunter showResume(String ibid);
+	
+	
 	
 	
 }

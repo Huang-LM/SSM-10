@@ -12,6 +12,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>管理招聘信息</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
+	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
 	<style type="text/css">
 		.top{
 			margin-top:50px;
@@ -48,17 +54,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="layui-container top">
-			<blockquote class="layui-elem-quote">招聘信息管理</blockquote>
+			<!-- <blockquote class="layui-elem-quote">招聘信息管理</blockquote> -->
+			<div class="alert alert-info">
+			    <strong>招聘信息管理</strong>
+			</div>
 			<hr class="layui-bg-green">
 			<table id="posTable" lay-filter="posTable" class="layui-table" lay-data="{url:'entFindPosition.do',
-																					parseData:function(res){
-																						return {
-																							code:0,
-																							msg:'招聘信息',
-																							count:res.length,
-																							data:res
-																						};
-																					}}">
+																						page:true,
+																						even:true,
+																						limit:5,
+																						limits:[5,10,20]}">
 				<thead>
 					<tr>
 					<th lay-data="{field:'bsname',title:'企业名称'}"></th>

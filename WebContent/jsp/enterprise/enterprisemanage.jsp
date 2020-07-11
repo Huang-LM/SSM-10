@@ -12,16 +12,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>企业管理</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
+	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
 	<style type="text/css">
 		.top{
 			margin-top:50px;
+		}
+		body{
+			margin-top: 50px;
 		}
 	</style>
 </head>
 
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header">
+		<!-- <div class="layui-header">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
@@ -45,20 +54,85 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>
 		    </ul>
-		</div>
+		</div> -->
 		
-		<div>
-			<div class="layui-carousel" id="test1" lay-filter="test1">
+		
+		<nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
+		  <!-- Brand -->
+		  <a class="navbar-brand" href="#">招聘系统</a>
+		  <!-- Links -->
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="index.jsp">首页</a>
+		    </li>
+		    <li class="nav-item active">
+		      <a class="nav-link" href="javascript:void(0);">企业</a>
+		    </li>
+		    <li class="nav-item">
+		      <!-- <a class="nav-link" href="jsp/enterprise/alterEnterpriseInfor.jsp">企业信息</a> -->
+		      <a class="nav-link" href="altEntInfor.do">企业信息</a>
+		    </li>
+		
+		    <!-- Dropdown -->
+		    <li class="nav-item dropdown">
+		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+		        	招聘信息
+		      </a>
+		      <div class="dropdown-menu">
+		        <a class="dropdown-item" href="jsp/enterprise/jobPosting.jsp">发布招聘信息</a>
+		        <a class="dropdown-item" href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a>
+		      </div>
+		    </li>
+		  </ul>
+		</nav>
+		
+		
+		<!-- <div>
+			<div class="layui-carousel" id="carou" lay-filter="carou">
 				<div carousel-item="">
 				    <div><img style="width:100%;height:400px" src="img/enttop1.jpg"></div>
 				    <div><img style="width:100%;height:400px" src="img/enttop2.jpg"></div>
 				    <div><img style="width:100%;height:400px" src="img/enttop3.jpg"></div>
 				</div>
 			</div>
+		</div> -->
+		<div id="demo" class="carousel slide" data-ride="carousel">
+		 
+		  <!-- 指示符 -->
+		  <ul class="carousel-indicators">
+		    <li data-target="#demo" data-slide-to="0" class="active"></li>
+		    <li data-target="#demo" data-slide-to="1"></li>
+		    <li data-target="#demo" data-slide-to="2"></li>
+		  </ul>
+		 
+		  <!-- 轮播图片 -->
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <img src="img/enttop1.jpg" style="width:100%;height:400px">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="img/enttop2.jpg" style="width:100%;height:400px">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="img/enttop3.jpg" style="width:100%;height:400px">
+		    </div>
+		  </div>
+		 
+		  <!-- 左右切换按钮 -->
+		  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#demo" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
+		 
 		</div>
 		
 		<div class="layui-container top">
-			<blockquote class="layui-elem-quote">基本信息</blockquote>
+			<!-- <blockquote class="layui-elem-quote">基本信息</blockquote> -->
+			<div class="alert alert-info">
+			    <strong>基本信息</strong>
+			</div>
 			<hr class="layui-bg-green">
 			<table id="entTable1" class="layui-table" lay-data="{url:'findEntInfor.do',
 																parseData:function(res){
@@ -138,17 +212,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>	
 		
 		<div class="layui-container top">
-			<blockquote class="layui-elem-quote">招聘信息</blockquote>
+			<!-- <blockquote class="layui-elem-quote">招聘信息</blockquote> -->
+			<div class="alert alert-info">
+			    <strong>招聘信息</strong>
+			</div>
 			<hr class="layui-bg-green">
 			<table id="posTable" class="layui-table" lay-data="{url:'entFindPosition.do',
-																parseData:function(res){
-																	return {
-																		code:0,
-																		msg:'招聘信息',
-																		count:res.length,
-																		data:res
-																	};
-																}}">
+																page:true,
+																even:true,
+																limit:5,
+																limits:[5,10,20]}">
 				<thead>
 					<tr>
 					<th lay-data="{field:'bsname',title:'企业名称'}"></th>
@@ -158,8 +231,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</thead>
 			</table>
-		
 		</div>
+		
+		
+		
 		
 
 	</div>
@@ -168,7 +243,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	layui.use(["table","carousel","jquery","element"],function(){
 		var carousel = layui.carousel;
 		carousel.render({
-		    elem: '#test1'
+		    elem: '#carou'
 		    ,arrow: 'always'
 		    ,width: '100%'
 		    ,height: '400px'
