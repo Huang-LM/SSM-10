@@ -88,8 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </li>
 		  </ul>
 		</nav>
-		
-		
+			
 		<!-- <div>
 			<div class="layui-carousel" id="carou" lay-filter="carou">
 				<div carousel-item="">
