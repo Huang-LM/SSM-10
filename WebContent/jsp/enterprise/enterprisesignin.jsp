@@ -71,15 +71,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</form>
 			</div>
 		</div>
-		
-	
-	
-
-	
 	</div>
 
 <script type="text/javascript">
-	
 	layui.use(["element","form","jquery","layer"],function(){
 		var element=layui.element;
 		var form=layui.form;
@@ -104,8 +98,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			return false;
 		})
-		
-		
 	});
 
 </script>

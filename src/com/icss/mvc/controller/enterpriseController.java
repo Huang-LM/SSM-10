@@ -209,7 +209,8 @@ public class enterpriseController {
 	  	  mp.addAttribute("status",status);
 		  return "forward:jsp/enterprise/showJobHunter.jsp";
 	}
-	
+
+	/* solr搜索应聘者 */
 	@RequestMapping("searchJobhunterSolr")
 	@ResponseBody
 	public List<jobhunter> fun17(String jbablt) throws Exception {
@@ -220,7 +221,8 @@ public class enterpriseController {
 		 List<jobhunter> jlist=res.getBeans(jobhunter.class);
 		 return jlist;
 	}
-	
+
+	/* 查看所有应聘者 */
 	@RequestMapping("findAllJobHunter")
 	@ResponseBody
 	public Grid fune18() {
