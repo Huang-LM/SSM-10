@@ -205,17 +205,7 @@ layui.use(["form","jquery","element","upload","layer"],function(){
 	
 	form.on("submit(save)",function(data){
 		var url="addJobhunter.do";
-		
-		/* layer.alert(JSON.stringify(data.field), {
-		      title: '最终的提交信息'
-		    }) */
-
 		$.post(url,data.field,function(txt){
-			/* if(txt=="success"){	
-				layer.alert("已提交简历");
-			}	 */
-			
-			
 			if(txt== "success"){	
 				layer.alert("已提交简历，将在三秒后跳转。。。");
 				setTimeout("window.location.href='jsp/jobhunter/jobLoginList.jsp'",3000);				

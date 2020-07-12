@@ -25,7 +25,7 @@
 	</select>
 	<!-- 添加求职简历 -->
 	<insert id="insertJob">
-		insert into jobhunter values(#{jbname}, #{jbsex}, #{jbage}, #{jbphoto}, #{jbid}, #{jbusername}, #{jbpnmb}, #{jbcompany}, #{jbjob}, #{jbablt}, "null");
+		insert into jobhunter values(#{jbname}, #{jbsex}, #{jbage}, #{jbphoto}, #{jbid}, #{jbusername}, #{jbpnmb}, #{jbcompany}, #{jbjob}, #{jbablt}, "公司未审核");
 	</insert>
 	<!-- 展示公司信息 -->
 	<select id="findbsView" resultType="com.icss.mvc.entity.business" parameterType="String">
