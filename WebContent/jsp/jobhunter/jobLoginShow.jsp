@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<script type="text/javascript" src="ui/layui.js"></script>
+	<script type="text/javascript" src="ui/jquery-1.11.1.min.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
 		body{
@@ -30,10 +31,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		.layui-footer{
 			left: 0px !important;
-			position: static !important; 
+			position: fixed !important; 
 			bottom:0px !important;
 			background-color: #F2F2F2;
 			margin-top: 30px
+		}
+		.quick_bar {
+			position: fixed;
+			left: 95%; 
+			top:80%;
+			
+		}
+		.bar-bg{
+			height: 40px;
+		    width: 40px;
+		    border-radius: 50%;
+		  	background-color: #ffffff;
+		}
+		.bar-icon{
+			margin-left: 12px;
+			padding-top: 10px;
+		}
+		.to_top{ 
+			display: none;
+			height: 50px;
+		    width: 50px;
+		    border-radius: 50%;
+		  	background-color: #2F4056;
+		}
+		.to_top:hover{ 
+			opacity:0.5
+		}
+		.to_reply {
+			display: block
+		}
+		.to_reply:hover{
+		 	opacity: 0.5
 		}
 	</style>
 </head>
@@ -48,13 +81,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="index.jsp">注销</a>
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobInfo.jsp">查看进度</a></dd>
+				      <dd><a href="index.jsp">注销</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
 		
 		<div class="layui-container top">
 			<blockquote class="layui-elem-quote">基本信息</blockquote>
-				<hr class="layui-bg-green">
+				<hr class="layui-bg-green">	
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+			  <legend>企业信息</legend>
+			</fieldset>	
 			<table class="layui-table etable1" 
 					lay-data="{
 								url:'jobShowView.do',
@@ -65,13 +107,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										count:1,
 										data:res
 									};
-								}}">
+								},
+								done: function (res, curr, count){
+						                $('th').hide();
+									}	
+								}">
 				<thead>
 					<tr>
-						<th lay-data="{field:'bsname',title:'企业名称'}"></th>
+						<th lay-data="{field:'bsname'}"></th>
 					</tr>
 				</thead>
 			</table>
+			
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+			  <legend>企业法人姓名</legend>
+			</fieldset>	
 			<table class="layui-table etable2" 
 					lay-data="{
 								url:'jobShowView.do',
@@ -82,13 +132,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										count:1,
 										data:res
 									};
-								}}">
+								},
+								done: function (res, curr, count){
+						                $('th').hide();
+									}	
+								}">
 				<thead>
 					<tr>
-						<th lay-data="{field:'bspname',title:'企业法人姓名'}"></th>
+						<th lay-data="{field:'bspname'}"></th>
 					</tr>
 				</thead>
 			</table>
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+			  <legend>行业类别</legend>
+			</fieldset>	
 			<table class="layui-table etable3" 
 					lay-data="{
 								url:'jobShowView.do',
@@ -99,13 +156,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										count:1,
 										data:res
 									};
-								}}">
+								},
+								done: function (res, curr, count){
+						                $('th').hide();
+									}	
+								}">
 				<thead>
 					<tr>
-						<th lay-data="{field:'bsclass',title:'行业类别'}">
+						<th lay-data="{field:'bsclass'}">
 					</tr>
 				</thead>
 			</table>
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+			  <legend>简介</legend>
+			</fieldset>	
 			<table class="layui-table etable4" 
 					lay-data="{
 								url:'jobShowView.do',
@@ -116,13 +180,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										count:1,
 										data:res
 									};
-								}}">
+								},
+								done: function (res, curr, count){
+						                $('th').hide();
+									}	
+								}">
 				<thead>
 					<tr>
-						<th lay-data="{field:'bsintr',title:'简介'}"></th>
+						<th lay-data="{field:'bsintr'}"></th>
 					</tr>
 				</thead>
 			</table>
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+			  <legend>公司文化</legend>
+			</fieldset>	
 			<table class="layui-table etable5" 
 					lay-data="{
 								url:'jobShowView.do',
@@ -133,10 +204,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										count:1,
 										data:res
 									};
-								}}">
+								},
+								done: function (res, curr, count){
+						                $('th').hide();
+									}	
+								}">
 				<thead>
 					<tr>
-						<th lay-data="{field:'bsculture',title:'公司文化'}"></th>
+						<th lay-data="{field:'bsculture'}"></th>
 					</tr>
 				</thead>
 			</table>
@@ -160,7 +235,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 <script type="text/javascript">
-	layui.use(["table"],function(){
+	layui.use(["table","element"],function(){
 		var table=layui.table;
 		var url="jobShowView.do";
 		

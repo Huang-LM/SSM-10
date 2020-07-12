@@ -63,10 +63,18 @@ public class jobhunterController {
 //	展示公司列表
 	@RequestMapping("showBsjson")
 	@ResponseBody
-	public Grid fun3(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit, Grid Grid) throws Exception {
+	public Grid fun3(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) throws Exception {
 		System.out.println("showBsjson------------");
 		List<position> jlist = dao.findList((page-1)*limit,limit);
 		return new Grid(0,"ok",150,jlist);
+	}
+//	展示公司列表
+	@RequestMapping("reshowBsjson")
+	@ResponseBody
+	public List<position> fun31(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) throws Exception {
+		System.out.println("showBsjson------------");
+		List<position> jlist = dao.findList((page-1)*limit,limit);
+		return jlist;
 	}
 //	展示职业搜索结果
 	@RequestMapping("findSearch")
@@ -142,11 +150,22 @@ public class jobhunterController {
 //	查看进度
 	@RequestMapping("searchInfo")
 	@ResponseBody
-	public String fun9(String jbname){
-		System.out.println("submit----------------------------"+jbname);
-		String res = dao.findInfo(jbname);
-//		System.out.println("submit----------------------------"+res);
-		return res;
+	public String fun9(String jbid){
+		System.out.println("search----------------------------"+jbid);
+		String res = dao.findInfo(jbid);
+		System.out.println("search----------------------------"+res);
+		if(res.equals("面试成功")) {
+			return "success";
+		}else if(res.equals("面试失败")){
+			return "lose";
+		}else if(res.equals("已预约面试")){
+			return "loading";
+		}else if(res.equals(" ")) {
+			return "flase";
+		}
+		
+		return "flase";
+		
 	}
 }
 

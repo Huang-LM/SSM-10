@@ -35,8 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobLogin.jsp">登录</a></dd>
+				      <dd><a href="jsp/jobhunter/jobEnrol.jsp">注册</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
 		
@@ -76,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 <script type="text/javascript">	
-	layui.use(["form","jquery","layer"],function(){
+	layui.use(["form","jquery","layer","element"],function(){
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;

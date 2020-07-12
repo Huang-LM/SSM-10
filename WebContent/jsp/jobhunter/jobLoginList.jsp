@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
 		body{
-			background-color: #F2F2F2;
+			background-color: #ffffff;
 		}
 		.nav{
 			position: fixed;
@@ -57,9 +57,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			left: 0px !important;
 			position: static !important;
 			bottom:0px !important;
-			background-color: #ffffff !important;
+			background-color: #F2F2F2 !important;
 		}
-				.quick_bar {
+		.quick_bar {
 			position: fixed;
 			left: 95%; 
 			top:80%;
@@ -103,9 +103,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="index.jsp">注销</a>
-				<!-- <li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a> -->
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobInfo.jsp">查看进度</a></dd>
+				      <dd><a href="index.jsp">注销</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
 		
@@ -171,7 +175,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </div>
 		</div>
 		
-					<!--返回顶部小组件-->
+		<!--返回顶部小组件-->
 	    <div class="quick_bar" id="quick_bar">
 	        <a id="to_top" class="to_top" title="返回顶部"  href="javascript:void(0)">
 	        	<div class="bar-bg">
@@ -183,7 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 <script type="text/javascript">
-	layui.use(['form','jquery','table','layer'],function(){
+	layui.use(['form','jquery','table','layer',"element"],function(){
 		var table=layui.table;
 		var form=layui.form;
 		var $=layui.jquery;
@@ -197,27 +201,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    case 'detail':
 			    	var bsname=data.bsname;
 			    	var bsposition=data.bsposition;
-			    	/* var params = {
-			                "bsname": data.bsname,
-			                "bsposition": data.bsposition,
-			            } */
+			    	
 			    	window.location.href='jobSub.do?bsname='+bsname+'&bsposition='+bsposition;
-			    	/* ajax传参数无法传值跳转 */
-			    	/* $.ajax({
-						url: "jobSub.do",
-						data: params,
-						type: 'POST',
-						success: function(txt){
-							if(txt=="success")
-						},
-						error: function(){
-							layer.msg("该简历未开放！");
-						}
-					});  */
 			    	break; 
 			    case 'view':
 			    	var bsname=data.bsname;
-			    	window.location.href='jobShow.do?bsname='+bsname;	
+			    	window.location.href='jobLoginShow.do?bsname='+bsname;	
 			    	break; 	
 		    };
 		  });
@@ -228,7 +217,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    switch(obj.event){
 			    case 'refresh':
 					table.reload('newTable', {
-						  url: 'showBsjson.do',
+						  url: 'reshowBsjson.do',
+						  parseData:function(res){
+							  return {
+								  "code": 0,
+								  "msg": "",
+								  "count": 50,
+								  "data": res
+							  }
+						  }
 						});
 					break;
 		    	};

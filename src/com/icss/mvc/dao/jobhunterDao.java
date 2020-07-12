@@ -23,5 +23,5 @@ public interface jobhunterDao {
 //	查找公司信息
 	public List<business> findbsView(String bsname);
 //	查看进度
-	public String findInfo(String jbname);
+	public String findInfo(String jbid);
 }
