@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<base href="<%=basePath %>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>管理员登录</title>
+	<title>管理员注册</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
@@ -24,16 +24,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >管理</a>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item layui-this">
-					<a href="javascript:void(0);">登录</a>
-				</li>
 				<li class="layui-nav-item">
-					<a href="jsp/manager/adminSignUp.jsp">注册</a>
+					<a href="jsp/manager/adminSignIn.jsp">登录</a>
+				</li>
+				<li class="layui-nav-item layui-this">
+					<a href="javascript:void(0);">注册</a>
 				</li>
 		    </ul>
 		</div>
-		
-		<div class="layui-container" style="margin:100px auto;">
+	</div>
+	
+	<div class="layui-container" style="margin:100px auto;">
 			<div style="text-align:center;">
 				<form class="layui-form layui-form-pane">
 					<div class="layui-form-item">
@@ -57,37 +58,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-form-item">
 						<div class="layui-inline">
 							<div class="layui-input-inline">
-								<button lay-submit lay-filter="signin" class="layui-btn layui-btn-normal">登录</button>
+								<button lay-submit lay-filter="signup" class="layui-btn layui-btn-normal">注册</button>
 							</div>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
-	
-	</div>
-	
+
 <script type="text/javascript">
-	layui.use(["element","form","jquery","layer"],function(){
-		var element=layui.element;
+	layui.use(["form","jquery","layer"],function(){
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;
-		form.on("submit(signin)",function(data){
+		form.on("submit(signup)",function(data){
 			$.ajax({
-				url:"adminSignIn.do",
+				url:"adminSignUp.do",
 				data:data.field,
 				type:'POST',
 				success:function(result){
 					if(result == "success"){
-						window.location.href="jsp/manager/backgroundLogin.jsp";//jsp/enterprise/
-					}
-					else if(result == "fail") {
-						layer.msg("姓名或密码输入错误！");
+						window.location.href="jsp/manager/adminSignIn.jsp";
 					}
 				},
 				error:function(){
-					layer.msg("失败！");
+					layer.msg("注册失败！");
 				}
 			});
 			return false;

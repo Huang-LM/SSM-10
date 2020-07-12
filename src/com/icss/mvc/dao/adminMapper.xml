@@ -4,7 +4,7 @@
 <mapper namespace="com.icss.mvc.dao.adminDao">
 	<!-- 管理员注册 -->
 	<insert id="adminSignup">
-		insert into business_enrol values(#{mnname}, #{mnpsw});
+		insert into manager_enrol(mnname,mnpsw) values(#{0}, #{1});
 	</insert>
 	
 	<!-- 管理员登录 -->

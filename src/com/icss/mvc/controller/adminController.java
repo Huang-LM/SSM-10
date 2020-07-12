@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.icss.mvc.dao.adminDao;
 import com.icss.mvc.entity.Grid;
 import com.icss.mvc.entity.business;
+import com.icss.mvc.entity.business_enrol;
 import com.icss.mvc.entity.jobhunter;
+import com.icss.mvc.entity.manager_enrol;
 
 @Controller
 public class adminController {
@@ -34,8 +36,14 @@ public class adminController {
 			return "fail";
 		}
 	}
-	
-	
+	/* 管理员注册 */
+	@RequestMapping("adminSignUp")
+	@ResponseBody
+	public String fune1(String mnname,String mnpsw) {
+		System.out.println("Admin Sign Up---------------");
+		int a=dao.adminSignup(mnname,mnpsw);
+		return "success";
+	}
 	
 	
 	@RequestMapping("showBusiness")
