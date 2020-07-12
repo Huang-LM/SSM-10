@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					type:'POST',
 					success:function(result){
 						if(result == "success"){
-							window.location.href="businessMessage.jsp";//jsp/enterprise/
+							window.location.href="jsp/manager/businessMessage.jsp";//jsp/enterprise/
 						}
 						else if(result == "fail") {
 							layer.msg("删除！");
