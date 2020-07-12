@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icss.mvc.dao.adminDao">
+	<!-- 管理员注册 -->
+	<insert id="adminSignup">
+		insert into business_enrol values(#{mnname}, #{mnpsw});
+	</insert>
+	
+	<!-- 管理员登录 -->
+	<select id="adminSignin" resultType="String">
+		select mnpsw from manager_enrol where mnname=#{mnname};
+	</select>
+</mapper>

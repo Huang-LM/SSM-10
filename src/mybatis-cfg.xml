@@ -5,6 +5,7 @@
 	<mappers>
 		<mapper resource="com/icss/mvc/dao/enterpriseMapper.xml"/>
 		<mapper resource="com/icss/mvc/dao/jobhunterMapper.xml"/>
+		<mapper resource="com/icss/mvc/dao/adminMapper.xml"/>
 	</mappers>
 	
 </configuration>
