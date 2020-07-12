@@ -20,7 +20,7 @@
          update jobhunter set jbname=#{jbname},jbsex=#{jbsex},jbage=#{jbage},jbusername=#{jbusername},jbpnmb=#{jbpnmb},jbcompany=#{jbcompany},jbjob=#{jbjob},jbablt=#{jbablt},interstatus=#{interstatus} 
          where jbid=#{jbid};
     </update>
- <select id="findjbhunterByid" resultType="jpbhunter">
+ <select id="findjbhunterByid" resultType="jobhunter">
 		select * from jobhunter where jbid=#{0} ; 
 	</select>	
 </mapper>
