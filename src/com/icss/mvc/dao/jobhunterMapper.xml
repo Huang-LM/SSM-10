@@ -31,4 +31,8 @@
 	<select id="findbsView" resultType="com.icss.mvc.entity.business" parameterType="String">
 		select * from business where bsname=#{bsname};
 	</select>
+	<!-- 查看进度 -->
+	<select id="findInfo" resultType="String">
+		select interstatus from jobhunter where jbname=#{jbname};
+	</select>
 </mapper>

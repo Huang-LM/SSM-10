@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<script type="text/javascript" src="ui/layui.js"></script>
+	<script type="text/javascript" src="ui/jquery-1.11.1.min.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
 		body{
@@ -57,6 +58,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			position: static !important;
 			bottom:0px !important;
 			margin-top: 50px
+		}
+				.quick_bar {
+			position: fixed;
+			left: 95%; 
+			top:80%;
+			
+		}
+		.bar-bg{
+			height: 40px;
+		    width: 40px;
+		    border-radius: 50%;
+		  	background-color: #ffffff;
+		}
+		.bar-icon{
+			margin-left: 12px;
+			padding-top: 10px;
+		}
+		.to_top{ 
+			display: none;
+			height: 50px;
+		    width: 50px;
+		    border-radius: 50%;
+		  	background-color: #2F4056;
+		}
+		.to_top:hover{ 
+			opacity:0.5
+		}
+		.to_reply {
+			display: block
+		}
+		.to_reply:hover{
+		 	opacity: 0.5
 		}
 	</style>
 </head>
@@ -135,6 +168,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			   <p>© 2020 <a href="/"></a></p>
 			  </div>
 		</div>	
+		
+		<!--返回顶部小组件-->
+	    <div class="quick_bar" id="quick_bar">
+	        <a id="to_top" class="to_top" title="返回顶部"  href="javascript:void(0)">
+	        	<div class="bar-bg">
+	        	 	<div class="layui-icon layui-icon-return bar-icon"></div>
+	        	</div>
+	        </a>
+	    </div>
 	</div>
 	
 	
@@ -187,6 +229,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 		});  
 		
+		$(document).scroll(function(){
+            var top=$(document).scrollTop();
+            if(top<300){
+                $('#to_top').hide();
+            }
+            else{
+                $('#to_top').show();
+            }
+       	})
+	    
+		$('#to_top').click(function(){
+            $('body,html').animate({scrollTop:0},300);
+        })
 		
 		/* active = {
 			    reload: function(){
