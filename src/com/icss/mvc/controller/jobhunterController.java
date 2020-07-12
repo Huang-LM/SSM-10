@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
@@ -79,15 +80,11 @@ public class jobhunterController {
 	@RequestMapping("findSearchSolr")
 	@ResponseBody
 	public List<position> fun41(String bsposition) throws Exception {
-		 System.out.println("solr detect----------------------------");
+		 System.out.println("solr serch----------------------------");
 		 SolrQuery query=new SolrQuery();
 		 query.set("q","bsposition:"+bsposition);
 		 QueryResponse res = client.query(query);
-//		 SolrDocumentList slist = res.getResults();
 		 List<position> slist=res.getBeans(position.class);
-//		 for (SolrDocument doc : slist) {
-//		      System.out.println(doc.get("bsname")+"---"+doc.get("bsposition"));
-//		    }
 		 return slist;
 	}
 //	前往应聘页
@@ -105,6 +102,14 @@ public class jobhunterController {
 		mp.addAttribute("bsname", bsname);
 		entname=bsname;
 		return "forward:jsp/jobhunter/jobShow.jsp";
+	}
+//	登录后前往公司详细页
+	@RequestMapping("jobLoginShow")
+	public String fun61(ModelMap mp, String bsname) {
+		System.out.println("jobShow-----"+bsname);
+		mp.addAttribute("bsname", bsname);
+		entname=bsname;
+		return "forward:jsp/jobhunter/jobLoginShow.jsp";
 	}
 //	查找公司信息
 	@RequestMapping("jobShowView")
@@ -134,4 +139,14 @@ public class jobhunterController {
 		pic.transferTo(saveFile);
 		return new ResponseCode(0, jobphoto, fileName);
 	}
+//	查看进度
+	@RequestMapping("searchInfo")
+	@ResponseBody
+	public String fun9(String jbname){
+		System.out.println("submit----------------------------"+jbname);
+		String res = dao.findInfo(jbname);
+//		System.out.println("submit----------------------------"+res);
+		return res;
+	}
 }
+

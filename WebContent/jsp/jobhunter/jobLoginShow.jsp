@@ -142,7 +142,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 		</div>	
 
-		
+		 <!--返回顶部小组件-->
+	    <div class="quick_bar" id="quick_bar">
+	        <a id="to_top" class="to_top" title="返回顶部"  href="javascript:void(0)">
+	        	<div class="bar-bg">
+	        	 	<div class="layui-icon layui-icon-return bar-icon"></div>
+	        	</div>
+	        </a>
+	    </div>
 
 		<!-- foot -->
 		<div class="layui-footer">
@@ -158,6 +165,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var url="jobShowView.do";
 		
 	});
+	
+	$(document).scroll(function(){
+        var top=$(document).scrollTop();
+        if(top<300){
+            $('#to_top').hide();
+        }
+        else{
+            $('#to_top').show();
+        }
+   	})
+    
+	$('#to_top').click(function(){
+        $('body,html').animate({scrollTop:0},300);
+    })
 </script>	
 
 </body>

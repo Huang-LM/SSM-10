@@ -191,11 +191,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 <script type="text/javascript">
-layui.use(["form","jquery","element","upload"],function(){
+layui.use(["form","jquery","element","upload","layer"],function(){
 	var form=layui.form;
 	var $=layui.jquery;
 	var element=layui.element;
 	var upload=layui.upload;
+	var layer=layui.layer;
 	
 	form.on("submit(save)",function(data){
 		var url="addJobhunter.do";
@@ -204,8 +205,6 @@ layui.use(["form","jquery","element","upload"],function(){
 		      title: '最终的提交信息'
 		    }) */
 
-		/* alert(data.jbname);
-		alert(data.file); */
 		$.post(url,data.field,function(txt){
 			/* if(txt=="success"){	
 				layer.alert("已提交简历");

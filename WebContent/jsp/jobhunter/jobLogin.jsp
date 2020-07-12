@@ -101,11 +101,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				success:function(result){
 					if(result.msg == "success"){
 						layer.msg("登录成功，欢迎"+result.name);
-						setTimeout(function () {layer.msg("正在跳转");}, 2000);
-						setTimeout("window.location.href='jsp/jobhunter/jobLoginindex.jsp'",3000);				
+						setTimeout(function () {layer.msg("正在跳转");}, 1500);
+						setTimeout("window.location.href='jsp/jobhunter/jobLoginindex.jsp'",2000);				
 					}
 					else if(result == "fail") {
-						layer.msg("账号或密码有误");
+						layer.msg("账号或密码有误！");
 					}
 				},
 				error:function(){
