@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/businessMessage.jsp" data-id="1">企业信息查询</a></li>
 				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/businessAdd.jsp" data-id="2">添加企业信息</a></li>
 				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/jobhunterMessage.jsp" data-id="3">求职者信息查询</a></li>
-				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/jbhunterAdd.jsp" data-id="5">添加求职者信息</a></li>  
+				<li class="layui-nav-item" ><a href="javascript:void(0);" data-url="jsp/manager/jbhunterAdd.jsp" data-id="4">添加求职者信息</a></li>  
 			</ul>
 		</div>
 		<div class="layui-body">
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var url=item.attr("data-url");
 			var did=item.attr("data-id");
 			
-			if(did=="4") {
+			/* if(did=="4") {
 				$.post("jsp/record.jsp",{},function(data){
 					element.tabAdd("desktop",{
 						title:item.text(),
@@ -75,17 +75,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						maxWidth:500
 					});	
 				});
-			}
-			else {
-				$.post(url,{},function(data){
-					element.tabAdd("desktop",{
-						title:item.text(),
-						content:pageFilter(data),
-						id:did
-					});
-					element.tabChange("desktop",did);
+			} */
+			
+			$.post(url,{},function(data){
+				element.tabAdd("desktop",{
+					title:item.text(),
+					content:pageFilter(data),
+					id:did
 				});
-			}
+				element.tabChange("desktop",did);
+			});
+			
 		});		
 	});
 </script>
