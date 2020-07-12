@@ -68,14 +68,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
-				<li class="layui-nav-item"><a href="jobLoginindex.jsp" >首页</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginindex.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginList.jsp" >公司列表</a>
-				<li class="layui-nav-item layui-this"><a href="" >简历提交</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobLoginShow.jsp" >公司信息</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<!-- <li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a> -->
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobInfo.jsp">查看进度</a></dd>
+				      <dd><a href="index.jsp">注销</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
 		
@@ -213,7 +218,7 @@ layui.use(["form","jquery","element","upload","layer"],function(){
 			
 			if(txt== "success"){	
 				layer.alert("已提交简历，将在三秒后跳转。。。");
-				setTimeout("window.location.href='jsp/jobhunter/jobList.jsp'",3000);				
+				setTimeout("window.location.href='jsp/jobhunter/jobLoginList.jsp'",3000);				
 			}		
 		});
 		return false;

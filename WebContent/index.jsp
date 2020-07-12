@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    height: 60px;
 		}
 		.hot-nav{
-			margin-top: 70px;
+			margin-top: 100px;
 			height: 80px;
 		}
 		.hot-nav-list{
@@ -156,15 +156,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >首页</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/index.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
+				
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobLogin.jsp">登录</a></dd>
+				      <dd><a href="jsp/jobhunter/jobEnrol.jsp">注册</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
+	
 		<!-- body -->
 		<div class="layui-container layui-anim-upbit layui-anim i-body">
 			<!-- 热门导航 -->

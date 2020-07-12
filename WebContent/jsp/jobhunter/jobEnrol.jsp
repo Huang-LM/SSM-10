@@ -35,8 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);">注册</a>
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobLogin.jsp">登录</a></dd>
+				      <dd><a href="jsp/jobhunter/jobEnrol.jsp">注册</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
 		
@@ -87,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <script type="text/javascript">
-	layui.use(["form","jquery","layer"],function(){
+	layui.use(["form","jquery","layer","element"],function(){
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;
@@ -98,7 +103,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:'POST',
 				success:function(result){
 					if(result == "success"){
-						window.location.href='jsp/jobhunter/jobLogin.jsp';
+						layer.msg("注册成功");
+						setTimeout(function () {layer.msg("正在跳转");}, 1500);
+						setTimeout("window.location.href='jsp/jobhunter/jobLogin.jsp'",2000);	
 					}
 				},
 				error:function(){

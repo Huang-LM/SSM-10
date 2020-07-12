@@ -27,29 +27,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    height: 60px;
 		}
 		.top{
+			
+		}
+		.see-bg{
+			height: 400px;
+			width: 100%;
+			animation-duration: 1s !important;
+		}
+		.item-1{
 			margin-top: 100px;
+			margin-left: 28%
+		}
+		.sub-btn{
+			
+		}
+		.dot{
+			margin-top: 50px;
+		}
+		.dot-1{
+			font-size: 20px;
+			margin-left: 0
+		}
+		.dot-2{
+			font-size: 20px;
+			margin-left: 30%;
+		}
+		.dot-3{
+			font-size: 20px;
+			margin-left: 40%;
+		}
+		.m-progress{
+			margin-top: 10px
 		}
 		.layui-footer{
 			left: 0px !important;
-			position: static !important; 
+			position: fixed !important; 
 			bottom:0px !important;
 			background-color: #F2F2F2;
-			margin-top: 30px
+			margin-top: 150px;
 		}
 	</style>
 </head>
 <body>
 	<div class="layui-layout layui-layout-admin">
+		<div class="see-bg layui-bg-green layui-anim-fadein layui-anim"></div>
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginindex.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginList.jsp" >公司列表</a>
-				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobLoginShow.jsp" >公司信息</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				
 				<li class="layui-nav-item" lay-unselect="">
 				    <a href="javascript:;">个人中心</a>
 				    <dl class="layui-nav-child">
@@ -60,23 +89,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 		
-		<div class="layui-container top">
+		
+		<div class="layui-container top layui-anim-up layui-anim">
+			
 			<form class="layui-form">
 				<div class="layui-form-item item-1">
-					<label class="layui-form-label">姓名</label>
+					<label class="layui-form-label">身份证</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbname" class="layui-input" placeholder="请输入本人姓名">
+						<input type="text" name="jbid" class="layui-input i-input" placeholder="请输入本人身份证号">
 					</div>
+					<button lay-submit lay-filter="search" class="layui-btn sub-btn">查看</button>
 				</div>
+				
 				<div class="layui-form-item">
 					<div class="layui-input-inline">
-						<button lay-submit lay-filter="search" class="layui-btn">查看</button>
+						
 					</div>
 				</div>
 			</form>
 			
-			<div class="layui-progress">
-				<div class="layui-progress-bar i-progress" lay-percent="10%"></div>
+			<div class="dot">
+				<span class="layui-badge layui-bg-gray dot-1">正在审核中</span>
+				<span class="layui-badge layui-bg-gray dot-2">已预约面试</span>
+				<span class="layui-badge layui-bg-gray dot-3">面试结果</span>
+			</div>
+			<div class="layui-progress layui-progress-big m-progress">
+				<div class="layui-progress-bar i-progress layui-bg-orange" lay-percent="10%"></div>
 			</div>
 			
 		</div>
@@ -98,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var layer=layui.layer;
 		var $=layui.jquery;
 		  
-		form.on("submit(search)",function(data){
+		/* form.on("submit(search)",function(data){
 			layer.alert(data);
 			$.ajax({
 				url:"searchInfo.do",
@@ -111,25 +149,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					layer.msg("失败！");
 				}
 			});
-			return false;
-			
-			
-			/* $.post("searchInfo.do",data.field,function(txt){
-				if(txt=="面试成功"){	
-					layer.alert("恭喜您面试通过");
-					$(".i-progress").attr("lay-percent","100%");
-				}else if(txt=="面试失败"){
-					layer.alert("很遗憾，您面试未通过");
-					$(".i-progress").attr("lay-percent","100%");
-				}else if(txt=="已预约面试"){
-					layer.alert("已预约面试");
-					$(".i-progress").attr("lay-percent","50%");
-				}else if(txt==null){
-					layer.alert("公司还未审核，请耐心等待");
-					$(".i-progress").attr("lay-percent","10%");
-				}
-			});
 			return false; */
+			
+		form.on("submit(search)",function(data){
+			$.post("searchInfo.do",data.field,function(txt){
+				/* layer.alert(txt); */
+				if(txt=="success"){	
+					layer.alert("恭喜您，面试通过");
+					$(".i-progress").attr("style","width: 100%");
+					$(".i-progress").attr("class","layui-progress-bar i-progress");
+				}else if(txt=="lose"){
+					layer.alert("很遗憾，您的面试未通过");
+					$(".i-progress").attr("style","width: 100%");
+					$(".i-progress").attr("class","layui-progress-bar i-progress layui-bg-red");
+				}else if(txt=="loading"){
+					layer.alert("已预约面试，请等待公司通知");
+					$(".i-progress").attr("style","width: 50%");
+					$(".i-progress").attr("class","layui-progress-bar i-progress layui-bg-blue");
+				}else{
+					layer.alert("公司还未审核，请耐心等待");
+					$(".i-progress").attr("style","width: 10%");
+					$(".i-progress").attr("class","layui-progress-bar i-progress layui-bg-orange");
+				}
+			});	
+			return false;
 		});
 		
 		

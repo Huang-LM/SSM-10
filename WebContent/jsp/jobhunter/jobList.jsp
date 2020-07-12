@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			bottom:0px !important;
 			margin-top: 50px
 		}
-				.quick_bar {
+		.quick_bar {
 			position: fixed;
 			left: 95%; 
 			top:80%;
@@ -98,13 +98,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
 			<ul class="layui-nav" lay-filter="menu">
-				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
+				<li class="layui-nav-item"><a href="jsp/jobhunter/index.jsp" >首页</a>
 				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobLogin.jsp">登录</a></dd>
+				      <dd><a href="jsp/jobhunter/jobEnrol.jsp">注册</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
 		
@@ -181,7 +186,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 <script type="text/javascript">
-	layui.use(['form','jquery','table','layer'],function(){
+	layui.use(['form','jquery','table','layer',"element"],function(){
 		var table=layui.table;
 		var form=layui.form;
 		var $=layui.jquery;
@@ -204,7 +209,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    switch(obj.event){
 			    case 'refresh':
 					table.reload('newTable', {
-						  url: 'showBsjson.do',
+						  url: 'reshowBsjson.do',
+						  parseData:function(res){
+							  return {
+								  "code": 0,
+								  "msg": "",
+								  "count": 50,
+								  "data": res
+							  }
+						  }
 						});
 					break;
 		    	};

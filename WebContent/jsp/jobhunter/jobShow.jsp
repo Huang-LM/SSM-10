@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		.layui-footer{
 			left: 0px !important;
-			position: static !important; 
+			position: fixed !important; 
 			bottom:0px !important;
 			background-color: #F2F2F2;
 			margin-top: 30px;
@@ -87,8 +87,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLogin.jsp">登录</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobEnrol.jsp">注册</a>
+				<li class="layui-nav-item" lay-unselect="">
+				    <a href="javascript:;">个人中心</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="jsp/jobhunter/jobLogin.jsp">登录</a></dd>
+				      <dd><a href="jsp/jobhunter/jobEnrol.jsp">注册</a></dd>
+				    </dl>
+				</li>
 			</ul>
 		</div>
 		
@@ -237,7 +242,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 <script type="text/javascript">
-	layui.use(["table"],function(){
+	layui.use(["table","element"],function(){
 		var table=layui.table;
 		var url="jobShowView.do";
 		
