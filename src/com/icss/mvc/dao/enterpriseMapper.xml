@@ -87,6 +87,12 @@
 		select interstatus from jobhunter where jbid=#{0} and jbcompany=#{1} and jbjob=#{2};
 	</select>
 
+	<select id="findAllJobHunter" resultType="com.icss.mvc.entity.jobhunter">
+		select * from jobhunter;
+	</select>
 	
+	<select id="findAllJobHunterCount" resultType="int">
+		select count(*) from jobhunter;
+	</select>
 
 </mapper>

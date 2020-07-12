@@ -203,8 +203,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	layui.use(["table","jquery","element"],function(){
 		var $=layui.jquery;
 		var sta=$("#status").val();
+		var x=document.getElementById('orderinter');
 		if(sta=="已预约面试") {
 			$("#orderinter").attr("disabled",true);
+			x.val="已预约";
 		}
 		else if(sta=="已通过面试") {
 			$("#orderinter").attr("disabled",true);

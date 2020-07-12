@@ -1,15 +1,23 @@
 package com.icss.mvc.entity;
 
+import org.apache.solr.client.solrj.beans.Field;
+
 public class jobhunter {
+	@Field
 	private String jbname;
+	@Field
 	private String jbsex;
+	@Field
 	private Integer jbage;
 	private byte[] jbphoto;
 	private String jbid;
     private String jbusername;
     private String jbpnmb;
+    @Field
     private String jbcompany;
+    @Field
     private String jbjob;
+    @Field
     private String jbablt;
     private String interstatus;
 	public String getInterstatus() {

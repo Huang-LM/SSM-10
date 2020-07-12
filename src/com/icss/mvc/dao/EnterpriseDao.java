@@ -60,5 +60,7 @@ public interface EnterpriseDao {
 	/* 查看面试状态 */
 	public String findInterStatus(String jbid, String bsname, String jbjob);
 	
+	public List<jobhunter> findAllJobHunter();
 	
+	public int findAllJobHunterCount();
 }

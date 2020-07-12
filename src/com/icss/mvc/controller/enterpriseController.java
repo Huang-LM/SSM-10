@@ -5,6 +5,9 @@ import java.util.List;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.client.solrj.response.QueryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,6 +26,8 @@ import com.icss.mvc.entity.position;
 public class enterpriseController {
 	@Autowired
 	private EnterpriseDao entdao;
+	@Autowired
+	private HttpSolrClient client;
 	
 	public String entname;
 	public String id;
@@ -203,6 +208,26 @@ public class enterpriseController {
 	  	  //status = entdao.findInterStatus(id, entname, job);
 	  	  mp.addAttribute("status",status);
 		  return "forward:jsp/enterprise/showJobHunter.jsp";
+	}
+	
+	@RequestMapping("searchJobhunterSolr")
+	@ResponseBody
+	public List<jobhunter> fun17(String jbablt) throws Exception {
+		 System.out.println("Search Jobhunter Solr---------------");
+		 SolrQuery query=new SolrQuery();
+		 query.set("q","jbablt:"+jbablt);
+		 QueryResponse res = client.query(query);
+		 List<jobhunter> jlist=res.getBeans(jobhunter.class);
+		 return jlist;
+	}
+	
+	@RequestMapping("findAllJobHunter")
+	@ResponseBody
+	public Grid fune18() {
+	  	  System.out.println("Find All Job Hunter---------------");
+		  List<jobhunter> alljh = entdao.findAllJobHunter();
+		  int c = entdao.findAllJobHunterCount();
+		  return new Grid(0,"ok",c,alljh);
 	}
 	
 

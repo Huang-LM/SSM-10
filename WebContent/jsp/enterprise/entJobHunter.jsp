@@ -22,6 +22,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.top{
 			margin-top:50px;
 		}
+		.i-body{
+			animation-duration: 1s !important;
+		}
+		.search{
+			padding: 20px;
+			/* margin-top: 100px; */
+		}
+		.search-left, .search-right{
+			width: 100%;
+			height: 50px;
+		}
+		.search-btn{
+			width: 80px;
+			height: 50px;			
+		}
+		.search-input{
+			height: 50px;
+			width: 600px
+		}
+		.btable{
+			margin-top: 30px;
+			margin-button: 50px;
+		
+		}
 	</style>
 </head>
 
@@ -78,18 +102,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</thead>
 			</table>
-		
 		</div>
 		
+		<div class="layui-container layui-anim-scale layui-anim i-body">
+			<div class="alert alert-info top">
+			    <strong>搜索应聘者</strong>
+			</div>
+			<div class="search">
+				<div class="layui-row">
+					<div class="layui-col-md2">
+							<div class="search-left"> </div>
+					</div>
+					<div class="layui-col-md8">
+						<div class="layui-form" action="">
+							<table>
+								<tr>
+									<td><input type="text" name="jbablt" id="input" autocomplete="off" placeholder="请输入技能简介" class="layui-input search-input"></td>
+									<td><button lay-submit type="submit" class="layui-btn layui-btn-normal search-btn" lay-filter="search">搜索</button></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="layui-col-md2">
+						<div class="search-right"></div>
+					</div>
+				</div>
+			</div> 
+		</div>
+		
+		<div class="layui-container btable layui-anim-upbit layui-anim i-body">
+			
+				<!-- <table 
+					lay-data="{ id:'newTable', url:'showBsjson.do', even: true, limit: 15, height: 700, cellMinWidth: 30, page: true, limits: [10,15,20,150], toolbar: '#toolbar'}" 
+					class="layui-table" 
+					lay-filter="demo" > -->
+			<table id="searchSolr" lay-filter="searchSolr" class="layui-table" lay-data="{url:'findAllJobHunter.do',
+																						page:true,
+																						even:true,
+																						limit:5,
+																						limits:[5,10,20]}">
+				<thead>
+					<tr>
+				      <th lay-data="{field:'jbname'}">姓名</th>
+				      <th lay-data="{field:'jbsex'}">性别</th>
+				      <th lay-data="{field:'jbage'}">年龄</th>
+				      <th lay-data="{field:'jbcompany'}">应聘企业</th>
+				      <th lay-data="{field:'jbjob'}">应聘职位</th>
+				      <th lay-data="{field:'jbablt', minWidth: 400}">能力简介</th>
+					</tr>
+				</thead>	
+			</table>
+			
+		</div>
 		
 		
 	</div>
 
 <script type="text/javascript">
-	layui.use(["table","element","layer","jquery"],function(){
+	layui.use(["table","element","layer","jquery","form"],function(){
 		var table=layui.table;
 		var $=layui.jquery;
 		var layer=layui.layer;
+		var form=layui.form;
 		table.on('tool(jobhunterTable)', function(obj){
 			var data = obj.data;
 			//console.log(obj)
@@ -109,6 +183,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				});
 			} 
 		});
+		form.on("submit(search)",function(data){
+			var input=$("#input").val();
+			layer.msg(input);
+			table.reload('searchSolr', {
+				  url: 'searchJobhunterSolr.do',
+				  where: {
+					  jbablt: input,
+				  },
+				  parseData:function(res){
+					  return {
+						  "code": 0,
+						  "msg": "",
+						  "count":res.length,
+						  "data": res
+					  }
+				  }
+			});
+		}); 
 	})
 </script>
 
