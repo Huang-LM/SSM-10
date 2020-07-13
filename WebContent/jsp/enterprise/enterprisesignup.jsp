@@ -13,6 +13,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
+		.nav{
+			position: fixed;
+		    left: 0;
+		    top: 0;
+		    z-index: 10000;
+		    width: 100%;
+		    height: 60px;
+		}
+		.top{
+			margin-top:60px;
+		}
 		.bg{
 			background:url(img/signbg.jpg);
     		background-size:100% 100%;
@@ -23,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body class="bg">
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header">
+		<div class="layui-header layui-bg-cyan">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>

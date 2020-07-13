@@ -40,14 +40,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th lay-data="{field:'jbname',title:'姓名'}"></th>
 						<th lay-data="{field:'jbsex',title:'性别'}"></th>
 						<th lay-data="{field:'jbage',title:'年龄'}"></th>
-						<!-- <th lay-data="{field:'jbphoto',title:'照片'}"></th> -->
 						<th lay-data="{field:'jbid',title:'编号'}"></th>
 						<th lay-data="{field:'jbusername',title:'用户名'}"></th>
 						<th lay-data="{field:'jbpnmb',title:'联系方式'}"></th>
 						<th lay-data="{field:'jbcompany',title:'应聘公司'}"></th>
 						<th lay-data="{field:'jbjob',title:'应聘职位'}"></th>
 						<th lay-data="{field:'jbablt',title:'个人能力'}"></th>
-						<!-- <th lay-data="{field:'interstatus',title:'应聘状态'}"></th> -->
 						<th lay-data="{title:'删除',templet:function(cd){																
 																	return '<a class=\'layui-btn layui-btn-danger layui-btn-sm\' lay-event=\'del\'>删除</a>';
 																}}"></th>

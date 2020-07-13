@@ -13,12 +13,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
+		body{
+			background-color: #F2F2F2;
+		}
+		.nav{
+			position: fixed;
+		    left: 0;
+		    top: 0;
+		    z-index: 10000;
+		    width: 100%;
+		    height: 60px;
+		}
+		.top{
+			margin-top:60px;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header">
+		<div class="layui-header layui-bg-cyan nav">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
@@ -44,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 		</div>
 		
-		<div class="layui-container" style="margin:100px auto;">
+		<div class="layui-container top" style="margin:100px auto;">
 			<div style="text-align:center;">
 				<form class="layui-form layui-form-pane" lay-filter="example" method="post">
 					<div class="layui-form-item">
@@ -100,15 +114,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</form>
 			</div>
 		</div>
-		
-		<!-- <button lay-filter="autoFill" id="autoFill" class="layui-btn layui-btn-normal" url:"autoFill.do">快捷填写</button>
-		<input value="标题" type="button" onclick="window.location='autoFill.do'"/> -->
-		<!-- <button type="button" class="layui-btn" id="LAY-component-form-setval" onclick="window.location='autoFill.do'">快捷填写</button> -->
-		
+
 		<input type="hidden" id="hidbsi" value="${bus.bsintr}">
 		<input type="hidden" id="hidbsc" value="${bus.bsculture}">
-		<input type="hidden" id="hidbsa" value="${bus.bsablt}">
-	
+		<input type="hidden" id="hidbsa" value="${bus.bsablt}">	
 	</div>
 
 <script type="text/javascript">
@@ -143,9 +152,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        ,"bspname": "${bus.bspname}"
 		        ,"bsid": "${bus.bsid}"
 		        ,"bsclass": "${bus.bsclass}"
-		        /* ,"bsintr": "${bus.bsintr}" */
-		        /* ,"bsculture": "${bus.bsculture}" */
-		        /* ,"bsablt": "${bus.bsablt}" */
 			});
 			function add()
 			{  

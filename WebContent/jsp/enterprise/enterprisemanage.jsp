@@ -19,11 +19,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     
 	<style type="text/css">
-		.top{
-			margin-top:50px;
-		}
 		body{
-			margin-top: 50px;
+			background-color: #F2F2F2;
+		}
+		.nav{
+			position: fixed;
+		    left: 0;
+		    top: 0;
+		    z-index: 10000;
+		    width: 100%;
+		    height: 60px;
+		}
+		.top{
+			margin-top:60px;
 		}
 		.layui-table-cell {
 		    height: auto ;
@@ -33,12 +41,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<!-- <div class="layui-header">
+		<div class="layui-header layui-bg-cyan nav">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
 				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >企业</a>
-		    	<li class="layui-nav-item"><a href="jsp/enterprise/alterEnterpriseInfor.jsp" >企业信息</a>
+		    	<li class="layui-nav-item"><a href="altEntInfor.do" >企业信息</a>
 		    	<li class="layui-nav-item">
 					<a href="javascript:void(0);">招聘信息</a>
 					<dl class="layui-nav-child">
@@ -57,13 +65,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>
 		    </ul>
-		</div> -->
+		</div>
 		
 		
-		<nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
-		  <!-- Brand -->
+		<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
+		  Brand
 		  <a class="navbar-brand" href="#">招聘系统</a>
-		  <!-- Links -->
+		  Links
 		  <ul class="navbar-nav">
 		    <li class="nav-item">
 		      <a class="nav-link" href="index.jsp">首页</a>
@@ -72,11 +80,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      <a class="nav-link" href="javascript:void(0);">企业</a>
 		    </li>
 		    <li class="nav-item">
-		      <!-- <a class="nav-link" href="jsp/enterprise/alterEnterpriseInfor.jsp">企业信息</a> -->
+		      <a class="nav-link" href="jsp/enterprise/alterEnterpriseInfor.jsp">企业信息</a>
 		      <a class="nav-link" href="altEntInfor.do">企业信息</a>
 		    </li>
 		
-		    <!-- Dropdown -->
+		    Dropdown
 		    <li class="nav-item dropdown">
 		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 		        	招聘信息
@@ -90,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      <a class="nav-link" href="jsp/enterprise/entJobHunter.jsp">应聘者</a>
 		    </li>
 		  </ul>
-		</nav>
+		</nav> -->
 			
 		<!-- <div>
 			<div class="layui-carousel" id="carou" lay-filter="carou">
@@ -101,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 		</div> -->
-		<div id="demo" class="carousel slide" data-ride="carousel">
+		<div id="demo" class="carousel slide top" data-ride="carousel">
 		 
 		  <!-- 指示符 -->
 		  <ul class="carousel-indicators">
@@ -241,10 +249,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 		</div>
 		
-		
-		
-		
-
 	</div>
 
 <script type="text/javascript">

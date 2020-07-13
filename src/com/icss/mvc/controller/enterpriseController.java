@@ -59,16 +59,9 @@ public class enterpriseController {
 	}
 	
 	/* 企业基本信息 */
-	/*@RequestMapping("findEntInfor")
-	@ResponseBody
-	public Grid fune3(ModelMap mp) {
-	  	  System.out.println("Find Enterprise Information---------------"+name);
-		  List<business> bus = entdao.findEntInfor(entname);
-		  return new Grid(0,"ok",8,bus);
-	}*/
 	@RequestMapping("findEntInfor")
 	@ResponseBody
-	public List<business> fune4() {
+	public List<business> fune3() {
 	  	  System.out.println("Find Enterprise Information---------------");
 		  List<business> bus = entdao.findEntInfor(entname);
 		  return bus;
@@ -77,7 +70,7 @@ public class enterpriseController {
 	/* 企业招聘信息 */
 	@RequestMapping("entFindPosition")
 	@ResponseBody
-	public Grid fune5(Integer page, Integer limit) {
+	public Grid fune4(Integer page, Integer limit) {
 	  	  System.out.println("Enterprise Find Position---------------");
 		  List<position> pos = entdao.entFindPosition(entname, (page-1)*limit, limit);
 		  int c = entdao.entFindPositionCount(entname);
@@ -87,7 +80,7 @@ public class enterpriseController {
 	/* 修改企业基本信息 */
 	@RequestMapping("updEntInfor")
 	@ResponseBody
-	public String fune6(business bus) {
+	public String fune5(business bus) {
 	  	  System.out.println("Update Enterprise Information---------------");
 		  int a = entdao.updEntInfor(bus);
 		  if(a==1) {
@@ -100,7 +93,7 @@ public class enterpriseController {
 
 	/* 修改企业基本信息表单赋值 */
 	@RequestMapping("altEntInfor") 
-	public String fun5(ModelMap mp) {
+	public String fune6(ModelMap mp) {
 		System.out.println("Auto Fill---------------"); 
 		business bus = entdao.autoFill(entname); 
 		mp.addAttribute("bus",bus);

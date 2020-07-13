@@ -19,8 +19,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	
 	<style type="text/css">
+		body{
+			background-color: #F2F2F2;
+		}
+		.nav{
+			position: fixed;
+		    left: 0;
+		    top: 0;
+		    z-index: 10000;
+		    width: 100%;
+		    height: 60px;
+		}
 		.top{
-			margin-top:50px;
+			margin-top:60px;
 		}
 		.showimg{
 			overflow:hidden;
@@ -34,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header">
+		<div class="layui-header layui-bg-cyan">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
