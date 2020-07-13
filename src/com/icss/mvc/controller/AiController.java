@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.icss.mvc.dao.adminDao;
 import com.icss.mvc.tool.Base64Util;
 import com.icss.mvc.tool.ClientToken;
 import com.icss.mvc.tool.FaceUtil;
-
-import net.sf.json.JSON;
-
 
 
 
@@ -49,14 +47,14 @@ public class AiController {
 		String result=FaceUtil.faceDetect(token);
 		return result;
 	}
-	//�����Ա�
-		@RequestMapping("showMatch")
-		@ResponseBody
-		public String fun3() {
-			System.out.println("----------");
-			String result=FaceUtil.faceMatch(token);
-			return result;
-		}
+//	//�����Ա�
+//		@RequestMapping("showMatch")
+//		@ResponseBody
+//		public String fun3() {
+//			System.out.println("----------");
+//			String result=FaceUtil.faceMatch(token);
+//			return result;
+//		}
 		
 ////	图片上传
 //	@RequestMapping("upimg")
@@ -70,16 +68,18 @@ public class AiController {
 		
 	@RequestMapping("getPicture")
     @ResponseBody
-    public double func4(@RequestParam(value="imgData")String imgData){
+    public Double func4(@RequestParam(value="imgData")String imgData){
         String img1 = imgData.substring(22);
         System.out.println("upimg----------------------------"+img1);
         List<byte[]> faces = dao.findImg();
-        System.out.println(faces);
+        System.out.println("upimg111------------------"+faces);
         for (int i = 0; i < faces.size(); i++) {
             String img2 = Base64Util.encode(faces.get(i));
             String result = FaceUtil.faceMatch(token, img1, img2);
-            JSONObject jsonObject = JSON.parseObject(result);
+            com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(result);
+//            String score = jsonObject.getJSONObject("result").getString("score");
             double score = Double.parseDouble(jsonObject.getJSONObject("result").getString("score"));
+            System.out.println("upimg----------------------------"+score);
             if (score > 85){
                 return score;
             }

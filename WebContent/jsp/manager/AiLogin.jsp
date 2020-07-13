@@ -40,10 +40,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		.item-2{
 			margin-top: 700px;
+			left: 100px
 		}
 		.vid,.can ,#imgTag{
 			position:absolute;
-			left:400px;
+			left:350px;
 			top:-530px;
 			float: left;
 			border: black 3px solid;
@@ -58,20 +59,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			z-index:-1;
 			
 		}
+		.btn-1{
+			margin-left: 320px
+		}
+		.btn-2{
+			left: 400px;
+		}
+		.btn-3{
+			margin-left: 350px
+		}		
 		
-		
-		.input-id{
-			width: 300px
-		}
-		.input-bsname{
-			width: 300px
-		}
-		.bun-bsname{
-			margin-left: 110px
-		}
-		.upload-text{
-			margin-left: -80px
-		}
 		.layui-footer{
 			left: 0px !important;
 			position: static !important;
@@ -115,37 +112,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				
 				<div class="layui-form-item item-2">
-					<label class="layui-form-label">上传照片</label>
-					<div class="layui-input-inline">
-						<button class="layui-btn" id="" type="button" onclick="openMedia()">
-							<i class="layui-icon">&#xe67c;</i>打开摄像头
-						</button>
-					</div>
-					<button class="layui-btn" id="" type="button" onclick="takePhoto()">拍照</button>
-					<button class="layui-btn" id="" type="button" onclick="closeMedia()">关闭摄像头</button>
-					<div class="layui-form-mid layui-word-aux upload-text"></div>
+						<button class="layui-btn btn-1" id="" type="button" onclick="openMedia()">打开摄像头</button>
+						<button class="layui-btn btn-2" id="" type="button" onclick="takePhoto()">拍照</button>
+						<button class="layui-btn btn-3" id="" type="button" onclick="closeMedia()">关闭摄像头</button>
 				</div>
 				
-				<div class="layui-form-item">
-					<label class="layui-form-label">照片确认</label>
-					<div class="layui-input-inline">
-						
-					</div>
-				</div>
-				
-				
-				<div class="layui-form-item">
-					<div id="imgbox" style="width: 210px;height: 297px;border: black 1px solid; float: left; margin-left: 100px;">
-						<img alt="" src="img/sub-bg.png" style="width: 100%;height: 100%; margin: 5 auto;">
-						
-					</div>
-				</div>
-				
-				<div class="layui-form-item">
-					<div class="layui-input-inline">
-						<button lay-submit lay-filter="save" class="layui-btn sub-btn">提交</button>
-					</div>
-				</div>
 			</form>
 		</div>
 		
@@ -210,7 +181,7 @@ function takePhoto() {
 		,data:{"imgData":img}
 		,success:function(data){
 			if(data=="success"){
-				alret("注册成功");
+				alret("登录成功");
 			}
 		}
 		,error:function(){
@@ -230,30 +201,7 @@ layui.use(["form","jquery","element","upload","layer"],function(){
 	var upload=layui.upload;
 	var layer=layui.layer;
 	
-	form.on("submit(save)",function(data){
-		var url="addJobhunter.do";
-		$.post(url,data.field,function(txt){
-			if(txt== "success"){	
-				/* layer.alert("已提交简历，将在三秒后跳转。。。");
-				setTimeout("window.location.href='jsp/jobhunter/jobLoginList.jsp'",3000); */
-			}		
-		});
-		return false;
-	});
 	
-	var upper=upload.render({
-		elem:"#upbutton",
-		url:"uppic.do",
-		done:function(res){
-			/* alert("/upload/"+res.msg); */
-			$("#imgbox img").attr("src","upload/"+res.photo);
-			/* $(".showimg").val("upload/"+res.msg); */
-			$(".showimg").val(res.msg);
-		},
-		error:function(){
-			alert("error");
-		}
-	});
 	
 });
 </script>	
