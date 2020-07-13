@@ -70,8 +70,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script type="text/javascript">
 	layui.use(["form","jquery"],function(){
-		var form=layui.form;
-		var $=layui.jquery;
+		/* var form=layui.form;
+		var $=layui.jquery; */
 		form.on("submit(save)",function(data){
 			var url="addBusiness.do";			
 			$.post(url,data.field,function(txt){

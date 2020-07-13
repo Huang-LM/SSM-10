@@ -12,16 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>企业信息</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
-	
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-	
 	<style type="text/css">
-		.top{
-			margin-top:50px;
-		}
 	</style>
 </head>
 
@@ -54,14 +45,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 
 <script type="text/javascript">
-	layui.use(["table","element","layer","jquery"],function(){
+	layui.use(["table","layer","jquery"],function(){
 		var table=layui.table;
 		var $=layui.jquery;
 		var layer=layui.layer;
 		//监听行工具事件
 		table.on('tool(bsTable)', function(obj){
 			var data = obj.data;
-			//console.log(obj)
 			if(obj.event === 'del'){
 				$.ajax({
 					url:"delBusiness.do",
@@ -69,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					type:'POST',
 					success:function(result){
 						if(result == "success"){
-							window.location.href="jsp/manager/businessMessage.jsp";//jsp/enterprise/
+							element.tabDelete("desktop", "1");
 						}
 						else if(result == "fail") {
 							layer.msg("删除！");
@@ -87,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					type:'POST',
 					success:function(result){
 						if(result == "success"){
-							window.location.href="businessMessage.jsp";//jsp/enterprise/
+							element.tabDelete("desktop", "1");
 						}
 						else if(result == "fail") {
 							layer.msg("删除！");

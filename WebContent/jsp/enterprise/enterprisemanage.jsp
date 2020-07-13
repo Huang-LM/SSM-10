@@ -25,6 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		body{
 			margin-top: 50px;
 		}
+		.layui-table-cell {
+		    height: auto ;
+		}
 	</style>
 </head>
 
@@ -136,7 +139,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			    <strong>基本信息</strong>
 			</div>
 			<hr class="layui-bg-green">
-			<table id="entTable1" class="layui-table" lay-data="{url:'findEntInfor.do',
+			<!-- <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+			  <legend>企业名称</legend>
+			</fieldset>	 -->
+			<table id="entTable1" lay-skin="nob" class="layui-table" lay-data="{url:'findEntInfor.do',
 																parseData:function(res){
 																	return {
 																		code:0,
@@ -147,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																}}">
 				<thead>
 					<tr>
-					<th lay-data="{field:'bsname',title:'企业名称'}"></th>
+					<th lay-data="{field:'bsname',title:'企业名称'}"></th><!-- ,title:'企业名称' -->
 					</tr>
 				</thead>
 			</table>

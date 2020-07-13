@@ -60,23 +60,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			var url=item.attr("data-url");
 			var did=item.attr("data-id");
 			
-			/* if(did=="4") {
-				$.post("jsp/record.jsp",{},function(data){
-					element.tabAdd("desktop",{
-						title:item.text(),
-						content:"添加送水记录",
-						id:did
-					});
-					element.tabChange("desktop",did);
-					winid=layer.open({
-						title:"添加送水记录",
-						content:pageFilter(data),
-						btn:[],
-						maxWidth:500
-					});	
-				});
-			} */
-			
 			$.post(url,{},function(data){
 				element.tabAdd("desktop",{
 					title:item.text(),
@@ -85,7 +68,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				});
 				element.tabChange("desktop",did);
 			});
-			
 		});		
 	});
 </script>

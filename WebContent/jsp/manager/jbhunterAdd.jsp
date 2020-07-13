@@ -7,111 +7,105 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<base href="<%=basePath %>" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加企业</title>
-<link href="ui/css/layui.css" rel="stylesheet"/>
-
-
-<script type="text/javascript" src="ui/layui.js"></script>
+	<base href="<%=basePath %>" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>添加企业</title>
+	<link href="ui/css/layui.css" rel="stylesheet"/>
+	<script type="text/javascript" src="ui/layui.js"></script>
 </head>
 <body>
-<div class="layui-container container">
-			<form class="layui-form sform" method="POST" enctype="multipart/form-data" lay-filter="example" id="example">
-				<div class="layui-form-item item-1">
-					<label class="layui-form-label">姓名</label>
-					<div class="layui-input-inline">
-						<input type="text" name="jbname" class="layui-input" placeholder="输入姓名">
-					</div>
+	<div class="layui-container container">
+		<form class="layui-form sform" method="POST" enctype="multipart/form-data" lay-filter="example" id="example">
+			<div class="layui-form-item item-1">
+				<label class="layui-form-label">姓名</label>
+				<div class="layui-input-inline">
+					<input type="text" name="jbname" class="layui-input" placeholder="输入姓名">
 				</div>
-				
-				<div class="layui-form-item">
-				    <label class="layui-form-label">性别</label>
-					    <div class="layui-input-block">
-					      <input type="radio" name="jbsex" value="男" title="男">
-					      <input type="radio" name="jbsex" value="女" title="女" checked>
-					    </div>
-			  	</div>
-			  	
-			  	<div class="layui-form-item">
-					<label class="layui-form-label">年龄</label>
-					<div class="layui-input-inline">
-						<input type="text" name="jbage" class="layui-input" placeholder="输入年龄">
-					</div>
-				</div>
-				
-				<div class="layui-form-item">
-					<label class="layui-form-label">身份证号</label>
-					<div class="layui-input-block">
-						<input type="text" name="jbid" class="layui-input input-id" placeholder="输入身份证号">
-					</div>
-				</div>
-				
-				<div class="layui-form-item">
-					<label class="layui-form-label">用户名</label>
-					<div class="layui-input-inline">
-						<input type="text" name="jbusername" class="layui-input" placeholder="输入用户名">
-					</div>
-				</div>
-				
-				<div class="layui-form-item">
-					<label class="layui-form-label">手机号</label>
-					<div class="layui-input-inline">
-						<input type="text" name="jbpnmb" class="layui-input" placeholder="输入手机号">
-					</div>
-				</div>
-				
-				
-				
-				<div class="layui-form-item">
-					<label class="layui-form-label">公司</label>
-					<div class="layui-input-inline">
-						<input type="text" name="jbcompany" class="layui-input input-bsname" placeholder="输入公司名称" lay-filter="jbcompany">
-					</div>
-				</div>
-				
-				<div class="layui-form-item">
-					<label class="layui-form-label">职位</label>
-					<div class="layui-input-inline">
-						<input type="text" name="jbjob" class="layui-input" placeholder="输入职位" lay-filter="jbjob">
-					</div>
-				</div>
-				
-				 <div class="layui-form-item layui-form-text">
-				    <label class="layui-form-label">能力简介</label>
-				    <div class="layui-input-block">
-				      <textarea name="jbablt" placeholder="请输入内容" class="layui-textarea"></textarea>
-				    </div>
-				 </div>
-				
-				
-				
-				
-				<div class="layui-form-item">
+			</div>
 			
-					<label class="layui-form-label">上传简历</label>
-					<div class="layui-input-inline">
-						<button class="layui-btn" id="upbutton" type="button">
-							<i class="layui-icon">&#xe67c;</i>上传照片
-						</button>
-					</div>
-					<div class="layui-form-mid layui-word-aux upload-text">请上传A4大小的照片</div>
+			<div class="layui-form-item">
+			    <label class="layui-form-label">性别</label>
+				    <div class="layui-input-block">
+				      <input type="radio" name="jbsex" value="男" title="男">
+				      <input type="radio" name="jbsex" value="女" title="女" checked>
+				    </div>
+		  	</div>
+		  	
+		  	<div class="layui-form-item">
+				<label class="layui-form-label">年龄</label>
+				<div class="layui-input-inline">
+					<input type="text" name="jbage" class="layui-input" placeholder="输入年龄">
 				</div>
-				
-				<div class="layui-form-item">
-					<div id="imgbox" style="width: 210px;height: 297px;border: black 1px solid; float: left; margin-left: 100px;">
-						<img alt="" src="img/sub-bg.png" style="width: 100%;height: 100%; margin: 5 auto;">
-						<input type="hidden" name="jbphoto" class="showimg"/>
-					</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">身份证号</label>
+				<div class="layui-input-block">
+					<input type="text" name="jbid" class="layui-input input-id" placeholder="输入身份证号">
 				</div>
-				
-				<div class="layui-form-item">
-					<div class="layui-input-inline">
-						<button lay-submit lay-filter="save" class="layui-btn sub-btn">保存</button>
-					</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">用户名</label>
+				<div class="layui-input-inline">
+					<input type="text" name="jbusername" class="layui-input" placeholder="输入用户名">
 				</div>
-			</form>
-		</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">手机号</label>
+				<div class="layui-input-inline">
+					<input type="text" name="jbpnmb" class="layui-input" placeholder="输入手机号">
+				</div>
+			</div>
+			
+			
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">公司</label>
+				<div class="layui-input-inline">
+					<input type="text" name="jbcompany" class="layui-input input-bsname" placeholder="输入公司名称" lay-filter="jbcompany">
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">职位</label>
+				<div class="layui-input-inline">
+					<input type="text" name="jbjob" class="layui-input" placeholder="输入职位" lay-filter="jbjob">
+				</div>
+			</div>
+			
+			 <div class="layui-form-item layui-form-text">
+			    <label class="layui-form-label">能力简介</label>
+			    <div class="layui-input-block">
+			      <textarea name="jbablt" placeholder="请输入内容" class="layui-textarea"></textarea>
+			    </div>
+			 </div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">上传简历</label>
+				<div class="layui-input-inline">
+					<button class="layui-btn" id="upbutton" type="button">
+						<i class="layui-icon">&#xe67c;</i>上传照片
+					</button>
+				</div>
+				<div class="layui-form-mid layui-word-aux upload-text">请上传A4大小的照片</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<div id="imgbox" style="width: 210px;height: 297px;border: black 1px solid; float: left; margin-left: 100px;">
+					<img alt="" src="img/sub-bg.png" style="width: 100%;height: 100%; margin: 5 auto;">
+					<input type="hidden" name="jbphoto" class="showimg"/>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<div class="layui-input-inline">
+					<button lay-submit lay-filter="save" class="layui-btn sub-btn">保存</button>
+				</div>
+			</div>
+		</form>
+	</div>
 
 <style type="text/css">
 	.sub-btn{
