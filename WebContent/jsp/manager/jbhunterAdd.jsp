@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<base href="<%=basePath %>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>添加企业</title>
+	<title>添加求职者</title>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<script type="text/javascript" src="ui/layui.js"></script>
 </head>

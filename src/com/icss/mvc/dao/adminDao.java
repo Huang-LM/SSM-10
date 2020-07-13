@@ -39,4 +39,7 @@ public interface adminDao {
 	(String bsid,String bsname,String bspname,String bsclass,String bsculture,String bsintr,String bsablt);
 	
 	public List<business> findBusinessByid();
+
+	/* 招聘记录查询 */
+	public List<jobhunter> findRecords();
 }

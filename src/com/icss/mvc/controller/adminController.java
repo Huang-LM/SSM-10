@@ -120,4 +120,13 @@ public class adminController {
 		List<jobhunter> slist = dao.findjbhunterByid();
 		return "updatejobhunter.jsp";
 	}
+
+	/* 招聘记录查询 */
+	@RequestMapping("inquireRecords")
+	@ResponseBody
+	public Grid funa11(ModelMap mp) throws Exception {
+		System.out.println("show business-----------------------------------------");
+		List<jobhunter> slist = dao.findRecords();
+		return new Grid(0,"ok",slist.size(),slist);
+	}
 }
