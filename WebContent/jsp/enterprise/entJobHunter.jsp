@@ -38,7 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		.search{
 			padding: 20px;
-			/* margin-top: 100px; */
 		}
 		.search-left, .search-right{
 			width: 100%;

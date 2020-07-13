@@ -13,15 +13,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
-		.bg{
-			background:url(img/signbg.jpg);
-    		background-size:100% 100%;
-    		background-repeat:no-repeat;
+		.top-bg{
+			width: 100%;
+			height: 400px;
+			animation-duration: 1s !important;
 		}
 	</style>
 </head>
 
-<body class="bg">
+<body>
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header layui-bg-cyan">
 			<div class="layui-logo">招聘系统</div>
@@ -39,8 +39,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</li>
 		    </ul>
 		</div>
+		
+		<div class="layui-bg-green top-bg layui-anim-fadein layui-anim "></div>
 
-		<div class="layui-container" style="margin:100px auto;">
+		<div class="layui-container" style="margin:50px auto;">
 			<div style="text-align:center;">
 				<form class="layui-form layui-form-pane">
 					<div class="layui-form-item">
@@ -64,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-form-item">
 						<div class="layui-inline">
 							<div class="layui-input-inline">
-								<button lay-submit lay-filter="signin" class="layui-btn layui-btn-normal">登录</button>
+								<button lay-submit lay-filter="signin" class="layui-btn">登录</button>
 							</div>
 						</div>
 					</div>

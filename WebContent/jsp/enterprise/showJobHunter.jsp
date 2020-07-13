@@ -201,9 +201,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="showimg">
 				<img class="img" alt="" src="showResume.do">
 			</div>
-			
-			
-			
 		</div>
 		
 		<input type="hidden" id="status" value="${status}">
@@ -229,13 +226,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$("#interfail").attr("disabled",true);
 		}
 	});
-	
-	/* $("#orderinter").click(function(){
-		
-		if(t==0) {
-			$(this).attr("disabled",true);
-		}
-	}) */
 </script>
 
 </body>

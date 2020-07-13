@@ -24,15 +24,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.top{
 			margin-top:60px;
 		}
-		.bg{
-			background:url(img/signbg.jpg);
-    		background-size:100% 100%;
-    		background-repeat:no-repeat;
+		.top-bg{
+			width: 100%;
+			height: 400px;
+			animation-duration: 1s !important;
 		}
 	</style>
 </head>
 
-<body class="bg">
+<body>
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header layui-bg-cyan">
 			<div class="layui-logo">招聘系统</div>
@@ -51,7 +51,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 		</div>
 		
-		<div class="layui-container" style="margin:100px auto;">
+		<div class="layui-bg-green top-bg layui-anim-fadein layui-anim "></div>
+		
+		<div class="layui-container" style="margin:50px auto;">
 			<div style="text-align:center;">
 				<form class="layui-form layui-form-pane">
 					<div class="layui-form-item">
@@ -93,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="layui-form-item">
 						<div class="layui-inline">
 							<div class="layui-input-inline">
-								<button lay-submit lay-filter="signup" class="layui-btn layui-btn-normal">注册</button>
+								<button lay-submit lay-filter="signup" class="layui-btn">注册</button>
 							</div>
 						</div>
 					</div>
@@ -106,14 +108,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script type="text/javascript">
 	layui.use(["form","jquery","layer"],function(){
-		//var element=layui.element;
 		var form=layui.form;
 		var layer=layui.layer;
 		var $=layui.jquery;
 		form.on("submit(signup)",function(data){
-			/* var url="enterpriseSignUp.do";			
-			$.post(url,data.field,function(){
-				}); */
 			$.ajax({
 				url:"enterpriseSignUp.do",
 				data:data.field,

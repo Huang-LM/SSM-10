@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					type:'POST',
 					success:function(result){
 						if(result == "success"){
-							window.location.href="jsp/enterprise/manaRecrInfor.jsp";//jsp/enterprise/
+							window.location.href="jsp/enterprise/manaRecrInfor.jsp";
 						}
 						else if(result == "fail") {
 							layer.msg("删除失败！");
@@ -118,22 +118,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						layer.msg("失败！");
 					}
 				});
-				/* layer.confirm('真的删除行么'+data.bsposition, function(index){
-					obj.del();
-					layer.close(index);
-				}); */
-			} 
-			/* else if(obj.event === 'edit'){
-				layer.prompt({
-					formType: 2
-					,value: data.email
-				}, function(value, index){
-					obj.update({
-						email: value
-					});
-					layer.close(index);
-				});
-			} */
 		});
 	});
 </script>

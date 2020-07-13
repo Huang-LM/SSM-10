@@ -66,39 +66,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</li>
 		    </ul>
 		</div>
-		
-		
-		<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
-		  Brand
-		  <a class="navbar-brand" href="#">招聘系统</a>
-		  Links
-		  <ul class="navbar-nav">
-		    <li class="nav-item">
-		      <a class="nav-link" href="index.jsp">首页</a>
-		    </li>
-		    <li class="nav-item active">
-		      <a class="nav-link" href="javascript:void(0);">企业</a>
-		    </li>
-		    <li class="nav-item">
-		      <a class="nav-link" href="jsp/enterprise/alterEnterpriseInfor.jsp">企业信息</a>
-		      <a class="nav-link" href="altEntInfor.do">企业信息</a>
-		    </li>
-		
-		    Dropdown
-		    <li class="nav-item dropdown">
-		      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-		        	招聘信息
-		      </a>
-		      <div class="dropdown-menu">
-		        <a class="dropdown-item" href="jsp/enterprise/jobPosting.jsp">发布招聘信息</a>
-		        <a class="dropdown-item" href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a>
-		      </div>
-		    </li>
-		    <li class="nav-item">
-		      <a class="nav-link" href="jsp/enterprise/entJobHunter.jsp">应聘者</a>
-		    </li>
-		  </ul>
-		</nav> -->
 			
 		<!-- <div>
 			<div class="layui-carousel" id="carou" lay-filter="carou">
@@ -253,14 +220,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script type="text/javascript">
 	layui.use(["table","carousel","jquery","element"],function(){
-		var carousel = layui.carousel;
+		/* var carousel = layui.carousel;
 		carousel.render({
 		    elem: '#carou'
 		    ,arrow: 'always'
 		    ,width: '100%'
 		    ,height: '400px'
 		    ,interval: 5000
-		  });
+		  }); */
 	});
 
 </script>
