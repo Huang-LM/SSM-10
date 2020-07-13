@@ -18,9 +18,12 @@
 	<select id="findList" resultType="com.icss.mvc.entity.position">
 		select * from position limit #{0},#{1};
 	</select>
+	<!-- 展示公司总列表 -->
+	<select id="findListCount" resultType="Integer">
+		select count(*) from position;
+	</select>
 	<!-- 展示职业搜索结果-->
 	<select id="findSearch" resultType="com.icss.mvc.entity.position" >
-		<!-- select * from position where bsposition LIKE '%${bsposition}%'; -->
 		select * from position where bsposition=#{bsposition} ; 
 	</select>
 	<!-- 添加求职简历 -->

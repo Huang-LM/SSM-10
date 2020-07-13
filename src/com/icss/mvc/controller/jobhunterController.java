@@ -66,7 +66,8 @@ public class jobhunterController {
 	public Grid fun3(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) throws Exception {
 		System.out.println("showBsjson------------");
 		List<position> jlist = dao.findList((page-1)*limit,limit);
-		return new Grid(0,"ok",150,jlist);
+		Integer count= dao.findListCount();
+		return new Grid(0,"ok",count,jlist);
 	}
 //	展示公司列表
 	@RequestMapping("reshowBsjson")

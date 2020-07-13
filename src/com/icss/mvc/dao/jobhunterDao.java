@@ -16,6 +16,8 @@ public interface jobhunterDao {
 	public String getJobname(String jbusername);
 //	展示公司列表
 	public List<position> findList(Integer start, Integer count);
+//	查看公司列表数目
+	public Integer findListCount();
 //	展示职业搜索结果
 	public List<position> findSearch(String bsposition);
 //	添加求职简历
