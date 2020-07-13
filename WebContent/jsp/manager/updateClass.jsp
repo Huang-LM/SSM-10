@@ -13,6 +13,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
+		.top{
+			margin-top:100px;
+		}
 	</style>
 </head>
 
@@ -27,14 +30,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<ul class="layui-nav layui-nav-tree" lay-filter="menu">
 				<li class="layui-nav-item" ><a href="jsp/manager/businessMessage.jsp">企业信息查询</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/inquireRecords.jsp">招聘记录查询</a></li>
-				<li class="layui-nav-item layui-this" ><a href="jsp/manager/inquireRecords.jsp">行业类别管理</a></li>
+				<li class="layui-nav-item layui-this" ><a href="jsp/manager/classManage.jsp">行业类别管理</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/jobhunterMessage.jsp">求职者信息查询</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/jbhunterAdd.jsp">添加求职者信息</a></li>  
 			</ul>
 		</div>
 		
 		<div class="layui-body">
-			<div class="layui-container">
+			<div class="layui-container top">
 				<form class="layui-form" lay-filter="updateclass" id="updateclass">
 					<div class="layui-form-item">
 						<label class="layui-form-label">企业名称</label>
@@ -56,6 +59,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</form>
 			</div>
 		</div>
+		<div class="layui-footer footer footer-doc">
+		  <div class="layui-main">
+		    <p>© 2020-码农招聘管理系统 <a href="/"></a></p>
+		   </div>
+		 </div>
 		
 	</div>
 	
@@ -64,17 +72,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var form=layui.form;
 		var $=layui.jquery;
 		form.on("submit(save)",function(data){
-			var url="addBusiness.do";			
-			$.post(url,data.field,function(txt){
-				if(txt=="ok"){
-					alert("添加成功");
-					$("#addBusiness")[0].reset(); 
-					form.render();
-				} 
-				else {
-					alert("添加失败");
+			$.ajax({
+				url:"updateclass.do",
+				data:data.field,
+				type:'POST',
+				success:function(result){
+					if(result == "success"){
+						window.location.href="jsp/manager/classManage.jsp";
+					}
+					else if(result == "fail") {
+						layer.msg("修改失败！");
+					}
+				},
+				error:function(){
+					layer.msg("失败！");
 				}
-			}); 
+			});
 			return false;
 		});
 	});

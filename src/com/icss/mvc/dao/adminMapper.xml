@@ -60,4 +60,8 @@
 	<select id="findRecords" resultType="jobhunter">
 		select * from jobhunter where interstatus="已通过面试";
 	</select>
+	<!-- 修改行业类别 -->
+	<update id="updateClass">
+		update business set bsclass=#{0} where bsname=#{1};
+	</update>
 </mapper>

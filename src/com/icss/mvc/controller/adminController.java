@@ -129,12 +129,13 @@ public class adminController {
 		List<jobhunter> slist = dao.findRecords();
 		return new Grid(0,"ok",slist.size(),slist);
 	}
-	
+
+	/* 修改行业类别 */
 	@RequestMapping("updateclass")
 	@ResponseBody
-	public String funa12(String jbname,String jbsex,Integer jbage,String jbid ,String jbusername ,String jbpnmb ,String jbcompany ,String jbjob,String jbablt, String interstatus) throws Exception {
-		System.out.println("update-----------------------------------------");
-		int a = dao.updatejbhunter(jbname,jbsex,jbage, jbid ,jbusername , jbpnmb , jbcompany , jbjob, jbablt,  interstatus );
+	public String funa12(String bsname,String bsclass) throws Exception {
+		System.out.println("Update Class-----------------------------------------");
+		int a = dao.updateClass(bsclass,bsname);
 		if(a==1) {
 			  return "success";
 		  }

@@ -42,4 +42,7 @@ public interface adminDao {
 
 	/* 招聘记录查询 */
 	public List<jobhunter> findRecords();
+	
+	/* 修改行业类别 */
+	public int updateClass(String bsclass, String bsname);
 }
