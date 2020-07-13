@@ -46,12 +46,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dd><a href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a></dd>
 					</dl>
 				</li>
-				<li class="layui-nav-item"><a href="jsp/enterprise/entJobHunter.jsp" >应聘者</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/entJobHunter.jsp" >求职者</a>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item layui-this">
-					<a href="javascript:void(0);" ></a>
-				</li>
 				<li class="layui-nav-item">
 					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>

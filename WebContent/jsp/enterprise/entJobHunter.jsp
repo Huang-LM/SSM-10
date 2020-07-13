@@ -75,12 +75,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dd><a href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a></dd>
 					</dl>
 				</li>
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >应聘者</a>
+				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >求职者</a>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item layui-this">
-					<a href="javascript:void(0);" ></a>
-				</li>
 				<li class="layui-nav-item">
 					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>
@@ -88,9 +85,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div class="layui-container top">
-			<!-- <blockquote class="layui-elem-quote">应聘者</blockquote> -->
+			<!-- <blockquote class="layui-elem-quote">求职者</blockquote> -->
 			<div class="alert alert-info">
-			    <strong>应聘者</strong>
+			    <strong>求职者</strong>
 			</div>
 			<hr class="layui-bg-green">
 			<table id="jobhunterTable" lay-filter="jobhunterTable" class="layui-table" lay-data="{url:'findJobHunter.do',
@@ -116,8 +113,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div class="layui-container layui-anim-scale layui-anim i-body">
 			<div class="alert alert-info top">
-			    <strong>搜索应聘者</strong>
+			    <strong>搜索求职者</strong>
 			</div>
+			<hr class="layui-bg-green">
 			<div class="search">
 				<div class="layui-row">
 					<div class="layui-col-md2">

@@ -59,12 +59,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dd><a href="jsp/enterprise/manaRecrInfor.jsp">管理招聘信息</a></dd>
 					</dl>
 				</li>
-				<li class="layui-nav-item layui-this"><a href="jsp/enterprise/entJobHunter.jsp" >应聘者</a>
+				<li class="layui-nav-item layui-this"><a href="jsp/enterprise/entJobHunter.jsp" >求职者</a>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item layui-this">
-					<a href="javascript:void(0);" ></a>
-				</li>
 				<li class="layui-nav-item">
 					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
 				</li>
@@ -77,11 +74,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div>
 			    <button type="button" id="orderinter" class="layui-btn layui-btn-normal" onclick="location.href='orderInterview.do'">预约面试</button>
-			    <!-- <button type="button" class="layui-btn layui-btn-warm">暖色按钮</button> -->
 			    <button type="button" id="intersuccess" class="layui-btn" onclick="location.href='interviewSuccess.do'">面试成功</button>
 			    <button type="button" id="interfail" class="layui-btn layui-btn-danger" onclick="location.href='interviewFail.do'">面试失败</button>
-			    <!-- <button type="button" class="layui-btn layui-btn-disabled">禁用按钮</button> -->
-			</div>
+			    </div>
 		
 			<!-- <blockquote class="layui-elem-quote">基本信息</blockquote> -->
 			<div class="alert alert-info top">
@@ -92,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'应聘者信息',
+																		msg:'求职者信息',
 																		count:1,
 																		data:res
 																	};
@@ -107,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'应聘者信息',
+																		msg:'求职者信息',
 																		count:1,
 																		data:res
 																	};
@@ -122,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'应聘者信息',
+																		msg:'求职者信息',
 																		count:1,
 																		data:res
 																	};
@@ -137,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'应聘者信息',
+																		msg:'求职者信息',
 																		count:1,
 																		data:res
 																	};
@@ -152,7 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'应聘者信息',
+																		msg:'求职者信息',
 																		count:1,
 																		data:res
 																	};
@@ -167,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'应聘者信息',
+																		msg:'求职者信息',
 																		count:1,
 																		data:res
 																	};
@@ -182,7 +177,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																parseData:function(res){
 																	return {
 																		code:0,
-																		msg:'应聘者信息',
+																		msg:'求职者信息',
 																		count:1,
 																		data:res
 																	};
