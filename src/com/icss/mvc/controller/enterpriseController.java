@@ -50,11 +50,20 @@ public class enterpriseController {
 		System.out.println("Enterprise Sign In---------------");
 		entname = bsname;
 		String psw=entdao.enterpriseSignin(bsname);
-		if(bspsw.equals(psw)) {
-			return "success";
+		String chesta=entdao.findCheckStatus(bsname);
+		if(chesta.equals("未审核")) {
+			return "checking";
+		}
+		else if(chesta.equals("审核通过")) {
+			if(bspsw.equals(psw)) {
+				return "success";
+			}
+			else {
+				return "fail";
+			}
 		}
 		else {
-			return "fail";
+			return "error";
 		}
 	}
 	

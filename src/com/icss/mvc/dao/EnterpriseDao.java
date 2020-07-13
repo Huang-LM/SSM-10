@@ -12,6 +12,8 @@ public interface EnterpriseDao {
 	/* 企业注册 */
 	public int enterpriseSignup(business_enrol buen);
 	
+	public String findCheckStatus(String bsname);
+	
 	/* 企业登录 */
 	public String enterpriseSignin(String bsname);
 	

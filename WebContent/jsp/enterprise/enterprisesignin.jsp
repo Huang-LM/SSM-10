@@ -93,6 +93,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					else if(result == "fail") {
 						layer.msg("用户名或密码输入错误！");
 					}
+					else if(result == "checking") {
+						layer.msg("审核中！");
+					}
 				},
 				error:function(){
 					layer.msg("失败！");

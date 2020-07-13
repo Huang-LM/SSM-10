@@ -10,6 +10,10 @@
 		insert into business_enrol values(#{bsname}, #{bspsw}, #{bspname}, #{bsid}, "未审核");
 	</insert>
 	
+	<select id="findCheckStatus" resultType="String">
+		select checkstatus from business_enrol where bsname=#{bsname};
+	</select>
+	
 	<!-- 企业登录 -->
 	<select id="enterpriseSignin" resultType="String">
 		select bspsw from business_enrol where bsname=#{bsname};
