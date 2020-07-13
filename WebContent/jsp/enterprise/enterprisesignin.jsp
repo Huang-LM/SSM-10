@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:'POST',
 				success:function(result){
 					if(result == "success"){
-						window.location.href="jsp/enterprise/enterprisemanage.jsp";//jsp/enterprise/
+						window.location.href="jsp/enterprise/enterprisemanage.jsp";
 					}
 					else if(result == "fail") {
 						layer.msg("用户名或密码输入错误！");

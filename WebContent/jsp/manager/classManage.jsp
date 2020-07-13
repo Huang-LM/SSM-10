@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<th lay-data="{field:'bsid',width:'200',title:'企业工商注册号'}"></th>
 					<th lay-data="{field:'bsclass',width:'300',title:'行业类别'}"></th>
 					<th lay-data="{title:'修改',width:'150',templet:function(cd){																
-																return '<a class=\'layui-btn layui-btn-danger layui-btn-sm\' lay-event=\'edit\' href=\'jsp/manager/updateClass.jsp\'>修改行业类别</a>';
+																return '<a class=\'layui-btn layui-btn-sm\' lay-event=\'edit\' href=\'jsp/manager/updateClass.jsp\'>修改行业类别</a>';
 															}}"></th>
 					</tr>
 				</thead>

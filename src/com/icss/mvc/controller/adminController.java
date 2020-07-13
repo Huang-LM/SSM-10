@@ -143,4 +143,26 @@ public class adminController {
 			  return "fail";
 		  }
 	}
+	
+	@RequestMapping("findEntStatus")
+	@ResponseBody
+	public Grid funa13(ModelMap mp) throws Exception {
+		System.out.println("show business-----------------------------------------");
+		List<business_enrol> elist = dao.findEntStatus();
+		return new Grid(0,"ok",elist.size(),elist);
+	}
+	
+	@RequestMapping("checkFinish")
+	@ResponseBody
+	public String funa14(String bsname) throws Exception {
+		System.out.println("Update Class-----------------------------------------");
+		int a = dao.checkFinish(bsname);
+		if(a==1) {
+			  return "success";
+		  }
+		  else {
+			  return "fail";
+		  }
+	}
+	
 }

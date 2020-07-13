@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="layui-inline">
 							<label class="layui-form-label">身份证号</label>
 							<div class="layui-input-inline">
-								<input type="text" name="bspid" class="layui-input" lay-verify="required" placeholder="请输入企业法人身份证号">
+								<input type="text" name="bsid" class="layui-input" lay-verify="required" placeholder="请输入企业法人身份证号">
 							</div>
 						</div>
 					</div>
@@ -118,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:'POST',
 				success:function(result){
 					if(result == "success"){
-						window.location.href='enterprisesignin.jsp';
+						window.location.href='jsp/enterprise/enterprisesignin.jsp';
 					}
 				},
 				error:function(){

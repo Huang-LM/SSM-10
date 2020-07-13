@@ -3,8 +3,11 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.icss.mvc.dao.EnterpriseDao">
 	<!-- 企业注册 -->
+	<!-- <insert id="enterpriseSignup">
+		insert into business_enrol values(#{bsname}, #{bspsw}, #{bspname}, #{bsid});
+	</insert> -->
 	<insert id="enterpriseSignup">
-		insert into business_enrol values(#{bsname}, #{bspsw}, #{bspname}, #{bspid});
+		insert into business_enrol values(#{bsname}, #{bspsw}, #{bspname}, #{bsid}, "未审核");
 	</insert>
 	
 	<!-- 企业登录 -->

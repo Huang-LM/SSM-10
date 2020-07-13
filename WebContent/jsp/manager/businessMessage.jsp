@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				});
 			}
-			else if(obj.event === 'edit'){
+			/* else if(obj.event === 'edit'){
 				$.ajax({
 					url:"updateBusiness.do",
 					data:{bsid:data.bsid},
@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						layer.msg("失败！");
 					}
 				});
-			}
+			} */
 		});
 	});
 </script>

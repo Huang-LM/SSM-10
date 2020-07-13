@@ -3,6 +3,7 @@ package com.icss.mvc.dao;
 import java.util.List;
 
 import com.icss.mvc.entity.business;
+import com.icss.mvc.entity.business_enrol;
 import com.icss.mvc.entity.jobhunter;
 import com.icss.mvc.entity.manager_enrol;
 
@@ -48,6 +49,10 @@ public interface adminDao {
 	
 	/* 修改行业类别 */
 	public int updateClass(String bsclass, String bsname);
+	
+	public List<business_enrol> findEntStatus();
+	
+	public int checkFinish(String bsname);
 	
 
 }

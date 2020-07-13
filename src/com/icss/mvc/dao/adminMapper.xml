@@ -17,7 +17,6 @@
 		select mnpsw from manager_enrol where mnname=#{mnname};
 	</select>
 	
-	
 	<!-- 企业信息展示 -->	
 	<select id="findBusinessAll" resultType="bs">
 		select * from business  ; 
@@ -68,5 +67,13 @@
 	<!-- 修改行业类别 -->
 	<update id="updateClass">
 		update business set bsclass=#{0} where bsname=#{1};
+	</update>
+	
+	<select id="findEntStatus" resultType="com.icss.mvc.entity.business_enrol">
+		select * from business_enrol where checkstatus="未审核";
+	</select>
+	
+	<update id="checkFinish" parameterType="String">
+		update business_enrol set checkstatus="审核通过" where bsname=#{bsname};
 	</update>
 </mapper>

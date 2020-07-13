@@ -5,6 +5,7 @@ public class business_enrol {
 	private String bspsw;
 	private String bspname;
 	private String bsid;
+	private String checkstatus;
 	public String getBsname() {
 		return bsname;
 	}
@@ -23,11 +24,23 @@ public class business_enrol {
 	public void setBspname(String bspname) {
 		this.bspname = bspname;
 	}
-	public String getBspid() {
+	/*public String getBspid() {
 		return bsid;
 	}
 	public void setBspid(String bsid) {
 		this.bsid = bsid;
+	}*/
+	public String getBsid() {
+		return bsid;
+	}
+	public void setBsid(String bsid) {
+		this.bsid = bsid;
+	}
+	public String getCheckstatus() {
+		return checkstatus;
+	}
+	public void setCheckstatus(String checkstatus) {
+		this.checkstatus = checkstatus;
 	}
 	
 }
