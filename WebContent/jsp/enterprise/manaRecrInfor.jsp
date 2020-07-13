@@ -33,12 +33,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.top{
 			margin-top:60px;
 		}
+		.topa{
+			margin-top:120px;
+		}
 	</style>
 </head>
 
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header layui-bg-cyan">
+		<div class="layui-header layui-bg-cyan nav">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
@@ -61,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 		</div>
 		
-		<div class="layui-container top">
+		<div class="layui-container topa">
 			<!-- <blockquote class="layui-elem-quote">招聘信息管理</blockquote> -->
 			<div class="alert alert-info">
 			    <strong>招聘信息管理</strong>

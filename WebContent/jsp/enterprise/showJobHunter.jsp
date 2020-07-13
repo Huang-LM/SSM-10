@@ -33,6 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.top{
 			margin-top:60px;
 		}
+		.topa{
+			margin-top:120px;
+		}
 		.showimg{
 			overflow:hidden;
 			border: 1 solid blue;
@@ -45,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header layui-bg-cyan">
+		<div class="layui-header layui-bg-cyan nav">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
@@ -68,8 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 		</div>
 		
-		<div class="layui-container top">
-			<div class="alert alert-info top">
+		<div class="layui-container topa">
+			<div class="alert alert-info">
 			    <strong>招聘管理</strong>
 			</div>
 			<div>

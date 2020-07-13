@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header layui-bg-cyan">
+		<div class="layui-header layui-bg-cyan nav">
 			<div class="layui-logo">招聘系统</div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 		</div>
 		
-		<div class="layui-container" style="margin:100px auto;">
+		<div class="layui-container top" style="margin:100px auto;">
 			<div style="text-align:center;">
 				<form class="layui-form layui-form-pane">
 					<div class="layui-form-item">
