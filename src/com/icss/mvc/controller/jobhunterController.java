@@ -161,7 +161,7 @@ public class jobhunterController {
 			return "lose";
 		}else if(res.equals("已预约面试")){
 			return "loading";
-		}else if(res.equals("公司未审核")) {
+		}else if(res.equals("未审核")) {
 			return "flase";
 		}
 		

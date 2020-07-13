@@ -60,8 +60,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<button lay-submit lay-filter="signin" class="layui-btn layui-btn-normal">登录</button>
 							</div>
 						</div>
+						
 					</div>
 				</form>
+				<button lay-submit lay-filter="" class="layui-btn layui-btn-normal" style="margin-left:-25px; margin-top: -5px">
+						<a href="jsp/manager/AiLogin.jsp">人脸识别登录</a>
+				</button>
 			</div>
 		</div>
 	
