@@ -12,7 +12,7 @@ public interface adminDao {
 	/* 管理员注册 */
 	public int adminSignup(String mnname,String mnpsw);
 	
-//	管理员人脸注册
+//	管理员人脸登录
 	public List<byte[]> findImg();
 	
 	/* 管理员登录 */

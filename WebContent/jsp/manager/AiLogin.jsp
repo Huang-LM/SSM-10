@@ -20,14 +20,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		body{
 			background-color: #F2F2F2;
 		}
-		.nav{
+		/* .nav{
 			position: fixed;
 		    left: 0;
 		    top: 0;
 		    z-index: 1000;
 		    width: 100%;
 		    height: 60px;
-		}
+		} */
 		.container{
 			margin-top: 100px;
 		
@@ -80,23 +80,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<!-- 顶部导航栏 -->
-		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav" lay-filter="menu">
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginindex.jsp" >首页</a>
-				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginList.jsp" >公司列表</a>
-				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobLoginShow.jsp" >公司信息</a>
-			</ul>
+		
+		<div class="layui-header">
+			<div class="layui-logo">招聘系统后台管理</div>
+			<ul class="layui-nav layui-layout-left">
+				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >管理</a>
+		    </ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
-				<li class="layui-nav-item" lay-unselect="">
-				    <a href="javascript:;">个人中心</a>
-				    <dl class="layui-nav-child">
-				      <dd><a href="jsp/jobhunter/jobInfo.jsp">查看进度</a></dd>
-				      <dd><a href="index.jsp">注销</a></dd>
-				    </dl>
+				<li class="layui-nav-item layui-this">
+					<a href="javascript:void(0);">人脸识别登录</a>
 				</li>
-			</ul>
+				<li class="layui-nav-item">
+					<a href="jsp/manager/adminSignIn.jsp">登录</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="jsp/manager/adminSignUp.jsp">注册</a>
+				</li>
+		    </ul>
 		</div>
 		
 		
