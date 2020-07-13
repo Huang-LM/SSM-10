@@ -11,6 +11,9 @@ public interface adminDao {
 	/* 管理员注册 */
 	public int adminSignup(String mnname,String mnpsw);
 	
+//	管理员人脸注册
+	public List<byte[]> findImg();
+	
 	/* 管理员登录 */
 	public String adminSignin(String mnname);
 	
@@ -45,4 +48,6 @@ public interface adminDao {
 	
 	/* 修改行业类别 */
 	public int updateClass(String bsclass, String bsname);
+	
+
 }

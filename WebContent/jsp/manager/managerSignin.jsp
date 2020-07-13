@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<base href="<%=basePath %>" />
     <title>js调用摄像头拍照上传图片</title>
     <meta charset="utf-8">
+    <script type="text/javascript" src="ui/layui.js"></script>
+	<link href="ui/css/layui.css" rel="stylesheet"/>
+	<script type="text/javascript" src="ui/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 	<button onclick="openMedia()">开启摄像头</button>
@@ -41,27 +49,28 @@
         let ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0, 0, 500, 500);
 
-
         // toDataURL  ---  可传入'image/png'---默认, 'image/jpeg'
         let img = document.getElementById('canvas').toDataURL();
+        
         // 这里的img就是得到的图片
         console.log('img-----', img);
         document.getElementById('imgTag').src=img;
-//上传
-　　　　　　$.ajax({
-　　　　　　　　url:"/xxxx.do"
-　　　　　　　　,type:"POST"
-　　　　　　　　,data:{"imgData":img}
-　　　　　　　　,success:function(data){
-　　　　　　　　console.log(data);
-　　　　　　　　document.gauges.forEach(function(gauge) {
-　　　　　　　　gauge.value =data.data
-　　　　　　});
-　　　　　　}
-　　　　　　,error:function(){
-　　　　　　　　console.log("服务端异常！");
-　　　　　　}
-　　　　　　});
+        
+		//上传
+		$.ajax({
+			url:"getPicture.do"
+			,type:"POST"
+			,data:{"imgData":img}
+			,success:function(data){
+				console.log(data);
+				document.gauges.forEach(function(gauge) {
+					gauge.value =data.data
+				});
+			}
+			,error:function(){
+			console.log("服务端异常！");
+		}
+		});
 
 
     }

@@ -7,16 +7,16 @@ import java.util.Map;
 
 public class FaceUtil {
 	
-	//人脸检测
+	//鐧昏
 	public static String faceDetect(String accessToken) {
-        // 请求url
+        // 锟斤拷锟斤拷url
         String url = "https://aip.baidubce.com/rest/2.0/face/v3/detect";
         try {
-        	String path="C:/Users/lenovo/Desktop/面部识别/liqin3.jpg";
+//        	String path="C:/Users/lenovo/Desktop/锟芥部识锟斤拷/liqin3.jpg";
+        	String path="/Users/huanglianming/Documents/GitHub/SSM-10/WebContent/img/Ai-imgtest.jpg";
         	String img=Base64Util.encode(FileUtil.readFileByBytes(path));
             Map<String, Object> map = new HashMap<>();
             map.put("image", img);
-            map.put("face_field", "age,face_type,beauty,type");
             map.put("image_type", "BASE64");
 
             String param = GsonUtils.toJson(map);  
@@ -30,19 +30,17 @@ public class FaceUtil {
         return null;
     }
 	
-	//人脸对比
-	public static String faceMatch(String accessToken) {
-        // 请求url
+	//瀵规瘮
+	public static String faceMatch(String accessToken, String img1, String img2) {
+        // 锟斤拷锟斤拷url
         String url = "https://aip.baidubce.com/rest/2.0/face/v3/match";
         try {
-        	String path="C:/Users/lenovo/Desktop/面部识别/liqin1.jpeg";
-        	String img=Base64Util.encode(FileUtil.readFileByBytes(path));
-            
+ 
         	Map<String, Object> map1 = new HashMap<>();
-            map1.put("image", "a5a56145a5e5ccd95af4fc8803d233f3");
-            map1.put("image_type", "FACE_TOKEN");
+            map1.put("image", img2);
+            map1.put("image_type", "BASE64");
         	Map<String, Object> map2 = new HashMap<>();
-            map2.put("image", img);
+            map2.put("image", img1);
             map2.put("image_type", "BASE64");
         	List<Map<String,Object>>  maps=new ArrayList<Map<String,Object>>();
         	maps.add(map1);

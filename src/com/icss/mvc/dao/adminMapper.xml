@@ -7,6 +7,11 @@
 		insert into manager_enrol(mnname,mnpsw) values(#{0}, #{1});
 	</insert>
 	
+	<!-- 管理员人脸注册 -->
+	<insert id="findImg">
+		select * from manager_ai;
+	</insert>
+	
 	<!-- 管理员登录 -->
 	<select id="adminSignin" resultType="String">
 		select mnpsw from manager_enrol where mnname=#{mnname};
