@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<base href="<%=basePath %>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>招聘记录查询</title>
+	<title>行业类别管理</title>
 	<script type="text/javascript" src="ui/layui.js"></script>
 	<link href="ui/css/layui.css" rel="stylesheet"/>
 	<style type="text/css">
@@ -26,26 +26,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-side layui-bg-cyan">
 			<ul class="layui-nav layui-nav-tree" lay-filter="menu">
 				<li class="layui-nav-item" ><a href="jsp/manager/businessMessage.jsp">企业信息查询</a></li>
-				<li class="layui-nav-item layui-this" ><a href="javascript:void(0);">招聘记录查询</a></li>
-				<li class="layui-nav-item" ><a href="jsp/manager/classManage.jsp">行业类别管理</a></li>
+				<li class="layui-nav-item" ><a href="jsp/manager/inquireRecords.jsp">招聘记录查询</a></li>
+				<li class="layui-nav-item layui-this" ><a href="javascript:void(0);">行业类别管理</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/jobhunterMessage.jsp">求职者信息查询</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/jbhunterAdd.jsp">添加求职者信息</a></li>  
 			</ul>
 		</div>
+	
 		<div class="layui-body">
-			<table id="jbTable" lay-filter="jbTable" class="layui-table" lay-data="{url:'inquireRecords.do',
+			<table id="classTable" lay-filter="bsTable" class="layui-table" lay-data="{url:'showBusiness.do',
 																						even:true}">
 				<thead>
 					<tr>
-						<th lay-data="{field:'jbname',title:'姓名'}"></th>
-						<th lay-data="{field:'jbsex',title:'性别'}"></th>
-						<th lay-data="{field:'jbage',title:'年龄'}"></th>
-						<th lay-data="{field:'jbid',title:'身份证号'}"></th>
-						<th lay-data="{field:'jbpnmb',title:'联系方式'}"></th>
-						<th lay-data="{field:'jbcompany',title:'应聘公司'}"></th>
-						<th lay-data="{field:'jbjob',title:'应聘职位'}"></th>
-						<th lay-data="{field:'jbablt',title:'个人能力'}"></th>
-						<th lay-data="{field:'interstatus',title:'应聘状态'}"></th>
+					<th lay-data="{field:'bsname',width:'300',title:'企业名称'}"></th>
+					<th lay-data="{field:'bspname',width:'150',title:'企业法人姓名'}"></th>
+					<th lay-data="{field:'bsid',width:'200',title:'企业工商注册号'}"></th>
+					<th lay-data="{field:'bsclass',width:'300',title:'行业类别'}"></th>
+					<th lay-data="{title:'修改',width:'150',templet:function(cd){																
+																return '<a class=\'layui-btn layui-btn-danger layui-btn-sm\' lay-event=\'edit\' href=\'jsp/manager/updateClass.jsp\'>修改行业类别</a>';
+															}}"></th>
 					</tr>
 				</thead>
 			</table>
@@ -55,14 +54,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<p>© 2020-码农招聘管理系统 <a href="/"></a></p>
 		    </div>
 		 </div>
-		
-		
 	</div>
-	
+
 <script type="text/javascript">
-	layui.use(["table"],function(){
-		var table=layui.table;
-		
+	layui.use(["table","jquery"],function(){
 	});
 </script>
 

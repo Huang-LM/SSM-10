@@ -19,25 +19,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header">
 			<div class="layui-logo">后台管理系统</div>
-				<ul class="layui-nav layui-layout-left" lay-filter="nav1">
-				</ul>
+			<ul class="layui-nav layui-layout-left" lay-filter="nav1">
+			</ul>
 		</div>
 		<div class="layui-side layui-bg-cyan">
 			<ul class="layui-nav layui-nav-tree" lay-filter="menu">
-				<li class="layui-nav-item" ><a href="jsp/manager/businessMessage.jsp" data-url="jsp/manager/businessMessage.jsp" data-id="1">企业信息查询</a></li>
+				<li class="layui-nav-item" ><a href="jsp/manager/businessMessage.jsp">企业信息查询</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/inquireRecords.jsp">招聘记录查询</a></li>
-				<li class="layui-nav-item" ><a href="jsp/manager/inquireRecords.jsp">行业类别管理</a></li>
+				<li class="layui-nav-item" ><a href="jsp/manager/classManage.jsp">行业类别管理</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/jobhunterMessage.jsp">求职者信息查询</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/jbhunterAdd.jsp">添加求职者信息</a></li>
 			</ul>
 		</div>
 		<div class="layui-body">
-			<!-- <div class="layui-tab" lay-filter="desktop" lay-allowClose="true">
-				<ul class="layui-tab-title">
-				</ul>
-				<div class="layui-tab-content">
-				</div>
-			</div> -->
+			
 		</div>
 		<div class="layui-footer footer footer-doc">
 		  <div class="layui-main">
@@ -47,28 +42,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 <script type="text/javascript">
-	function pageFilter(page){
-		var start=page.indexOf("<body>")+6;
-		var end=page.indexOf("</body>");
-		return page.substring(start,end);
-	}
-	layui.use(["element","jquery","layer"],function(){
+	layui.use(["element","jquery"],function(){
 		var element=layui.element;
 		var $=layui.jquery;
-		var layer=layui.layer;
-		/* element.on("nav(menu)",function(item){
-			var url=item.attr("data-url");
-			var did=item.attr("data-id");
-			
-			$.post(url,{},function(data){
-				element.tabAdd("desktop",{
-					title:item.text(),
-					content:pageFilter(data),
-					id:did
-				});
-				element.tabChange("desktop",did);
-			});
-		});	 */	
 	});
 </script>
 </body>

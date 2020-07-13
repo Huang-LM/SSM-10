@@ -26,9 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="layui-side layui-bg-cyan">
 			<ul class="layui-nav layui-nav-tree" lay-filter="menu">
 				<li class="layui-nav-item" ><a href="jsp/manager/businessMessage.jsp">企业信息查询</a></li>
-				<li class="layui-nav-item" ><a href="javascript:void(0);">添加企业信息</a></li>
+				<li class="layui-nav-item" ><a href="jsp/manager/inquireRecords.jsp">招聘记录查询</a></li>
+				<li class="layui-nav-item" ><a href="jsp/manager/classManage.jsp">行业类别管理</a></li>
 				<li class="layui-nav-item layui-this" ><a href="javascript:void(0);">求职者信息查询</a></li>
-				<li class="layui-nav-item" ><a href="javascript:void(0);">添加求职者信息</a></li>  
+				<li class="layui-nav-item" ><a href="jsp/manager/jbhunterAdd.jsp">添加求职者信息</a></li>  
 			</ul>
 		</div>
 		<div class="layui-body">
@@ -50,9 +51,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th lay-data="{title:'删除',templet:function(cd){																
 																	return '<a class=\'layui-btn layui-btn-danger layui-btn-sm\' lay-event=\'del\'>删除</a>';
 																}}"></th>
-						<!-- <th lay-data="{title:'修改',templet:function(cd){																
-																	return '<a class=\'layui-btn  layui-btn-sm\' lay-event=\'edit\' href=\'jsp/manager/jbhunterAdd.jsp\'>修改</a>';
-																}}"></th> -->
 					</tr>
 				</thead>
 			</table>
