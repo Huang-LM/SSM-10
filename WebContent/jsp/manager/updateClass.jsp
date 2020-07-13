@@ -23,8 +23,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header">
 			<div class="layui-logo">后台管理系统</div>
-				<ul class="layui-nav layui-layout-left" lay-filter="nav1">
-				</ul>
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item">
+					<a href="jsp/manager/adminSignIn.jsp">注销</a>
+				</li>
+		    </ul>
 		</div>
 		<div class="layui-side layui-bg-cyan">
 			<ul class="layui-nav layui-nav-tree" lay-filter="menu">
