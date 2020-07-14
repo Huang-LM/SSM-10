@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item">
-					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
+					<a href="jsp/enterprise/enterprisesignin.jsp">退出登录</a>
 				</li>
 		    </ul>
 		</div>
@@ -200,9 +200,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<img class="img" alt="" src="showResume.do">
 			</div>
 		</div>
-		
+		<div style="height:100px"></div>
 		<input type="hidden" id="status" value="${status}">
-
 	</div>
 	
 <script type="text/javascript">

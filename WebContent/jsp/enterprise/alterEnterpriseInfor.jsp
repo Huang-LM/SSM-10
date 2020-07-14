@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item">
-					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
+					<a href="jsp/enterprise/enterprisesignin.jsp">退出登录</a>
 				</li>
 		    </ul>
 		</div>

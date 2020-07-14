@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item">
-					<a href="jsp/enterprise/enterprisesignin.jsp">注销</a>
+					<a href="jsp/enterprise/enterprisesignin.jsp">退出登录</a>
 				</li>
 		    </ul>
 		</div>
@@ -114,7 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</table>
 		</div>
 		
-		<div class="layui-container layui-anim-scale layui-anim i-body">
+		<div class="layui-container"><!--  layui-anim-scale layui-anim i-body -->
 			<div class="alert alert-info top">
 			    <strong>搜索求职者</strong>
 			</div>
@@ -158,9 +158,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</thead>	
 			</table>
-			
 		</div>
-		
+		<div style="height:100px"></div>
 	</div>
 
 <script type="text/javascript">
