@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			float: left;
 			border: black 3px solid;
 		}
-		.vid{
+/* 		.vid{
 			z-index:1;
 		}
 		.can{
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		#imgTag{
 			z-index:-1;
 			
-		}
+		} */
 		.btn-1{
 			margin-left: 320px
 		}
@@ -105,9 +105,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form class="layui-form sform" method="POST" enctype="multipart/form-data" lay-filter="example">
 			
 				<div class="layui-form-item">
-					<video id="video" width="500px" height="500px" autoplay="autoplay" class="vid"></video>
-					<canvas id="canvas" width="500px" height="500px" class="can"></canvas>
-					<img id="imgTag" src="img/sub-bg.png" alt="imgTag" width="500px" height="500px">
+					<video id="video" width="500px" height="500px" autoplay="autoplay" class="vid" style="z-index:1;"></video>
+					<canvas id="canvas" width="500px" height="500px" class="can" style="z-index:2;"></canvas>
+					<img id="imgTag" src="img/sub-bg.png" alt="imgTag" width="500px" height="500px" style="z-index:-1;">
 					<input type="hidden" name="img" class="showimg"/>
 				</div>
 				
@@ -146,6 +146,9 @@ function openMedia() {
         video.srcObject = mediaStream;
         video.play();
     });
+    $(".vid").attr("style","z-index: 3");
+    $("#imgTag").attr("style","z-index: -1");
+    $(".can").attr("style","z-index: -1");
 }
 
 // 关闭摄像头
@@ -158,6 +161,9 @@ function closeMedia() {
       });
 
      document.getElementById('video').srcObject = null;
+     $("#imgTag").attr("style","z-index: 3");
+     $(".can").attr("style","z-index: -1");
+     $(".vid").attr("style","z-index: -1");
 }
 // 拍照
 function takePhoto() {
@@ -167,12 +173,16 @@ function takePhoto() {
     let ctx = canvas.getContext('2d');
     ctx.drawImage(video, 0, 0, 500, 500);
 
+    $(".can").attr("style","z-index: 3");
+    $("#imgTag").attr("style","z-index: -1");
+    $(".vid").attr("style","z-index: -1");
+    
     // toDataURL  ---  可传入'image/png'---默认, 'image/jpeg'
     let img = document.getElementById('canvas').toDataURL("image/png");
     
     // 这里的img就是得到的图片
     console.log('img-----', img);
-    document.getElementById('imgTag').src=img;
+    /* document.getElementById('imgTag').src=img; */
     
 	//上传
 	$.ajax({
@@ -182,6 +192,10 @@ function takePhoto() {
 		,success:function(data){
 			if(data=="success"){
 				alret("登录成功");
+			}else{
+				alret("登录失败");
+				
+				
 			}
 		}
 		,error:function(){

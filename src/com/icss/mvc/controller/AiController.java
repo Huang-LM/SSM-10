@@ -43,7 +43,7 @@ public class AiController {
 	//对图片进行对比
 	@RequestMapping("getImg")
     @ResponseBody
-    public Double func4(@RequestParam(value="imgData")String imgData){
+    public String func4(@RequestParam(value="imgData")String imgData){
         String img1 = imgData.substring(22);
         System.out.println("upimg-----------------"+img1);
         List<byte[]> faces = dao.findImg();
@@ -54,7 +54,7 @@ public class AiController {
             double score = Double.parseDouble(jsonObject.getJSONObject("result").getString("score"));
             System.out.println("upimg----------------"+score);
             if (score > 85){
-                return score;
+                return "success";
             }
         }
         return null;
