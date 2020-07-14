@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header layui-bg-cyan nav">
-			<div class="layui-logo">招聘系统</div>
+			<div class="layui-logo"><img src="img/logo.png" style="width:100px;height:40px"></div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
 				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >企业</a>
@@ -104,16 +104,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </a>
 		 
 		</div>
-		
+	
 		<div class="layui-container top">
 			<!-- <blockquote class="layui-elem-quote">基本信息</blockquote> -->
 			<div class="alert alert-info">
 			    <strong>基本信息</strong>
 			</div>
 			<hr class="layui-bg-green">
-			<!-- <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-			  <legend>企业名称</legend>
-			</fieldset>	 -->
 			<table id="entTable1" lay-skin="nob" class="layui-table" lay-data="{url:'findEntInfor.do',
 																parseData:function(res){
 																	return {
