@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header">
+		<div class="layui-header nav">
 			<div class="layui-logo">后台管理系统</div>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item">
@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="layui-form-item item-1">
 					<label class="layui-form-label">姓名</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbname" class="layui-input" placeholder="输入姓名">
+						<input type="text" name="jbname" class="layui-input" placeholder="输入姓名" lay-verify="required">
 					</div>
 				</div>
 				
@@ -54,28 +54,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  	<div class="layui-form-item">
 					<label class="layui-form-label">年龄</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbage" class="layui-input" placeholder="输入年龄">
+						<input type="text" name="jbage" class="layui-input" placeholder="输入年龄" lay-verify="required">
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">身份证号</label>
 					<div class="layui-input-block">
-						<input type="text" name="jbid" class="layui-input input-id" placeholder="输入身份证号">
+						<input type="text" name="jbid" class="layui-input input-id" placeholder="输入身份证号" lay-verify="required">
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">用户名</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbusername" class="layui-input" placeholder="输入用户名">
+						<input type="text" name="jbusername" class="layui-input" placeholder="输入用户名" lay-verify="required">
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">手机号</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbpnmb" class="layui-input" placeholder="输入手机号">
+						<input type="text" name="jbpnmb" class="layui-input" placeholder="输入手机号" lay-verify="required">
 					</div>
 				</div>
 				
@@ -84,14 +84,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="layui-form-item">
 					<label class="layui-form-label">公司</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbcompany" class="layui-input input-bsname" placeholder="输入公司名称" lay-filter="jbcompany">
+						<input type="text" name="jbcompany" class="layui-input input-bsname" placeholder="输入公司名称" lay-filter="jbcompany" lay-verify="required">
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">职位</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbjob" class="layui-input" placeholder="输入职位" lay-filter="jbjob">
+						<input type="text" name="jbjob" class="layui-input" placeholder="输入职位" lay-filter="jbjob" lay-verify="required">
 					</div>
 				</div>
 				
@@ -129,6 +129,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 <style type="text/css">
+	.nav{
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1000;
+   		height: 60px;
+   		width: 100%
+	}
+    .sform{
+    	margin-left: 100px;
+    	margin-top: 150px;
+    }
 	.sub-btn{
 		margin-left: 100px;
 	}
