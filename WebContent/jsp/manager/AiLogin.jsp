@@ -191,9 +191,9 @@ function takePhoto() {
 		,data:{"imgData":img}
 		,success:function(data){
 			if(data=="success"){
-				alret("登录成功");
+				alert("登录成功");
 			}else{
-				alret("登录失败");
+				alert("登录失败");
 				
 				
 			}

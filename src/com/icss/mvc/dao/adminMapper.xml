@@ -8,9 +8,9 @@
 	</insert>
 	
 	<!-- 管理员人脸登录 -->
-	<insert id="findImg">
+	<select id="findImg" resultType="_byte[]">
 		select * from manager_ai;
-	</insert>
+	</select>
 	
 	<!-- 管理员登录 -->
 	<select id="adminSignin" resultType="String">

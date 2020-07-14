@@ -32,7 +32,7 @@ public class FaceUtil {
 	
 	//对比
 	public static String faceMatch(String accessToken, String img1, String img2) {
-        // ����url
+        // 人脸对比url
         String url = "https://aip.baidubce.com/rest/2.0/face/v3/match";
         try {
  
