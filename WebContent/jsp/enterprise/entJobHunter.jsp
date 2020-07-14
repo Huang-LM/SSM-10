@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<div class="layui-layout layui-layout-admin">
 		<div class="layui-header layui-bg-cyan nav">
-			<div class="layui-logo">招聘系统</div>
+			<div class="layui-logo"><img src="img/logo.png" style="width:100px;height:40px"></div>
 			<ul class="layui-nav layui-layout-left">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisemanage.jsp" >企业</a>
