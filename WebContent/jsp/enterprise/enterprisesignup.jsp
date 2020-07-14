@@ -118,7 +118,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				type:'POST',
 				success:function(result){
 					if(result == "success"){
-						window.location.href='jsp/enterprise/enterprisesignin.jsp';
+						layer.msg("已提交注册申请，审核通过后即可登录！");
+						setTimeout("window.location.href='jsp/enterprise/enterprisesignin.jsp'",2500);
 					}
 				},
 				error:function(){
