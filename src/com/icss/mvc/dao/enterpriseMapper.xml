@@ -96,7 +96,7 @@
 	
 	<!-- 查看所有应聘者 -->
 	<select id="findAllJobHunter" resultType="com.icss.mvc.entity.jobhunter">
-		select * from jobhunter;
+		select * from jobhunter limit #{0},#{1};
 	</select>
 	
 	<!-- 应聘者总数 -->

@@ -227,9 +227,9 @@ public class enterpriseController {
 	/* 查看所有应聘者 */
 	@RequestMapping("findAllJobHunter")
 	@ResponseBody
-	public Grid fune18() {
+	public Grid fune18(Integer page, Integer limit) {
 	  	  System.out.println("Find All Job Hunter---------------");
-		  List<jobhunter> alljh = entdao.findAllJobHunter();
+		  List<jobhunter> alljh = entdao.findAllJobHunter((page-1)*limit, limit);
 		  int c = entdao.findAllJobHunterCount();
 		  return new Grid(0,"ok",c,alljh);
 	}
