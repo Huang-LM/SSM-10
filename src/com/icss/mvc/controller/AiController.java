@@ -39,6 +39,28 @@ public class AiController {
 		String token=ClientToken.getAuth(ak, sk);
 		return token;
 	}
+	
+	//对图片进行对比
+	@RequestMapping("getImg")
+    @ResponseBody
+    public Double func4(@RequestParam(value="imgData")String imgData){
+        String img1 = imgData.substring(22);
+        System.out.println("upimg-----------------"+img1);
+        List<byte[]> faces = dao.findImg();
+        for (int i = 0; i < faces.size(); i++) {
+            String img2 = Base64Util.encode(faces.get(i));
+            String result = FaceUtil.faceMatch(token, img1, img2);
+            com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(result);
+            double score = Double.parseDouble(jsonObject.getJSONObject("result").getString("score"));
+            System.out.println("upimg----------------"+score);
+            if (score > 85){
+                return score;
+            }
+        }
+        return null;
+    }	
+	
+	
 	//�������
 	@RequestMapping("showDetect")
 	@ResponseBody
@@ -56,34 +78,5 @@ public class AiController {
 //			return result;
 //		}
 		
-////	图片上传
-//	@RequestMapping("upimg")
-//	@ResponseBody
-//	public String fun8(String data,byte[] base64) throws Exception {
-//		System.out.println("upimg----------------------------"+base64);
-//
-//		return "";
-//	}
 	
-		
-	@RequestMapping("getPicture")
-    @ResponseBody
-    public Double func4(@RequestParam(value="imgData")String imgData){
-        String img1 = imgData.substring(22);
-        System.out.println("upimg----------------------------"+img1);
-        List<byte[]> faces = dao.findImg();
-        System.out.println("upimg111------------------"+faces);
-        for (int i = 0; i < faces.size(); i++) {
-            String img2 = Base64Util.encode(faces.get(i));
-            String result = FaceUtil.faceMatch(token, img1, img2);
-            com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(result);
-//            String score = jsonObject.getJSONObject("result").getString("score");
-            double score = Double.parseDouble(jsonObject.getJSONObject("result").getString("score"));
-            System.out.println("upimg----------------------------"+score);
-            if (score > 85){
-                return score;
-            }
-        }
-        return null;
-    }	
 }

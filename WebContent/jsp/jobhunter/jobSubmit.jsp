@@ -67,13 +67,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav" lay-filter="menu">
+			<div class="layui-logo"><img src="img/logo.png" style="width:100px;height:40px"></div>
+			<ul class="layui-nav layui-layout-left" lay-filter="menu">
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginindex.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginList.jsp" >公司列表</a>
 				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobLoginShow.jsp" >公司信息</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignin.jsp">企业版</a>
 				<li class="layui-nav-item" lay-unselect="">
 				    <a href="javascript:;">个人中心</a>
 				    <dl class="layui-nav-child">
@@ -91,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="layui-form-item item-1">
 					<label class="layui-form-label">姓名</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbname" class="layui-input" placeholder="请输入本人姓名">
+						<input type="text" name="jbname" class="layui-input" placeholder="请输入本人姓名" lay-verify="required">
 					</div>
 				</div>
 				
@@ -106,28 +107,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  	<div class="layui-form-item">
 					<label class="layui-form-label">年龄</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbage" class="layui-input" placeholder="请输入本人年龄">
+						<input type="text" name="jbage" class="layui-input" placeholder="请输入本人年龄" lay-verify="required">
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">身份证号</label>
 					<div class="layui-input-block">
-						<input type="text" name="jbid" class="layui-input input-id" placeholder="请输入本人身份证号">
+						<input type="text" name="jbid" class="layui-input input-id" placeholder="请输入本人身份证号" lay-verify="required">
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">用户名</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbusername" class="layui-input" placeholder="请输入你的用户名">
+						<input type="text" name="jbusername" class="layui-input" placeholder="请输入你的用户名" lay-verify="required">
 					</div>
 				</div>
 				
 				<div class="layui-form-item">
 					<label class="layui-form-label">手机号</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbpnmb" class="layui-input" placeholder="请输入你的手机号">
+						<input type="text" name="jbpnmb" class="layui-input" placeholder="请输入你的手机号" lay-verify="required">
 					</div>
 				</div>
 				

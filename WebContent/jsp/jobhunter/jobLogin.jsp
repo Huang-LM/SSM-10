@@ -29,12 +29,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav" lay-filter="menu">
+			<div class="layui-logo"><img src="img/logo.png" style="width:100px;height:40px"></div>
+			<ul class="layui-nav layui-layout-left" lay-filter="menu">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignin.jsp">企业版</a>
 				<li class="layui-nav-item" lay-unselect="">
 				    <a href="javascript:;">个人中心</a>
 				    <dl class="layui-nav-child">
@@ -54,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="layui-inline">
 							<label class="layui-form-label">用户名称</label>
 							<div class="layui-input-inline">
-								<input type="text" name="jbusername" class="layui-input" lay-verify="required" placeholder="请输入用户名">
+								<input type="text" name="jbusername" class="layui-input" lay-verify="required" placeholder="请输入用户名" lay-verify="required">
 							</div>
 						</div>
 					</div>
@@ -63,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="layui-inline">
 							<label class="layui-form-label">密码</label>
 							<div class="layui-input-inline">
-								<input type="password" name="jbpsw" class="layui-input" lay-verify="required" placeholder="请输入密码">
+								<input type="password" name="jbpsw" class="layui-input" lay-verify="required" placeholder="请输入密码" lay-verify="required">
 							</div>
 						</div>
 					</div>

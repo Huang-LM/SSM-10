@@ -39,13 +39,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			margin-left: 100px;
 		}
 		.item-2{
-			margin-top: 700px;
+			margin-top: 650px;
 			left: 100px
 		}
 		.vid,.can ,#imgTag{
 			position:absolute;
 			left:350px;
-			top:-530px;
+			top:-570px;
 			float: left;
 			border: black 3px solid;
 		}
@@ -82,9 +82,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		
 		<div class="layui-header">
-			<div class="layui-logo">招聘系统后台管理</div>
+			<div class="layui-logo"><img src="img/logo.png" style="width:100px;height:40px"></div>
 			<ul class="layui-nav layui-layout-left">
-				<li class="layui-nav-item layui-this"><a href="javascript:void(0);" >管理</a>
+				<li class="layui-nav-item"><a href="javascript:void(0);" >管理</a>
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item layui-this">
@@ -176,7 +176,7 @@ function takePhoto() {
     
 	//上传
 	$.ajax({
-		url:"getPicture.do"
+		url:"getImg.do"
 		,type:"POST"
 		,data:{"imgData":img}
 		,success:function(data){

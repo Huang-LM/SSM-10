@@ -73,12 +73,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="see-bg layui-bg-green layui-anim-fadein layui-anim"></div>
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav" lay-filter="menu">
+			<div class="layui-logo"><img src="img/logo.png" style="width:100px;height:40px"></div>
+			<ul class="layui-nav layui-layout-left" lay-filter="menu">
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginindex.jsp" >首页</a>
 				<li class="layui-nav-item"><a href="jsp/jobhunter/jobLoginList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignin.jsp">企业版</a>
 				<li class="layui-nav-item" lay-unselect="">
 				    <a href="javascript:;">个人中心</a>
 				    <dl class="layui-nav-child">
@@ -96,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="layui-form-item item-1">
 					<label class="layui-form-label">身份证</label>
 					<div class="layui-input-inline">
-						<input type="text" name="jbid" class="layui-input i-input" placeholder="请输入本人身份证号">
+						<input type="text" name="jbid" class="layui-input i-input" placeholder="请输入本人身份证号" lay-verify="required">
 					</div>
 					<button lay-submit lay-filter="search" class="layui-btn sub-btn">查看</button>
 				</div>

@@ -97,12 +97,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-layout layui-layout-admin">
 		<!-- 顶部导航栏 -->
 		<div class="layui-header layui-bg-cyan nav">
-			<ul class="layui-nav" lay-filter="menu">
+			<div class="layui-logo"><img src="img/logo.png" style="width:100px;height:40px"></div>
+			<ul class="layui-nav layui-layout-left" lay-filter="menu">
 				<li class="layui-nav-item"><a href="index.jsp" >首页</a>
 				<li class="layui-nav-item layui-this"><a href="jsp/jobhunter/jobList.jsp" >公司列表</a>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignup.jsp">企业版</a>
+				<li class="layui-nav-item"><a href="jsp/enterprise/enterprisesignin.jsp">企业版</a>
 				<li class="layui-nav-item" lay-unselect="">
 				    <a href="javascript:;">个人中心</a>
 				    <dl class="layui-nav-child">
@@ -124,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="layui-form" action="">
 							<table>
 								<tr>
-									<td><input type="text" name="bsposition" autocomplete="off" placeholder="请输入职业名称" class="layui-input search-input"></td>
+									<td><input type="text" name="bsposition" autocomplete="off" placeholder="请输入职业名称" class="layui-input search-input" lay-verify="required"></td>
 									<td><button lay-submit type="submit" class="layui-btn layui-btn-normal search-btn" lay-filter="search">搜索</button></td>
 								</tr>
 							</table>
