@@ -32,7 +32,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="layui-nav-item" ><a href="jsp/manager/inquireRecords.jsp">招聘记录查询</a></li>
 				<li class="layui-nav-item layui-this" ><a href="javascript:void(0);">行业类别管理</a></li>
 				<li class="layui-nav-item" ><a href="jsp/manager/jobhunterMessage.jsp">求职者信息查询</a></li>
-				<li class="layui-nav-item" ><a href="jsp/manager/jbhunterAdd.jsp">添加求职者信息</a></li>  
+				<li class="layui-nav-item" ><a href="jsp/manager/jbhunterAdd.jsp">添加求职者信息</a></li>
+				<li class="layui-nav-item" ><a href="jsp/manager/businessCheck.jsp">企业信息审核</a></li> 
 			</ul>
 		</div>
 	
