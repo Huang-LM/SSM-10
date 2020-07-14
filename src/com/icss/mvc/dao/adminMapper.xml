@@ -12,6 +12,10 @@
 		select * from manager_ai;
 	</select>
 	
+	<insert id="insertImg">
+		insert into manager_ai values(#{img});
+	</insert>
+	
 	<!-- 管理员登录 -->
 	<select id="adminSignin" resultType="String">
 		select mnpsw from manager_enrol where mnname=#{mnname};

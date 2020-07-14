@@ -15,6 +15,9 @@ public interface adminDao {
 //	管理员人脸登录
 	public List<byte[]> findImg();
 	
+	/* 管理员人脸注册 */
+	public void insertImg(String img);
+	
 	/* 管理员登录 */
 	public String adminSignin(String mnname);
 	
@@ -53,6 +56,8 @@ public interface adminDao {
 	public List<business_enrol> findEntStatus();
 	
 	public int checkFinish(String bsname);
+
+	
 	
 
 }

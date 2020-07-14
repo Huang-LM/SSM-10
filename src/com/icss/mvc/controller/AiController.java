@@ -55,9 +55,20 @@ public class AiController {
             System.out.println("upimg----------------"+score);
             if (score > 85){
                 return "success";
+            }else {
+            	return "flase";
             }
         }
         return null;
+    }	
+	//人脸注册
+	@RequestMapping("insertImg")
+    @ResponseBody
+    public String func5(@RequestParam(value="imgData")String imgData){
+        String img = imgData.substring(22);
+        System.out.println("upimg-----------------"+img);
+        dao.insertImg(img);
+        return "success";
     }	
 	
 	
@@ -69,14 +80,6 @@ public class AiController {
 		String result=FaceUtil.faceDetect(token);
 		return result;
 	}
-//	//�����Ա�
-//		@RequestMapping("showMatch")
-//		@ResponseBody
-//		public String fun3() {
-//			System.out.println("----------");
-//			String result=FaceUtil.faceMatch(token);
-//			return result;
-//		}
 		
 	
 }

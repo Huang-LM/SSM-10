@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    </ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item layui-this">
-					<a href="javascript:void(0);">人脸识别登录</a>
+					<a href="javascript:void(0);">人脸识别注册</a>
 				</li>
 				<li class="layui-nav-item">
 					<a href="jsp/manager/adminSignIn.jsp">登录</a>
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<div class="layui-form-item item-2">
 						<button class="layui-btn btn-1" id="" type="button" onclick="openMedia()">打开摄像头</button>
-						<button class="layui-btn btn-2" id="" type="button" onclick="takePhoto()">拍照登录</button>
+						<button class="layui-btn btn-2" id="" type="button" onclick="takePhoto()">拍照注册</button>
 						<button class="layui-btn btn-3" id="" type="button" onclick="closeMedia()">关闭摄像头</button>
 				</div>
 				
@@ -166,20 +166,18 @@ function takePhoto() {
     console.log('img-----', img);
     /* document.getElementById('imgTag').src=img; */
     
-    alert("正在检测，请耐心等待。。。");
-    
 	//上传
 	$.ajax({
-		url:"getImg.do"
+		url:"insertImg.do"
 		,type:"POST"
 		,data:{"imgData":img}
 		,success:function(data){
 			if(data=="success"){
-				alert("登录成功，正在跳转");
-				setTimeout("window.location.href='jsp/manager/backgroundLogin.jsp'",1000);
-			}else{
-				alert("登录失败，请重试");
+				alert("注册成功，正在跳转");
 				setTimeout("window.location.href='jsp/manager/AiLogin.jsp'",1000);
+			}else{
+				alert("注册失败，请重试");
+				setTimeout("window.location.href='jsp/manager/AiEnrol.jsp'",1000);
 			}
 		}
 		,error:function(){
@@ -196,7 +194,6 @@ layui.use(["form","jquery","element","upload","layer"],function(){
 	var element=layui.element;
 	var upload=layui.upload;
 	var layer=layui.layer;
-	
 	
 
 	
