@@ -10,6 +10,10 @@
 		insert into business_enrol values(#{bsname}, #{bspsw}, #{bspname}, #{bsid}, "未审核");
 	</insert>
 	
+	<insert id="signUpInfor">
+		insert into business(bsname,bspname,bsid) values(#{bsname}, #{bspname}, #{bsid});
+	</insert>
+	
 	<select id="findCheckStatus" resultType="String">
 		select checkstatus from business_enrol where bsname=#{bsname};
 	</select>

@@ -40,6 +40,7 @@ public class enterpriseController {
 	public String fune1(business_enrol buen) {
 		System.out.println("Enterprise Sign Up---------------");
 		int a=entdao.enterpriseSignup(buen);
+		int b=entdao.signUpInfor(buen);
 		return "success";
 	}
 	
