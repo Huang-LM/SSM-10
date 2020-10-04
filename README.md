@@ -1,5 +1,7 @@
 # SSM-10
 
+一个简单的SSM实训项目
+
 
 
 ## WebContent
